@@ -2,6 +2,14 @@
 
 A fully unattended **paper-only** Indian stock screener portfolio. The scanner is [vertex-signal-lue-line](https://chartink.com/screener/vertex-signal-lue-line); no live brokerage orders and no need to open ChatGPT every day.
 
+## View current trades directly on GitHub
+
+- **[Active positions — live Markdown table](ACTIVE_TRADES.md)**
+- **[Closed trades and profit history](TRADE_HISTORY.md)**
+- [Latest machine-readable dashboard data](docs/data/report.json)
+
+These GitHub tables do not require GitHub Pages. They update when GitHub Actions completes a run. If the workflow is disabled or has not run, data remains unchanged.
+
 ## Dashboard
 
 Open the source at [docs/index.html](docs/index.html). To publish as a website, in GitHub select **Settings → Pages → Deploy from a branch → main → /docs → Save**. Once Pages finishes publishing, the public dashboard URL will follow the pattern \`https://rahulrtk74747474-glitch.github.io/Experiment-with-cash/\`. This URL is not live until Pages is enabled. The browser fetches its JSON from \`docs/data/report.json\`, updated by GitHub Actions.

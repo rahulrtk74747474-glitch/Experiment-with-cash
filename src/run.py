@@ -12,6 +12,7 @@ from zoneinfo import ZoneInfo
 
 from src.engine import new_state, process_session, make_report
 from src.market import SCAN_URL, fetch_signals, get_nse_quote
+from src.report_markdown import write_tables
 
 IST = ZoneInfo("Asia/Kolkata")
 STATE = Path("data/state.json")
@@ -23,6 +24,7 @@ def save(state, now, status=None, message=None):
     STATE.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     report = make_report(state, SCAN_URL, now.isoformat(), run_status=status, message=message)
     REPORT.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    write_tables(report)
     print(f"status={report['status']} open={report['summary']['open_count']} "
           f"closed={report['summary']['closed_count']} equity={report['summary']['equity']}")
 
