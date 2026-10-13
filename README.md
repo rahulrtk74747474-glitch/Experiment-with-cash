@@ -1,5 +1,7 @@
 # Experiment with Cash — Vertex Paper Trading
 
+**[OPEN ALL IMPORTANT LINKS — Dashboard, Scanner, Active Trades, History, Run Workflow](QUICK_LINKS.md)**
+
 A fully unattended **paper-only** Indian stock screener portfolio. The scanner is [vertex-signal-lue-line](https://chartink.com/screener/vertex-signal-lue-line); no live brokerage orders and no need to open ChatGPT every day.
 
 ## View current trades directly on GitHub
