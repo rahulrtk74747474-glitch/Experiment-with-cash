@@ -13,11 +13,32 @@ A fully unattended **paper-only** Indian stock screener portfolio. The scanner i
 
 These GitHub tables do not require GitHub Pages. They update when GitHub Actions completes a run. If the workflow is disabled or has not run, data remains unchanged.
 
-## Dashboard
+## Graphical dashboard publishing
 
-Open the source at [docs/index.html](docs/index.html). To publish as a website, in GitHub select **Settings → Pages → Deploy from a branch → main → /docs → Save**. Once Pages finishes publishing, the public dashboard URL will follow the pattern \`https://rahulrtk74747474-glitch.github.io/Experiment-with-cash/\`. This URL is not live until Pages is enabled. The browser fetches its JSON from \`docs/data/report.json\`, updated by GitHub Actions.
+The graphical dashboard HTML lives in [docs/index.html](docs/index.html) and reads
+[docs/data/report.json](docs/data/report.json). The HTML file in GitHub's Code tab
+shows **source code**, not the hosted dashboard. The graphical website requires
+GitHub Pages to be enabled and successfully deployed.
 
-Shows portfolio equity curve, portfolio drawdown chart, realised/unrealised P&L chart, symbol P&L chart, tables of open positions, closed trade history, buy/ignored/skip events, CSV exports, max unrealised profit and maximum position drawdown.
+**One-time activation (repository owner):**
+1. Open [Settings → Pages](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/settings/pages).
+2. Under **Build and deployment → Source**, select **GitHub Actions** (not Deploy
+   from a branch) and save any requested confirmation.
+3. Open the [Publish Trading Dashboard workflow](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/actions/workflows/deploy-dashboard.yml).
+4. Click **Run workflow → main → Run workflow**, then wait for the green check.
+5. Open the [graphical website](https://rahulrtk74747474-glitch.github.io/Experiment-with-cash/).
+
+A new [dedicated publishing workflow](.github/workflows/deploy-dashboard.yml)
+uploads `docs/` and deploys it after each **completed** paper-trading workflow
+(`workflow_run` event). This is required because commits made with
+`GITHUB_TOKEN` do **not** trigger GitHub Pages branch-build automation.
+The deployment also supports a manual run and regular dashboard-code pushes.
+If deployment fails, open its job logs. A "Get Pages site failed / 404"
+error usually means Pages is not yet activated in repository settings.
+
+Regardless of Pages availability, [Active Trades](ACTIVE_TRADES.md),
+[Scanner Symbols](SCANNER_SYMBOLS.md) and [Trade History](TRADE_HISTORY.md)
+are accessible as GitHub tables.
 
 ## Automated schedule
 

@@ -19,8 +19,9 @@
 | Scanner machine-readable snapshot | [latest_scan.json](docs/data/latest_scan.json) | Last fetch, count, symbols and source |
 | Trading state | [state.json](data/state.json) | Authoritative paper portfolio state |
 | Dashboard HTML source | [docs/index.html](docs/index.html) | Actual graphical dashboard source code |
-| **Graphical dashboard website** | [GitHub Pages](https://rahulrtk74747474-glitch.github.io/Experiment-with-cash/) | Requires Pages deployment; availability was not yet confirmed |
-| **Enable dashboard website** | [Pages Settings](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/settings/pages) | Choose **Deploy from a branch → main → /docs → Save** |
+| **Graphical dashboard website** | [GitHub Pages](https://rahulrtk74747474-glitch.github.io/Experiment-with-cash/) | Requires a successful publishing deployment |
+| **Publish graphical dashboard** | [Publish Trading Dashboard workflow](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/actions/workflows/deploy-dashboard.yml) | **Run workflow** after enabling Pages; automatically republishes after trading runs |
+| **Enable dashboard website** | [Pages Settings](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/settings/pages) | Choose **Build and deployment → Source: GitHub Actions** |
 | Actions settings | [Actions Settings](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/settings/actions) | Check Actions permissions if a workflow cannot start |
 | Main setup and trading rules | [README.md](README.md) | Strategy, constraints, authentication |
 
@@ -38,6 +39,6 @@ The workflow is set to run at approximately **3:29 PM India time, Monday–Frida
 
 Chartink login secrets (if needed) must be set separately in **this** repository. `Scraping_and_testing` remains a separate repository and is not modified by these workflows.
 
-The website dashboard link works only after GitHub Pages is enabled, while the active trades and scanner Markdown tables can always be viewed on GitHub.
+The graphical website works only after Pages is enabled under **Source: GitHub Actions** and the **Publish Trading Dashboard** workflow finishes successfully. Afterwards it automatically republishes when the trading workflow completes. The active trades and scanner Markdown tables can always be viewed on GitHub.
 
 Updated links index: 14 October 2026.
