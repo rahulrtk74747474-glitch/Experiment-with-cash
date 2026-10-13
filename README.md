@@ -61,6 +61,43 @@ If your saved Chartink scan relies on a **private/custom indicator**, public scr
 
 **Educational demo only, not trading advice.**
 
+## Separate-repository scraper reuse (October 2026)
+
+This project **does not fetch from, commit to, dispatch, or depend on** the
+\`Scraping_and_testing\` repository at runtime. Its working browser-based scanner
+was copied into \`src/chartink_browser.py\` as a standalone module, then adapted
+to **this project's** \`vertex-signal-lue-line\` scanner and its own trade rules.
+The other repository's scanner URL, ₹10,000 sizing, workflows, state and trades
+are not imported.
+
+The scraper opens the scan in headless Chromium, authenticates when needed,
+reads the actual results-grid Symbol/Close/Volume cells and follows pagination.
+Chartink's **Backtest "matched 0 stocks" text is not treated as evidence
+that the live stock-result grid is empty**.
+
+In this repository only, under **Settings → Secrets and variables → Actions**,
+add either \`CHARTINK_COOKIE\` or \`CHARTINK_USER\` and
+\`CHARTINK_PASSWORD\` if the scanner requires authentication. Secrets from
+the separate repository are **not shared automatically**. Never commit
+credentials to a public file.
+
+**Price policy:** current scanner matches use the fetched scanner's displayed
+Close as a paper observation with its actual fetch time; held stocks absent from
+today's scan are valued using a dated Yahoo Finance minute quote. The
+simulated trade date may be the prior completed market session when a manual
+night-time run is requested; this is explicitly a retrospective paper
+snapshot, **not a claim that an order was executed at that earlier time**.
+
+The [scanner result table](SCANNER_SYMBOLS.md) publishes each parsed symbol,
+stock name, scanner Close, percent change, and volume from a verified fetch.
+Entries and exits follow the separately implemented ₹5,000-per-stock and
+three-session rules. A missing or blocked scanner leaves prior trades unchanged.
+
+**Execution status:** Code pushed via a GitHub integration does not guarantee
+GitHub Actions will start. Verify actual runs under the
+[Actions tab](../../actions). A manual workflow_dispatch run can be started
+there; without any recorded run the system still shows an empty demo ledger.
+
 ## Scanner troubleshooting and proof of retrieval
 
 The app first tries a Chartink session with CSRF/XSRF credentials and a form-encoded POST. If that fails, Chromium captures the scanner network response; for sites rendering tables without the legacy endpoint, it looks for a table with explicit **Symbol** and **Close** headers. See [source](src/market.py).
