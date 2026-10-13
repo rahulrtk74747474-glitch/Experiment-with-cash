@@ -61,6 +61,14 @@ If your saved Chartink scan relies on a **private/custom indicator**, public scr
 
 **Educational demo only, not trading advice.**
 
+## Mandatory browser scan on every workflow run
+
+- **Every workflow invocation** (scheduled, manual or code push) first starts headless Chromium and loads [vertex-signal-lue-line](https://chartink.com/screener/vertex-signal-lue-line).
+- The scanner table is recorded in [SCANNER_SYMBOLS.md](SCANNER_SYMBOLS.md), whether or not this particular run is eligible to place simulated trades.
+- Trading stays limited to eligible paper sessions; scanning outside market hours must **not** create or retroactively represent real market executions.
+- A blocked browser, login challenge, or unreadable results table causes a clear failure, not an empty signal or an alternative unverified scrape. If Chartink demands login, add secrets in **this repository**, never in source code.
+- All scraping and simulation happen in **GitHub Actions**, independently of the ChatGPT conversation. The schedule is still approximately 3:29 PM IST on weekdays; GitHub scheduled starts may be delayed.
+
 ## Separate-repository scraper reuse (October 2026)
 
 This project **does not fetch from, commit to, dispatch, or depend on** the
@@ -70,8 +78,7 @@ to **this project's** \`vertex-signal-lue-line\` scanner and its own trade rules
 The other repository's scanner URL, ₹10,000 sizing, workflows, state and trades
 are not imported.
 
-The scraper opens the scan in headless Chromium, authenticates when needed,
-reads the actual results-grid Symbol/Close/Volume cells and follows pagination.
+The scraper opens the scan in headless Chromium **on every workflow invocation**, authenticates when needed, reads the actual results-grid Symbol/Close/Volume cells and follows pagination. It refreshes scanner status even when the portfolio is already processed for the day or no trading session is eligible. Failed browser scans stop processing; HTTP scraping is not used as a fallback.
 Chartink's **Backtest "matched 0 stocks" text is not treated as evidence
 that the live stock-result grid is empty**.
 
@@ -100,7 +107,7 @@ there; without any recorded run the system still shows an empty demo ledger.
 
 ## Scanner troubleshooting and proof of retrieval
 
-The app first tries a Chartink session with CSRF/XSRF credentials and a form-encoded POST. If that fails, Chromium captures the scanner network response; for sites rendering tables without the legacy endpoint, it looks for a table with explicit **Symbol** and **Close** headers. See [source](src/market.py).
+Chartink scraping is **browser-only**: [Playwright/Chromium](src/chartink_browser.py) loads the page and reads its rendered result rows. If the browser scan fails or returns unverified emptiness, the workflow reports an error and leaves existing paper trades unchanged. No direct Chartink HTTP or scan-clause fallback is invoked.
 
 The updated [scanner symbol table](SCANNER_SYMBOLS.md) distinguishes a verified result from a failed fetch. Data at [latest_scan.json](docs/data/latest_scan.json) includes the URL, timestamp, result count, status and the exact symbols. A successfully fetched scanner list can be published even if Yahoo Finance cannot price a particular stock. An error never silently means zero matches. The four symbols in the user screenshot are used in [offline regression tests](tests/test_market.py) only; they are not treated as a live result.
 
