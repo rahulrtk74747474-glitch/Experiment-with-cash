@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "initial_cash": 100000,
+  "cash": 100000,
+  "positions": {},
+  "closed_trades": [],
+  "events": [],
+  "equity_curve": [],
+  "sessions": [],
+  "next_trade_id": 1,
+  "last_run": null,
+  "status": "not_started",
+  "errors": []
+}

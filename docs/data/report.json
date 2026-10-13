@@ -1,0 +1,27 @@
+{
+  "source": "https://chartink.com/screener/vertex-signal-lue-line",
+  "updated_at": null,
+  "last_successful_run": null,
+  "status": "not_started",
+  "message": "Awaiting first verified trading-session run",
+  "sessions": 0,
+  "summary": {
+    "initial_cash": 100000,
+    "cash": 100000,
+    "equity": 100000,
+    "invested_cost": 0,
+    "market_value": 0,
+    "total_profit": 0,
+    "return_pct": 0,
+    "realised_profit": 0,
+    "unrealised_profit": 0,
+    "open_count": 0,
+    "closed_count": 0,
+    "win_rate_pct": 0,
+    "max_portfolio_drawdown_pct": 0
+  },
+  "positions": [],
+  "closed_trades": [],
+  "equity_curve": [],
+  "events": []
+}
