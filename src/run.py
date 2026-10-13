@@ -73,6 +73,15 @@ def main():
         quote_sources = {}
         times = []
         for symbol in targets:
+            # The saved scanner itself supplies the current displayed Close for
+            # every matched stock. Use this first for responsive paper entries.
+            # Quotes for old positions absent from today's scanner use Yahoo.
+            if symbol in scanner_prices:
+                quotes[symbol] = scanner_prices[symbol]
+                quote_times[symbol] = now.isoformat()
+                quote_sources[symbol] = "Chartink scanner Close (fetch-time)"
+                times.append(now.isoformat())
+                continue
             try:
                 q = get_nse_quote(symbol, asof_date)
                 quotes[symbol] = q["price"]
