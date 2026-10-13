@@ -47,14 +47,8 @@ def main():
     manual_latest = os.environ.get("MANUAL_LATEST_SESSION", "").lower() == "true"
     asof_date = latest_completed_session_date(now) if manual_latest else today
     state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else new_state()
-    if asof_date in state["sessions"]:
-        save(state, now, "already_processed", "NSE session already applied; no duplicate orders")
-        return 0
-    # GitHub Actions can be late; do not count an unverified / closed market day.
-    if not manual_latest and (now.weekday() >= 5 or now.time() < time(15, 20) or now.time() > time(18, 0)):
-        save(state, now, "outside_market_window",
-             "No trades: run outside 15:20–18:00 IST market-data acceptance window")
-        return 0
+    # Every workflow invocation first runs real-browser scanning, even if the
+    # paper-trading session is already processed or we are outside market hours.
     scanner_confirmed = False
     try:
         scanner_rows = fetch_signal_details()
@@ -66,6 +60,16 @@ def main():
         write_scan_status(symbols, status="success", timestamp=now.isoformat(),
             message="Chartink scan complete; result prices are observed scanner quotes.",
             rows=scanner_rows)
+        print(f"BROWSER_SCAN_OK symbols={len(symbols)} source={SCAN_URL}", flush=True)
+        if asof_date in state["sessions"]:
+            save(state, now, "already_processed", "Browser scanner refreshed; paper session already applied")
+            return 0
+        # GitHub Actions cron can start late. Do not simulate purchases based on
+        # a non-trading day, but retain the freshly scraped symbol list.
+        if not manual_latest and (now.weekday() >= 5 or now.time() < time(15, 20) or now.time() > time(18, 0)):
+            save(state, now, "outside_market_window",
+                 "Browser scanner refreshed; no paper trades outside 15:20–18:00 IST")
+            return 0
         owned = list(state["positions"])
         targets = list(dict.fromkeys(owned + symbols))
         quotes = {}
