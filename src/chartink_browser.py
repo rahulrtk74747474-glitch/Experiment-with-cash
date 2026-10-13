@@ -229,6 +229,64 @@ def _scrape_table(page: Page, timeout_ms: int) -> list[dict[str, Any]]:
     return out
 
 
+def _scrape_all_pages(page: Page, timeout_ms: int) -> list[dict[str, Any]]:
+    """Read every accessible page of the results grid; do not assume first page is all.
+
+    DataTables commonly shows 10/25/100 rows by default. Choose 'All' when
+    offered; otherwise navigate visible Next controls with a strict loop cap.
+    """
+    for selector in ("select[name$='_length']", ".dataTables_length select"):
+        control = _first_visible(page, [selector])
+        if control is not None:
+            try:
+                all_option = control.locator("option", has_text=re.compile(r"^all$", re.I))
+                if all_option.count() > 0:
+                    control.select_option(label="All", timeout=3500)
+                    page.wait_for_timeout(1100)
+                    break
+            except Exception:
+                pass
+
+    current = _scrape_table(page, timeout_ms)
+    seen = {row["symbol"] for row in current}
+    collected = list(current)
+    for _ in range(200):
+        next_button = _first_visible(page, [
+            ".dataTables_paginate .paginate_button.next",
+            "li.paginate_button.next a",
+            ".pagination .next a",
+            ".pagination a[aria-label='Next']",
+            "button[aria-label='Next']",
+            "a[aria-label='Next']",
+        ])
+        if next_button is None:
+            break
+        css = (next_button.get_attribute("class") or "").lower()
+        disabled = (next_button.get_attribute("aria-disabled") or "").lower()
+        parent = next_button.locator("xpath=..")
+        parent_class = (parent.get_attribute("class") or "").lower() if parent.count() else ""
+        if disabled == "true" or "disabled" in css or "disabled" in parent_class:
+            break
+        before = [item["symbol"] for item in current]
+        try:
+            next_button.click(timeout=5000)
+            page.wait_for_timeout(850)
+            current = _scrape_table(page, timeout_ms)
+        except Exception as exc:
+            raise ChartinkError("Failed to read the next scanner results page") from exc
+        after = [item["symbol"] for item in current]
+        if not after or after == before:
+            # Avoid infinite loops on a client-side paginator that did not advance.
+            raise ChartinkError("Chartink pagination did not advance; refusing partial results")
+        for item in current:
+            if item["symbol"] not in seen:
+                collected.append(item)
+                seen.add(item["symbol"])
+    else:
+        raise ChartinkError("Chartink scanner exceeded 200 pages: result list incomplete")
+    return collected
+
+
 def fetch_chartink_signals(
     scan_url: str | None = None,
     raw_cookie: str | None = None,
@@ -287,7 +345,7 @@ def fetch_chartink_signals(
 
             _click_run_scan_if_present(page)
             page.wait_for_timeout(1500)
-            return _scrape_table(page, timeout_ms)
+            return _scrape_all_pages(page, timeout_ms)
         finally:
             context.close()
             browser.close()
