@@ -6,6 +6,7 @@ If Chartink changes its frontend, a visible failure prevents invented trades.
 import html
 import json
 import re
+from urllib.parse import unquote
 from datetime import datetime, time
 from zoneinfo import ZoneInfo
 
@@ -23,9 +24,9 @@ def normalise(symbol):
 
 def _extract_clause(page):
     soup = BeautifulSoup(page, "html.parser")
-    field = soup.select_one('[name="scan_clause"]')
+    field = soup.select_one('[name="scan_clause"], #scan_clause, [data-scan-clause]')
     if field:
-        value = field.get("value") or field.get_text()
+        value = field.get("value") or field.get("data-scan-clause") or field.get_text()
         if value.strip():
             return html.unescape(value)
     # Old Chartink pages embed the saved scan as JSON or a JS string.
@@ -41,6 +42,33 @@ def _extract_clause(page):
             except (ValueError, TypeError):
                 pass
     return ""
+
+def _parse_rendered_table(page_html):
+    """Parse the actual Symbol column of a rendered Chartink scan grid.
+
+    Only accept tables where both Symbol and Close headers exist, preventing
+    accidental capture of symbols from navigation, saved filters, or examples.
+    This handles a browser that renders the scan via a non-legacy API.
+    """
+    soup = BeautifulSoup(page_html, "html.parser")
+    for table in soup.find_all("table"):
+        headers = [node.get_text(" ", strip=True).lower().replace("_", " ")
+                   for node in table.select("thead tr:first-child th")]
+        symbol_index = next((i for i, text in enumerate(headers)
+                             if text in ("symbol", "nsecode", "nse code", "ticker")), None)
+        if symbol_index is None or not any(h in ("close", "ltp", "last traded price") for h in headers):
+            continue
+        rows = []
+        for tr in table.select("tbody tr"):
+            cells = tr.find_all("td", recursive=False)
+            if symbol_index >= len(cells):
+                continue
+            symbol = normalise(cells[symbol_index].get_text(" ", strip=True))
+            if symbol and symbol not in rows:
+                rows.append(symbol)
+        if rows:
+            return rows
+    return None
 
 def _parse_scan(data):
     if not isinstance(data, dict) or not isinstance(data.get("data"), list):
@@ -71,8 +99,11 @@ def scan_via_http():
     s.headers.update({"x-csrf-token": token["content"],
                       "X-Requested-With": "XMLHttpRequest",
                       "Referer": SCAN_URL})
+    xsrf = s.cookies.get("XSRF-TOKEN")
+    if xsrf:
+        s.headers["X-XSRF-TOKEN"] = unquote(xsrf)
     result = s.post("https://chartink.com/screener/process",
-                    form={"scan_clause": clause}, timeout=45)
+                    data={"scan_clause": clause}, timeout=45)
     result.raise_for_status()
     return _parse_scan(result.json())
 
@@ -97,7 +128,7 @@ def scan_via_browser():
                         pass
             page.on("response", capture)
             page.goto(SCAN_URL, wait_until="domcontentloaded", timeout=60000)
-            page.wait_for_timeout(3500)
+            page.wait_for_timeout(5500)
             for name in ("Run Scan", "Scan", "Run"):
                 if results:
                     break
@@ -109,18 +140,24 @@ def scan_via_browser():
                 except Exception:
                     continue
             if not results:
+                rendered = _parse_rendered_table(page.content())
+                if rendered is not None:
+                    return rendered
                 # On older frontend, capture rendered scan clause and submit through session.
                 clause = _extract_clause(page.content())
                 if clause:
-                    token = page.locator('meta[name="csrf-token"]').get_attribute("content")
+                    token_node = page.locator('meta[name="csrf-token"]')
+                    token = token_node.first.get_attribute("content") if token_node.count() else None
                     response = page.request.post("https://chartink.com/screener/process",
-                        data={"scan_clause": clause},
+                        form={"scan_clause": clause},
                         headers={"x-csrf-token": token or "", "X-Requested-With": "XMLHttpRequest"},
                         timeout=45000)
                     if response.ok:
                         return _parse_scan(response.json())
             if not results:
-                raise RuntimeError("Chartink did not produce a verified scan response in Chromium")
+                raise RuntimeError(
+                    "Chartink did not return a valid /screener/process JSON response "
+                    "or a rendered Symbol/Close result table (possible block or changed UI)")
             return _parse_scan(results[-1])
         finally:
             browser.close()
