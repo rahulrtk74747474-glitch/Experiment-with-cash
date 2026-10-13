@@ -163,51 +163,40 @@ def scan_via_browser():
             browser.close()
 
 def fetch_signal_details():
-    """Get parsed stock rows from the actual scanner table, including its close.
+    """Always use a real Chromium browser to load the saved Chartink screener.
 
-    The independently maintained reference repo's authenticated Chromium scraper
-    takes precedence. A legacy HTTP/Chromium fallback is retained for resilience.
-    No screenshot or example symbol list is used for live scans.
+    No direct HTTP/scan-clause backup: a blocked browser is an error, never
+    a zero-stock signal or a silently substituted data source.
     """
-    primary_error = None
-    try:
-        from src.chartink_browser import fetch_chartink_signals
-        scraped = fetch_chartink_signals(scan_url=SCAN_URL, timeout=55)
-        if not isinstance(scraped, list):
-            raise RuntimeError("Chartink browser returned a non-list response")
-        result = []
-        seen = set()
-        for item in scraped:
-            if not isinstance(item, dict):
-                continue
-            sym = normalise(item.get("symbol"))
-            if not sym or sym in seen:
-                continue
-            seen.add(sym)
-            try:
-                close = float(item.get("close") or 0)
-            except (TypeError, ValueError):
-                close = 0
-            result.append({"symbol": sym, "name": item.get("name") or sym,
-                           "close": close if close > 0 else None,
-                           "change_pct": item.get("change_pct"),
-                           "volume": item.get("volume")})
-        if scraped and not result:
-            raise RuntimeError("Chartink returned rows without valid NSE symbols")
-        return result
-    except Exception as exc:
-        primary_error = exc
-    try:
-        symbols = scan_via_http()
-    except Exception as secondary:
+    from src.chartink_browser import fetch_chartink_signals
+    scraped = fetch_chartink_signals(scan_url=SCAN_URL, timeout=55)
+    if not isinstance(scraped, list):
+        raise RuntimeError("Chartink browser returned an invalid response")
+    if not scraped:
+        raise RuntimeError(
+            "Browser returned no scanner rows; cannot validate zero matches. "
+            "Refusing to issue a paper-trading empty signal.")
+    result = []
+    seen = set()
+    for item in scraped:
+        if not isinstance(item, dict):
+            raise RuntimeError("Chartink browser returned a non-dictionary scanner row")
+        sym = normalise(item.get("symbol"))
+        if not sym:
+            raise RuntimeError("Chartink browser returned a scanner row without valid NSE symbol")
+        if sym in seen:
+            continue
+        seen.add(sym)
         try:
-            symbols = scan_via_browser()
-        except Exception as browser:
-            raise RuntimeError(
-                f"All Chartink access methods failed: browser={primary_error}; "
-                f"legacy_http={secondary}; legacy_browser={browser}") from browser
-    return [{"symbol": x, "name": x, "close": None,
-             "change_pct": None, "volume": None} for x in symbols]
+            close = float(item.get("close") or 0)
+        except (TypeError, ValueError):
+            close = 0
+        result.append({"symbol": sym,
+                       "name": item.get("name") or sym,
+                       "close": close if close > 0 else None,
+                       "change_pct": item.get("change_pct"),
+                       "volume": item.get("volume")})
+    return result
 
 
 def fetch_signals():
