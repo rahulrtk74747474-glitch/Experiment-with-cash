@@ -12,7 +12,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from src.engine import new_state, process_session, make_report
-from src.market import SCAN_URL, fetch_signals, get_nse_quote
+from src.market import SCAN_URL, fetch_signal_details, get_nse_quote
 from src.report_markdown import write_tables
 from src.scan_report import write_scan_status
 
@@ -57,27 +57,41 @@ def main():
         return 0
     scanner_confirmed = False
     try:
-        symbols = fetch_signals()
+        scanner_rows = fetch_signal_details()
+        symbols = [item["symbol"] for item in scanner_rows]
+        scanner_prices = {item["symbol"]: float(item["close"])
+                          for item in scanner_rows if item.get("close") is not None
+                          and float(item["close"]) > 0}
         scanner_confirmed = True
         write_scan_status(symbols, status="success", timestamp=now.isoformat(),
-            message="Chartink scan verified. Paper trades require valid Yahoo price observations.")
+            message="Chartink scan complete; result prices are observed scanner quotes.",
+            rows=scanner_rows)
         owned = list(state["positions"])
         targets = list(dict.fromkeys(owned + symbols))
         quotes = {}
         quote_times = {}
+        quote_sources = {}
         times = []
         for symbol in targets:
             try:
                 q = get_nse_quote(symbol, asof_date)
                 quotes[symbol] = q["price"]
                 quote_times[symbol] = q["quote_time"]
+                quote_sources[symbol] = q["source"]
                 times.append(q["quote_time"])
             except Exception as e:
-                # If a new signal has no quote skip BUY, but existing holdings require
-                # a fresh price or the whole session aborts without an exit.
+                # A verified scanner result has an observed "Close" field. Record
+                # the fetch timestamp and source, never backdate this quote.
+                if symbol in scanner_prices:
+                    quotes[symbol] = scanner_prices[symbol]
+                    quote_times[symbol] = now.isoformat()
+                    quote_sources[symbol] = "Chartink scanner Close (fetch-time)"
+                    times.append(now.isoformat())
+                    print("Chartink scanner price fallback:", symbol, quotes[symbol], flush=True)
+                    continue
                 if symbol in owned:
-                    raise
-                print("SKIP signal without quote:", symbol, e, flush=True)
+                    raise RuntimeError(f"No current quote for open holding {symbol}: {e}") from e
+                print("SKIP signal without Yahoo or Chartink quote:", symbol, e, flush=True)
         if not targets:
             # Zero signals, zero holdings is valid ONLY after verified Chartink JSON.
             print("Verified Chartink scan returned 0 symbols; no positions")
@@ -89,15 +103,21 @@ def main():
         for symbol, pos in candidate["positions"].items():
             if symbol in quote_times:
                 pos["last_quote_time"] = quote_times[symbol]
+                pos["last_quote_source"] = quote_sources[symbol]
                 if pos["buy_time"] == now.isoformat():
                     pos["buy_quote_time"] = quote_times[symbol]
+                    pos["buy_quote_source"] = quote_sources[symbol]
         for trade in candidate["closed_trades"]:
             if trade["sell_time"] == now.isoformat() and trade["symbol"] in quote_times:
                 trade["sell_quote_time"] = quote_times[trade["symbol"]]
+                trade["sell_quote_source"] = quote_sources[trade["symbol"]]
         state = candidate
         save(state, now, "success",
-             f"Chartink matched {len(symbols)} symbols; verified Yahoo session {asof_date}; " +
-             ("manual after-hours snapshot; scan could differ from historic session" if manual_latest else "daily run"))
+             f"Chartink matched {len(symbols)} symbols; session label {asof_date}. "
+             f"Quotes: {sum(1 for v in quote_sources.values() if v.startswith('Yahoo'))} Yahoo, "
+             f"{sum(1 for v in quote_sources.values() if v.startswith('Chartink'))} Chartink. " +
+             ("Manual after-hours scan; scanner close observed at fetch time, not a historical execution."
+              if manual_latest else "Daily paper trading. No real orders executed."))
         return 0
     except Exception as exc:
         message = f"{type(exc).__name__}: {exc}"
