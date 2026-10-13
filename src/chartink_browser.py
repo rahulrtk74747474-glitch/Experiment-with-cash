@@ -166,13 +166,17 @@ def _scrape_table(page: Page, timeout_ms: int) -> list[dict[str, Any]]:
             rows = table.locator("tbody tr")
             if rows.count() > 0:
                 break
-        body = page.locator("body").inner_text(timeout=5000).lower()
-        if "no stocks present" in body or "matched 0 stocks" in body or "no matched stocks" in body:
-            return []
+        # Do not use generic page text such as "matched 0 stocks" to infer
+        # scanner emptiness. Chartink's BACKTEST area often displays that text
+        # while the live scanner result table is still loading populated rows.
         page.wait_for_timeout(1000)
 
     if table is None:
         raise ChartinkError("Could not find Chartink results table after the scanner page loaded.")
+    if table.locator("tbody tr").count() == 0:
+        raise ChartinkError(
+            "The scanner table loaded without result rows; cannot distinguish "
+            "true zero matches from delayed/blocked data. Refusing empty paper scan.")
 
     raw_headers = table.locator("thead th").all_inner_texts()
     headers = [_normalise_header(x) for x in raw_headers]
