@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101727"><title>Experiment with Cash | Paper Trading</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+<style>
+:root{color-scheme:dark;--bg:#0d1423;--panel:#172236;--line:#2a3950;--text:#e5ecf8;--sub:#9baec9;--good:#34d399;--bad:#fb7185;--blue:#60a5fa}*{box-sizing:border-box}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Arial,sans-serif;margin:0;background:var(--bg);color:var(--text)}
+header{border-bottom:1px solid var(--line);background:#111b2b}header .inner,main{max-width:1360px;padding:22px 20px;margin:auto}h1{font-size:clamp(23px,3vw,34px);margin:0 0 9px;font-weight:760}h2{font-size:17px;margin:0 0 17px}p{margin:7px 0;color:var(--sub);line-height:1.5}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#99b5dd;font-weight:700}
+a{color:#90c0fb}a:hover{color:white}.chip{font-size:12px;border:1px solid var(--line);padding:7px 11px;border-radius:999px;color:var(--sub)}.chip.ok{color:var(--good);border-color:#285a50}.chip.err{color:var(--bad);border-color:#713849}
+.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0}
+.panel,.metric{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 12px 35px #050a1426}.metric small{display:block;color:var(--sub);font-size:12px}.metric strong{font-size:clamp(20px,2.6vw,31px);display:block;letter-spacing:-.4px;margin:8px 0}.metric span{font-size:12px;color:var(--sub)}
+.positive{color:var(--good)!important}.negative{color:var(--bad)!important}.sub{color:var(--sub)}.two{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;margin:15px 0}
+.chart-wrap{height:275px;position:relative}.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.tab{border:1px solid var(--line);border-radius:9px;background:#142139;color:var(--sub);cursor:pointer;font:inherit;font-size:14px;padding:10px 16px}.tab.active{background:#24446d;color:white;border-color:#4973a3}
+.view{display:none}.view.active{display:block}.table-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:15px}
+input{background:#0e192b;border:1px solid var(--line);color:white;font:inherit;border-radius:8px;padding:10px;min-width:190px}
+button.action{background:#29466c;color:white;border:1px solid #41638e;padding:10px 14px;border-radius:8px;cursor:pointer}.scroll{overflow:auto;border-radius:9px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;text-align:right}
+th{position:sticky;top:0;background:#22314a;color:#c4d4e7;font-size:11px;letter-spacing:.4px;padding:13px 12px}
+td{padding:13px 12px;border-top:1px solid var(--line)}th:first-child,td:first-child{text-align:left}
+tbody tr:hover{background:#1e3047}.empty{text-align:center;padding:30px;color:var(--sub)}.foot{padding:26px 20px;text-align:center;font-size:12px;color:var(--sub)}.status{margin:15px 0;border-left:3px solid #5e83b5;background:#15263d;padding:12px 15px;border-radius:6px;font-size:13px;color:var(--sub)}.status.error{border-color:var(--bad)}
+@media(max-width:960px){.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}}@media(max-width:520px){header .inner,main{padding:16px 12px}.metric-grid{gap:9px}.metric,.panel{padding:15px}.metric strong{font-size:22px}.chart-wrap{height:240px}.tab{font-size:12px;padding:9px 11px}}
+</style></head>
+<body><header><div class="inner"><div class="top"><div><div class="eyebrow">SIMULATED • NSE • NOT REAL MONEY</div><h1>Experiment with Cash</h1><p>Vertex signal blue line • ₹1,00,000 capital • ≤ ₹5,000 per stock</p></div><div><span id="status-chip" class="chip">Loading…</span><p id="updated">Loading latest report</p></div></div></div></header>
+<main>
+<div class="status" id="status-message">Fetching the latest stored daily report…</div>
+<div class="metric-grid" id="metrics"></div>
+<div class="two"><section class="panel"><h2>Portfolio equity (₹)</h2><div class="chart-wrap"><canvas id="equity"></canvas></div></section>
+<section class="panel"><h2>Realised vs unrealised P&L</h2><div class="chart-wrap"><canvas id="pnl"></canvas></div></section></div>
+<div class="two"><section class="panel"><h2>Portfolio drawdown by session</h2><div class="chart-wrap"><canvas id="drawdown"></canvas></div></section>
+<section class="panel"><h2>Open position unrealised P&L</h2><div class="chart-wrap"><canvas id="stocks"></canvas></div></section></div>
+<div class="nav"><button class="tab active" data-tab="open">Open positions</button><button class="tab" data-tab="closed">Trade history</button><button class="tab" data-tab="events">Signal / order log</button></div>
+<section class="panel view active" id="open"><div class="table-head"><h2>Open positions</h2><div><input id="search-open" placeholder="Filter symbol"/><button class="action" data-csv="positions">Download CSV</button></div></div><div class="scroll" id="open-table"></div></section>
+<section class="panel view" id="closed"><div class="table-head"><h2>Completed trades</h2><div><input id="search-closed" placeholder="Filter symbol"/><button class="action" data-csv="closed_trades">Download CSV</button></div></div><div class="scroll" id="closed-table"></div></section>
+<section class="panel view" id="events"><div class="table-head"><h2>Buy / Sell / Ignored / Skipped signals</h2><button class="action" data-csv="events">Download CSV</button></div><div class="scroll" id="events-table"></div></section>
+<p style="margin-top:22px">Source: <a href="https://chartink.com/screener/vertex-signal-lue-line" target="_blank" rel="noopener noreferrer">Chartink screener</a>. Historical prices: Yahoo Finance 1-minute NSE bars. Entries and exits use the latest successfully retrieved price, not guaranteed execution at exactly 3:29 PM. This is a demonstration, with zero brokerage/slippage and observed-session (not intraday) drawdowns.</p>
+</main><footer class="foot">Powered by GitHub Actions • Data persists in repository • Refreshes after each successful run</footer>
+<script>
+const money=n=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(Number(n)||0);
+const number=n=>new Intl.NumberFormat('en-IN',{maximumFractionDigits:2}).format(Number(n)||0);
+const percent=n=>(Number(n)||0).toFixed(2)+'%';
+const escapeHTML=v=>String(v??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const color=n=>Number(n)<0?'negative':Number(n)>0?'positive':'';
+const date=v=>v?new Date(v).toLocaleString('en-IN',{timeZone:'Asia/Kolkata',year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit'}):'—';
+let DATA=null; const charts={};
+function metric(label,value,detail,cls=''){return '<div class="metric"><small>'+label+'</small><strong class="'+cls+'">'+value+'</strong><span>'+detail+'</span></div>'}
+function drawChart(id,config){if(!window.Chart)return; if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),config)}
+function seriesChart(id,labels,data,label,mainColor,fill=false){drawChart(id,{type:'line',data:{labels,datasets:[{label,data,borderColor:mainColor,backgroundColor:mainColor+'22',pointRadius:2,tension:0.18,fill}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#8ba5c7',maxTicksLimit:8},grid:{color:'#2a3950'}},y:{ticks:{color:'#8ba5c7'},grid:{color:'#2a3950'}}}}})}
+function table(id,rows,cols,filter=''){let selected=rows.filter(r=>!filter||JSON.stringify(r).toUpperCase().includes(filter.toUpperCase()));if(!selected.length){document.getElementById(id).innerHTML='<div class="empty">No matching records yet.</div>';return}
+document.getElementById(id).innerHTML='<table><thead><tr>'+cols.map(c=>'<th>'+c[0]+'</th>').join('')+'</tr></thead><tbody>'+selected.map(r=>'<tr>'+cols.map(c=>'<td class="'+(c[2]?color(r[c[2]]):'')+'">'+(c[1]?c[1](r):escapeHTML(r[c[0]]))+'</td>').join('')+'</tr>').join('')+'</tbody></table>'}
+const t=(key)=>r=>escapeHTML(r[key]);
+const fmt=(key,f=money)=>r=>f(r[key]);
+const OPEN=[['Symbol',t('symbol')],['Bought at (IST)',r=>date(r.buy_time)],['Qty',fmt('quantity',number)],['Entry',fmt('buy_price')],['Current',fmt('current_price')],['Invested',fmt('invested')],['Market value',fmt('market_value')],['Unrealised ₹',fmt('unrealised_profit'),'unrealised_profit'],['Unrealised %',fmt('unrealised_pct',percent),'unrealised_pct'],['Peak unrealised ₹',fmt('max_unrealised_profit')],['Peak unrealised %',fmt('max_unrealised_pct',percent)],['Max DD %',fmt('max_drawdown_pct',percent),'max_drawdown_pct'],['Worst unrealised ₹',fmt('min_unrealised_profit')],['Sessions held',fmt('sessions_elapsed',number)]];
+const CLOSED=[['Symbol',t('symbol')],['Buy time (IST)',r=>date(r.buy_time)],['Sell time (IST)',r=>date(r.sell_time)],['Qty',fmt('quantity',number)],['Buy',fmt('buy_price')],['Sell',fmt('sell_price')],['Invested',fmt('invested')],['Proceeds',fmt('proceeds')],['Net profit ₹',fmt('realised_profit'),'realised_profit'],['Return %',fmt('return_pct',percent),'return_pct'],['Max DD %',fmt('max_drawdown_pct',percent),'max_drawdown_pct'],['Peak unrealised ₹',fmt('max_unrealised_profit')],['Reason',t('exit_reason')]];
+const EVENTS=[['Time (IST)',r=>date(r.date)],['Symbol',t('symbol')],['Action',t('action')],['Qty',fmt('quantity',number)],['Price',fmt('price')],['Profit',fmt('profit')],['Reason',t('reason')]];
+function render(d){DATA=d;const s=d.summary||{};let chip=document.getElementById('status-chip');chip.textContent=d.status||'unknown';chip.className='chip '+(d.status==='success'?'ok':d.status==='error'?'err':'');document.getElementById('updated').textContent='Last attempt: '+date(d.updated_at)+' | Last successful: '+date(d.last_successful_run);document.getElementById('status-message').textContent=d.message||'Report loaded. Trades are simulated, not live orders.';document.getElementById('status-message').className='status'+(d.status==='error'?' error':'');
+document.getElementById('metrics').innerHTML=[
+metric('Portfolio value',money(s.equity),'Initial '+money(s.initial_cash)),
+metric('Total net P&L',money(s.total_profit),percent(s.return_pct)+' return',color(s.total_profit)),
+metric('Available cash',money(s.cash),money(s.invested_cost)+' deployed'),
+metric('Unrealised P&L',money(s.unrealised_profit),s.open_count+' open stocks',color(s.unrealised_profit)),
+metric('Realised profit',money(s.realised_profit),s.closed_count+' completed trades',color(s.realised_profit)),
+metric('Portfolio max drawdown',percent(s.max_portfolio_drawdown_pct),'Session-observed peak to trough',color(s.max_portfolio_drawdown_pct)),
+metric('Winning trades',percent(s.win_rate_pct),'Profitable completed trades'),
+metric('Sessions processed',number(d.sessions),'Only verified NSE sessions')
+].join('');
+const eq=d.equity_curve||[];seriesChart('equity',eq.map(x=>x.date),eq.map(x=>x.equity),'Equity','#60a5fa',true);
+seriesChart('drawdown',eq.map(x=>x.date),eq.map(x=>x.drawdown_pct),'Drawdown (%)','#fb7185',true);
+drawChart('pnl',{type:'bar',data:{labels:['Realised','Unrealised'],datasets:[{data:[s.realised_profit,s.unrealised_profit],backgroundColor:[Number(s.realised_profit)<0?'#fb7185':'#34d399',Number(s.unrealised_profit)<0?'#fb7185':'#60a5fa'],borderRadius:7}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#9baec9'},grid:{display:false}},y:{ticks:{color:'#9baec9'},grid:{color:'#2a3950'}}}}});
+const positions=d.positions||[];drawChart('stocks',{type:'bar',data:{labels:positions.map(p=>p.symbol),datasets:[{data:positions.map(p=>p.unrealised_profit),backgroundColor:positions.map(p=>p.unrealised_profit<0?'#fb7185':'#34d399'),borderRadius:3}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#9baec9'},grid:{color:'#2a3950'}},y:{ticks:{color:'#9baec9'},grid:{display:false}}}}});
+table('open-table',positions,OPEN,document.getElementById('search-open').value);table('closed-table',d.closed_trades||[],CLOSED,document.getElementById('search-closed').value);table('events-table',d.events||[],EVENTS);
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab,.view').forEach(e=>e.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active')});
+for(let type of ['open','closed'])document.getElementById('search-'+type).oninput=()=>{if(DATA)table(type==='open'?'open-table':'closed-table',DATA[type==='open'?'positions':'closed_trades']||[],type==='open'?OPEN:CLOSED,document.getElementById('search-'+type).value)};
+document.querySelectorAll('[data-csv]').forEach(b=>b.onclick=()=>{if(!DATA)return;const name=b.dataset.csv,rows=DATA[name]||[];if(!rows.length)return;const keys=Object.keys(rows[0]);const csv=[keys.join(','),...rows.map(r=>keys.map(k=>'"'+String(r[k]??'').replace(/"/g,'""')+'"').join(','))].join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download=name+'.csv';a.click();URL.revokeObjectURL(a.href)});
+fetch('./data/report.json?cache='+Date.now()).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(render).catch(e=>{document.getElementById('status-message').textContent='Unable to load stored report: '+e.message;document.getElementById('status-message').className='status error'});
+</script></body></html>

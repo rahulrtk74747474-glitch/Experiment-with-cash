@@ -1,3 +1,51 @@
-# Experiment with Cash
+# Experiment with Cash — Vertex Paper Trading
 
-Automated ₹100,000 paper-trading tracker for [Chartink Vertex signal blue line](https://chartink.com/screener/vertex-signal-lue-line). The dashboard, daily workflow and trade accounting are added by the ChatGPT setup.
+A fully unattended **paper-only** Indian stock screener portfolio. The scanner is [vertex-signal-lue-line](https://chartink.com/screener/vertex-signal-lue-line); no live brokerage orders and no need to open ChatGPT every day.
+
+## Dashboard
+
+Open the source at [docs/index.html](docs/index.html). To publish as a website, in GitHub select **Settings → Pages → Deploy from a branch → main → /docs → Save**. Once Pages finishes publishing, the public dashboard URL will follow the pattern \`https://rahulrtk74747474-glitch.github.io/Experiment-with-cash/\`. This URL is not live until Pages is enabled. The browser fetches its JSON from \`docs/data/report.json\`, updated by GitHub Actions.
+
+Shows portfolio equity curve, portfolio drawdown chart, realised/unrealised P&L chart, symbol P&L chart, tables of open positions, closed trade history, buy/ignored/skip events, CSV exports, max unrealised profit and maximum position drawdown.
+
+## Automated schedule
+
+[GitHub Actions workflow](.github/workflows/vertex-paper-trading.yml) runs **Monday–Friday at 3:29 PM IST** (\`59 9 * * 1-5\` UTC). The workflow also supports **Actions → Vertex Paper Trading → Run workflow** and runs once on code pushes. GitHub **does not guarantee exact cron execution time**: scheduled jobs can start late or be skipped when GitHub is congested. The system allows a delayed session attempt until 6 PM IST and accepts only prices from the current NSE trading session.
+
+A fresh clone works as-is: GitHub-hosted runner installs Python dependencies and Chromium for Chartink's newer JavaScript UI. Workflow needs GitHub Actions enabled and **Read/write permissions** for \`GITHUB_TOKEN\` (workflow requests \`contents: write\`). It commits portfolio state after every run. **Do not delete** \`data/state.json\`.
+
+## Position accounting
+
+- Initial simulated cash: **₹100,000**. Never use margin. No real brokerage execution.
+- Every selected NSE stock gets **integer whole shares**, costing **≤ ₹5,000**, also bounded by available cash. No borrowing. If there are more than 20 matches, first symbols returned by the scanner take precedence.
+- Buy signals are de-duplicated inside the same day.
+- Example: Monday initial BUY, Tuesday same symbol **IGNORE**, Wednesday same symbol **SELL then BUY again** (a new, max-₹5k position), Thursday **IGNORE**. This is a rollover, not an additional buy beyond ₹5k. The fresh buy price resets P&L and the 3-session timer.
+- A holding expires after **three subsequently processed NSE trading sessions** without a qualifying repeat. Thus a Monday buy with no repeats exits Thursday, not calendar Wednesday. NSE holidays/non-working days don't increment the counter if no verified price-and-scan session completes.
+- Each successful session marks every open position to a fresh Yahoo Finance NSE minute-close price, independently of whether today's Chartink screener contains it. Max unrealised profit and max peak-to-trough drawdown update on those **observed prices** only, **not tick-by-tick/intraday extrema**. Portfolio drawdown also uses daily observed equity snapshots.
+- The system records amounts and returns **before brokerage fees, taxes and slippage**; zero fees are assumed. Scan results and quote timestamps can be delayed, and 3:29 PM is not necessarily the real close or executable bid/ask.
+- A Chartink login-wall/block, malformed JSON or lack of a fresh quote for an existing holding **aborts the day's simulation** with an error rather than converting data absence into sell/buy signals. New signals without a Yahoo quote are skipped.
+
+## Files
+
+| Path | Purpose |
+|---|---|
+| \`src/market.py\` | Fetch saved Chartink scan (session CSRF + Chromium fallback), Yahoo NSE quotes |
+| \`src/engine.py\` | Deterministic buy/ignore/rollover/expiry, cash and P&L accounting |
+| \`src/run.py\` | Trade-session orchestration, fail-safe state/report persistence |
+| \`data/state.json\` | **Source of truth** for wallet, positions, trade ledger and sessions |
+| \`docs/data/report.json\` | Dashboard view of the latest stored state |
+| \`docs/index.html\` | Mobile/tablet-friendly dashboard with tables and charts |
+| \`tests/test_engine.py\` | Repeat signal, expiry, MDD and risk-limit unit tests |
+
+## Manual check
+
+\`\`\`bash
+pip install -r requirements.txt playwright
+python -m playwright install chromium
+python -m unittest discover -s tests -v
+python -m src.run
+\`\`\`
+
+If your saved Chartink scan relies on a **private/custom indicator**, public scraping may not be sufficient. Do not assume a successful run without the GitHub Actions log confirming the data was fetched. Scraping is best-effort and may require Chartink account authorization or an officially supported data feed if access changes.
+
+**Educational demo only, not trading advice.**

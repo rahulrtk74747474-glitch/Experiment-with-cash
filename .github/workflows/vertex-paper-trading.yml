@@ -1,0 +1,55 @@
+name: Vertex Paper Trading - 3:29 PM IST
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '.github/workflows/vertex-paper-trading.yml'
+  schedule:
+    # 09:59 UTC = 15:29 Asia/Kolkata; GitHub may start scheduled jobs late.
+    - cron: '59 9 * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vertex-paper-trading-main
+  cancel-in-progress: false
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Verify trading calculations
+        run: python -m unittest discover -s tests -v
+      - name: Collect Chartink and simulate paper session
+        id: trade
+        # Push also attempts an initial run. Outside market hours it safely skips.
+        run: python -m src.run
+      - name: Persist paper-trading state and public dashboard data
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/state.json docs/data/report.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: record daily paper trading session [skip ci]"
+            git push
+          fi
