@@ -14,6 +14,7 @@ from zoneinfo import ZoneInfo
 from src.engine import new_state, process_session, make_report
 from src.market import SCAN_URL, fetch_signals, get_nse_quote
 from src.report_markdown import write_tables
+from src.scan_report import write_scan_status
 
 IST = ZoneInfo("Asia/Kolkata")
 STATE = Path("data/state.json")
@@ -54,8 +55,12 @@ def main():
         save(state, now, "outside_market_window",
              "No trades: run outside 15:20–18:00 IST market-data acceptance window")
         return 0
+    scanner_confirmed = False
     try:
         symbols = fetch_signals()
+        scanner_confirmed = True
+        write_scan_status(symbols, status="success", timestamp=now.isoformat(),
+            message="Chartink scan verified. Paper trades require valid Yahoo price observations.")
         owned = list(state["positions"])
         targets = list(dict.fromkeys(owned + symbols))
         quotes = {}
@@ -96,6 +101,8 @@ def main():
         return 0
     except Exception as exc:
         message = f"{type(exc).__name__}: {exc}"
+        if not scanner_confirmed:
+            write_scan_status([], status="error", timestamp=now.isoformat(), message=message)
         state["status"] = "error"
         state.setdefault("errors", []).append({"at": now.isoformat(), "message": message})
         state["errors"] = state["errors"][-30:]
