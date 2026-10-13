@@ -56,6 +56,30 @@ class TestScanner(unittest.TestCase):
         self.assertEqual([x["symbol"] for x in rows], EXPECTED)
         self.assertEqual([x["close"] for x in rows], [151.45, 5.21, .44, .22])
 
+    def test_every_scanner_call_uses_browser(self):
+        from src.market import fetch_signal_details
+        rows = [{"symbol": "TCS", "name": "TCS", "close": 3000,
+                 "change_pct": 1.0, "volume": 100}]
+        with patch("src.chartink_browser.fetch_chartink_signals", return_value=rows) as browser:
+            with patch("src.market.scan_via_http", side_effect=AssertionError("HTTP fallback invoked")):
+                self.assertEqual(fetch_signal_details()[0]["symbol"], "TCS")
+        browser.assert_called_once()
+
+    def test_browser_failure_does_not_fallback_to_http_or_empty_list(self):
+        from src.market import fetch_signal_details
+        with patch("src.chartink_browser.fetch_chartink_signals",
+                   side_effect=RuntimeError("Chartink browser blocked")):
+            with patch("src.market.scan_via_http",
+                       side_effect=AssertionError("HTTP fallback invoked")):
+                with self.assertRaisesRegex(RuntimeError, "Chartink browser blocked"):
+                    fetch_signal_details()
+
+    def test_browser_empty_result_is_not_accepted_as_zero_matches(self):
+        from src.market import fetch_signal_details
+        with patch("src.chartink_browser.fetch_chartink_signals", return_value=[]):
+            with self.assertRaisesRegex(RuntimeError, "no scanner rows"):
+                fetch_signal_details()
+
     def test_scanner_rows_do_not_depend_on_yahoo(self):
         from src.engine import new_state, process_session
         portfolio = new_state()
