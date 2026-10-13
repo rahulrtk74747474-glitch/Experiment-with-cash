@@ -1,0 +1,62 @@
+name: Publish Trading Dashboard
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/deploy-dashboard.yml'
+  workflow_run:
+    workflows:
+      - 'Vertex Paper Trading - 3:29 PM IST'
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: experiment-with-cash-dashboard
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.head_branch == 'main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout latest dashboard from main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Validate dashboard and JSON
+        shell: bash
+        run: |
+          test -s docs/index.html
+          test -s docs/data/report.json
+          test -s docs/data/latest_scan.json
+          python -m json.tool docs/data/report.json > /dev/null
+          python -m json.tool docs/data/latest_scan.json > /dev/null
+          echo "Dashboard HTML and portfolio data validated"
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload dashboard website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+      - name: Deploy dashboard website
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Published URL
+        shell: bash
+        run: echo "Dashboard published to ${{ steps.deployment.outputs.page_url }}"
