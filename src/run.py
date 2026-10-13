@@ -43,11 +43,13 @@ def main():
         owned = list(state["positions"])
         targets = list(dict.fromkeys(owned + symbols))
         quotes = {}
+        quote_times = {}
         times = []
         for symbol in targets:
             try:
                 q = get_nse_quote(symbol, today)
                 quotes[symbol] = q["price"]
+                quote_times[symbol] = q["quote_time"]
                 times.append(q["quote_time"])
             except Exception as e:
                 # If a new signal has no quote skip BUY, but existing holdings require
@@ -62,6 +64,14 @@ def main():
             raise RuntimeError("Scan returned symbols but Yahoo returned no fresh prices")
         # Write only after a successfully completed, all-or-nothing state change.
         process_session(state, today, now.isoformat(), symbols, quotes)
+        for symbol, pos in state["positions"].items():
+            if symbol in quote_times:
+                pos["last_quote_time"] = quote_times[symbol]
+                if pos["buy_time"] == now.isoformat():
+                    pos["buy_quote_time"] = quote_times[symbol]
+        for trade in state["closed_trades"]:
+            if trade["sell_time"] == now.isoformat() and trade["symbol"] in quote_times:
+                trade["sell_quote_time"] = quote_times[trade["symbol"]]
         save(state, now, "success",
              f"Chartink matched {len(symbols)} symbols; prices from today's Yahoo minute bars")
         return 0
