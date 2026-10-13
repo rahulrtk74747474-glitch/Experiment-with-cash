@@ -4,6 +4,7 @@ A fully unattended **paper-only** Indian stock screener portfolio. The scanner i
 
 ## View current trades directly on GitHub
 
+- **[Verified scanner symbols and retrieval status](SCANNER_SYMBOLS.md)**
 - **[Active positions — live Markdown table](ACTIVE_TRADES.md)**
 - **[Closed trades and profit history](TRADE_HISTORY.md)**
 - [Latest machine-readable dashboard data](docs/data/report.json)
@@ -59,3 +60,11 @@ python -m src.run
 If your saved Chartink scan relies on a **private/custom indicator**, public scraping may not be sufficient. Do not assume a successful run without the GitHub Actions log confirming the data was fetched. Scraping is best-effort and may require Chartink account authorization or an officially supported data feed if access changes.
 
 **Educational demo only, not trading advice.**
+
+## Scanner troubleshooting and proof of retrieval
+
+The app first tries a Chartink session with CSRF/XSRF credentials and a form-encoded POST. If that fails, Chromium captures the scanner network response; for sites rendering tables without the legacy endpoint, it looks for a table with explicit **Symbol** and **Close** headers. See [source](src/market.py).
+
+The updated [scanner symbol table](SCANNER_SYMBOLS.md) distinguishes a verified result from a failed fetch. Data at [latest_scan.json](docs/data/latest_scan.json) includes the URL, timestamp, result count, status and the exact symbols. A successfully fetched scanner list can be published even if Yahoo Finance cannot price a particular stock. An error never silently means zero matches. The four symbols in the user screenshot are used in [offline regression tests](tests/test_market.py) only; they are not treated as a live result.
+
+**To verify:** open [Actions](../../actions), enable Actions if required, and run **Vertex Paper Trading - 3:29 PM IST → Run workflow**. Check logs for Chartink failures. The linked table updates only after the workflow has executed and committed data; merely adding code does not mean it has run.
