@@ -162,14 +162,56 @@ def scan_via_browser():
         finally:
             browser.close()
 
-def fetch_signals():
+def fetch_signal_details():
+    """Get parsed stock rows from the actual scanner table, including its close.
+
+    The independently maintained reference repo's authenticated Chromium scraper
+    takes precedence. A legacy HTTP/Chromium fallback is retained for resilience.
+    No screenshot or example symbol list is used for live scans.
+    """
+    primary_error = None
     try:
-        return scan_via_http()
-    except Exception as first:
+        from src.chartink_browser import fetch_chartink_signals
+        scraped = fetch_chartink_signals(scan_url=SCAN_URL, timeout=55)
+        if not isinstance(scraped, list):
+            raise RuntimeError("Chartink browser returned a non-list response")
+        result = []
+        seen = set()
+        for item in scraped:
+            if not isinstance(item, dict):
+                continue
+            sym = normalise(item.get("symbol"))
+            if not sym or sym in seen:
+                continue
+            seen.add(sym)
+            try:
+                close = float(item.get("close") or 0)
+            except (TypeError, ValueError):
+                close = 0
+            result.append({"symbol": sym, "name": item.get("name") or sym,
+                           "close": close if close > 0 else None,
+                           "change_pct": item.get("change_pct"),
+                           "volume": item.get("volume")})
+        if scraped and not result:
+            raise RuntimeError("Chartink returned rows without valid NSE symbols")
+        return result
+    except Exception as exc:
+        primary_error = exc
+    try:
+        symbols = scan_via_http()
+    except Exception as secondary:
         try:
-            return scan_via_browser()
-        except Exception as second:
-            raise RuntimeError(f"Chartink unavailable. HTTP: {first}; Chromium: {second}") from second
+            symbols = scan_via_browser()
+        except Exception as browser:
+            raise RuntimeError(
+                f"All Chartink access methods failed: browser={primary_error}; "
+                f"legacy_http={secondary}; legacy_browser={browser}") from browser
+    return [{"symbol": x, "name": x, "close": None,
+             "change_pct": None, "volume": None} for x in symbols]
+
+
+def fetch_signals():
+    return [row["symbol"] for row in fetch_signal_details()]
 
 def get_nse_quote(symbol, expected_date):
     ticker = normalise(symbol)
