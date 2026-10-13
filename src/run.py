@@ -4,8 +4,8 @@ Run from repository root: python -m src.run
 The scan must succeed AND prices must be from the same NSE session.
 """
 import json
-import os
 import sys
+from copy import deepcopy
 from datetime import datetime, time
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -63,15 +63,17 @@ def main():
         elif not times:
             raise RuntimeError("Scan returned symbols but Yahoo returned no fresh prices")
         # Write only after a successfully completed, all-or-nothing state change.
-        process_session(state, today, now.isoformat(), symbols, quotes)
-        for symbol, pos in state["positions"].items():
+        candidate = deepcopy(state)
+        process_session(candidate, today, now.isoformat(), symbols, quotes)
+        for symbol, pos in candidate["positions"].items():
             if symbol in quote_times:
                 pos["last_quote_time"] = quote_times[symbol]
                 if pos["buy_time"] == now.isoformat():
                     pos["buy_quote_time"] = quote_times[symbol]
-        for trade in state["closed_trades"]:
+        for trade in candidate["closed_trades"]:
             if trade["sell_time"] == now.isoformat() and trade["symbol"] in quote_times:
                 trade["sell_quote_time"] = quote_times[trade["symbol"]]
+        state = candidate
         save(state, now, "success",
              f"Chartink matched {len(symbols)} symbols; prices from today's Yahoo minute bars")
         return 0
