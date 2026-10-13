@@ -4,9 +4,10 @@ Run from repository root: python -m src.run
 The scan must succeed AND prices must be from the same NSE session.
 """
 import json
+import os
 import sys
 from copy import deepcopy
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -17,6 +18,17 @@ from src.report_markdown import write_tables
 IST = ZoneInfo("Asia/Kolkata")
 STATE = Path("data/state.json")
 REPORT = Path("docs/data/report.json")
+
+def latest_completed_session_date(now):
+    """Use the last trading weekday after its 15:29 cut-off.
+
+    Exact exchange holidays are validated by availability of dated Yahoo bars.
+    Returns no fabricated session if NSE was shut that day.
+    """
+    day = now.date() if now.weekday() < 5 and now.time() >= time(15, 29) else now.date() - timedelta(days=1)
+    while day.weekday() >= 5:
+        day -= timedelta(days=1)
+    return day.isoformat()
 
 def save(state, now, status=None, message=None):
     STATE.parent.mkdir(exist_ok=True, parents=True)
@@ -31,12 +43,14 @@ def save(state, now, status=None, message=None):
 def main():
     now = datetime.now(IST)
     today = now.date().isoformat()
+    manual_latest = os.environ.get("MANUAL_LATEST_SESSION", "").lower() == "true"
+    asof_date = latest_completed_session_date(now) if manual_latest else today
     state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else new_state()
-    if today in state["sessions"]:
+    if asof_date in state["sessions"]:
         save(state, now, "already_processed", "NSE session already applied; no duplicate orders")
         return 0
     # GitHub Actions can be late; do not count an unverified / closed market day.
-    if now.weekday() >= 5 or now.time() < time(15, 20) or now.time() > time(18, 0):
+    if not manual_latest and (now.weekday() >= 5 or now.time() < time(15, 20) or now.time() > time(18, 0)):
         save(state, now, "outside_market_window",
              "No trades: run outside 15:20–18:00 IST market-data acceptance window")
         return 0
@@ -49,7 +63,7 @@ def main():
         times = []
         for symbol in targets:
             try:
-                q = get_nse_quote(symbol, today)
+                q = get_nse_quote(symbol, asof_date)
                 quotes[symbol] = q["price"]
                 quote_times[symbol] = q["quote_time"]
                 times.append(q["quote_time"])
@@ -66,7 +80,7 @@ def main():
             raise RuntimeError("Scan returned symbols but Yahoo returned no fresh prices")
         # Write only after a successfully completed, all-or-nothing state change.
         candidate = deepcopy(state)
-        process_session(candidate, today, now.isoformat(), symbols, quotes)
+        process_session(candidate, asof_date, now.isoformat(), symbols, quotes)
         for symbol, pos in candidate["positions"].items():
             if symbol in quote_times:
                 pos["last_quote_time"] = quote_times[symbol]
@@ -77,7 +91,8 @@ def main():
                 trade["sell_quote_time"] = quote_times[trade["symbol"]]
         state = candidate
         save(state, now, "success",
-             f"Chartink matched {len(symbols)} symbols; prices from today's Yahoo minute bars")
+             f"Chartink matched {len(symbols)} symbols; verified Yahoo session {asof_date}; " +
+             ("manual after-hours snapshot; scan could differ from historic session" if manual_latest else "daily run"))
         return 0
     except Exception as exc:
         message = f"{type(exc).__name__}: {exc}"

@@ -20,6 +20,8 @@ Shows portfolio equity curve, portfolio drawdown chart, realised/unrealised P&L 
 
 [GitHub Actions workflow](.github/workflows/vertex-paper-trading.yml) runs **Monday–Friday at 3:29 PM IST** (\`59 9 * * 1-5\` UTC). The workflow also supports **Actions → Vertex Paper Trading → Run workflow** and runs once on code pushes. GitHub **does not guarantee exact cron execution time**: scheduled jobs can start late or be skipped when GitHub is congested. The system allows a delayed session attempt until 6 PM IST and accepts only prices from the current NSE trading session.
 
+To do a manual run **outside market hours**, use **Actions → Vertex Paper Trading → Run workflow**. This attempts to capture the current scanner list at run time and values it using the latest completed NSE weekday's Yahoo price observations; it does not pretend these are 3:29 PM trades placed today. If scanner output or dated prices cannot be verified, it fails safely rather than making up holdings. If markets are open, wait until the current session ends before manually capturing a completed-session snapshot. 
+
 A fresh clone works as-is: GitHub-hosted runner installs Python dependencies and Chromium for Chartink's newer JavaScript UI. Workflow needs GitHub Actions enabled and **Read/write permissions** for \`GITHUB_TOKEN\` (workflow requests \`contents: write\`). It commits portfolio state after every run. **Do not delete** \`data/state.json\`.
 
 ## Position accounting

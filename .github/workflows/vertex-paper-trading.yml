@@ -41,6 +41,10 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Collect Chartink and simulate paper session
         id: trade
+        env:
+          # A manual run should work at night using prior session quotes,
+          # without changing the weekday schedule or fabricating today's prices.
+          MANUAL_LATEST_SESSION: ${{ github.event_name == 'workflow_dispatch' }}
         # Push also attempts an initial run. Outside market hours it safely skips.
         run: python -m src.run
       - name: Persist paper-trading state and public dashboard data
