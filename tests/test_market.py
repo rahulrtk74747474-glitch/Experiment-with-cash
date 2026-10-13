@@ -38,5 +38,34 @@ class TestScanner(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             _parse_scan({"error": "blocked"})
 
+
+    def test_browser_adapter_returns_all_four_chartink_rows(self):
+        from src.market import fetch_signal_details
+        fixture = [
+            {"symbol": "V2RETAIL", "name": "V2 Retail Limited", "close": 151.45,
+             "change_pct": -1.41, "volume": 1129342},
+            {"symbol": "RAJVIR", "name": "Rajvir Industries Limited", "close": 5.21,
+             "change_pct": -2.07, "volume": 16},
+            {"symbol": "SETUINFRA", "name": "Setubandhan Infrastructure Ltd",
+             "close": 0.44, "change_pct": -2.22, "volume": 4384},
+            {"symbol": "FCONSUMER", "name": "Future Consumer Limited",
+             "close": 0.22, "change_pct": -4.35, "volume": 36892674},
+        ]
+        with patch("src.chartink_browser.fetch_chartink_signals", return_value=fixture):
+            rows = fetch_signal_details()
+        self.assertEqual([x["symbol"] for x in rows], EXPECTED)
+        self.assertEqual([x["close"] for x in rows], [151.45, 5.21, .44, .22])
+
+    def test_scanner_rows_do_not_depend_on_yahoo(self):
+        from src.engine import new_state, process_session
+        portfolio = new_state()
+        snapshot = dict(zip(EXPECTED, [151.45, 5.21, 0.44, 0.22]))
+        process_session(portfolio, "2026-10-13", "2026-10-14T01:00:00+05:30",
+                        EXPECTED, snapshot)
+        self.assertEqual(set(portfolio["positions"]), set(EXPECTED))
+        self.assertEqual(portfolio["cash"], 100000 - sum(
+            p["invested"] for p in portfolio["positions"].values()))
+        self.assertTrue(all(p["invested"] <= 5000 for p in portfolio["positions"].values()))
+
 if __name__ == "__main__":
     unittest.main()
