@@ -6,7 +6,7 @@ If Chartink changes its frontend, a visible failure prevents invented trades.
 import html
 import json
 import re
-from datetime import datetime
+from datetime import datetime, time
 from zoneinfo import ZoneInfo
 
 import requests
@@ -72,7 +72,7 @@ def scan_via_http():
                       "X-Requested-With": "XMLHttpRequest",
                       "Referer": SCAN_URL})
     result = s.post("https://chartink.com/screener/process",
-                    data={"scan_clause": clause}, timeout=45)
+                    form={"scan_clause": clause}, timeout=45)
     result.raise_for_status()
     return _parse_scan(result.json())
 
@@ -88,7 +88,7 @@ def scan_via_browser():
         try:
             page = browser.new_page(user_agent=HEADERS["User-Agent"], timezone_id="Asia/Kolkata")
             def capture(response):
-                if ("/screener/process" in response.url or "/scan" in response.url) and response.ok:
+                if "/screener/process" in response.url and response.ok:
                     try:
                         payload = response.json()
                         if isinstance(payload, dict) and isinstance(payload.get("data"), list):
@@ -149,9 +149,11 @@ def get_nse_quote(symbol, expected_date):
             close = result["indicators"]["quote"][0].get("close", [])
             candidates = [(datetime.fromtimestamp(t, IST), float(price))
                           for t, price in zip(ticks, close) if price is not None and float(price) > 0]
-            today = [(dt, price) for dt, price in candidates if dt.date().isoformat() == expected_date]
+            today = [(dt, price) for dt, price in candidates
+                     if dt.date().isoformat() == expected_date
+                     and time(14, 45) <= dt.time() <= time(15, 28, 59)]
             if not today:
-                raise RuntimeError(f"No fresh {expected_date} Yahoo minute bar for {ticker}")
+                raise RuntimeError(f"No recent pre-3:29 PM {expected_date} Yahoo minute bar for {ticker}")
             dt, price = today[-1]
             return {"price": round(price, 4), "quote_time": dt.isoformat(), "source": "Yahoo Finance NSE 1m"}
         except Exception as exc:
