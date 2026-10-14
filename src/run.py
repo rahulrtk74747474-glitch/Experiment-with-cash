@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 
 from src.engine import new_state, process_session, make_report
 from src.market import SCAN_URL, fetch_signal_details, get_nse_quote
+from src.angel_prices import AngelHistoricalPrices, AngelPriceError, configured as angel_configured
 from src.report_markdown import write_tables
 from src.scan_report import write_scan_status
 
@@ -76,6 +77,7 @@ def main():
         quote_times = {}
         quote_sources = {}
         times = []
+        angel_prices = AngelHistoricalPrices() if angel_configured() else None
         for symbol in targets:
             # The saved scanner itself supplies the current displayed Close for
             # every matched stock. Use this first for responsive paper entries.
@@ -92,19 +94,30 @@ def main():
                 quote_times[symbol] = q["quote_time"]
                 quote_sources[symbol] = q["source"]
                 times.append(q["quote_time"])
-            except Exception as e:
-                # A verified scanner result has an observed "Close" field. Record
-                # the fetch timestamp and source, never backdate this quote.
-                if symbol in scanner_prices:
-                    quotes[symbol] = scanner_prices[symbol]
-                    quote_times[symbol] = now.isoformat()
-                    quote_sources[symbol] = "Chartink scanner Close (fetch-time)"
-                    times.append(now.isoformat())
-                    print("Chartink scanner price fallback:", symbol, quotes[symbol], flush=True)
-                    continue
+            except Exception as yahoo_error:
+                # Yahoo 429 or a missing price: retry via authenticated Angel One
+                # historical candles, but only if this repository has credentials.
+                # No positions are sold from stale or guessed prices.
+                if angel_prices is not None:
+                    try:
+                        q = angel_prices.get_nse_quote(symbol, asof_date)
+                        quotes[symbol] = q["price"]
+                        quote_times[symbol] = q["quote_time"]
+                        quote_sources[symbol] = q["source"]
+                        times.append(q["quote_time"])
+                        print("ANGEL_PRICE_FALLBACK_OK symbol=" + symbol
+                              + " candle=" + q["quote_time"], flush=True)
+                        continue
+                    except AngelPriceError as angel_error:
+                        print("ANGEL_PRICE_FALLBACK_FAILED symbol=" + symbol
+                              + " reason=" + str(angel_error), flush=True)
                 if symbol in owned:
-                    raise RuntimeError(f"No current quote for open holding {symbol}: {e}") from e
-                print("SKIP signal without Yahoo or Chartink quote:", symbol, e, flush=True)
+                    raise RuntimeError(
+                        f"No verified {asof_date} price for open holding {symbol}. "
+                        f"Yahoo: {type(yahoo_error).__name__}. "
+                        f"Angel One: {'failed/unavailable' if angel_prices is not None else 'not configured'}."
+                    ) from None
+                print("SKIP signal without a verified Yahoo/Angel price:", symbol, flush=True)
         if not targets:
             # Zero signals, zero holdings is valid ONLY after verified Chartink JSON.
             print("Verified Chartink scan returned 0 symbols; no positions")
@@ -128,6 +141,7 @@ def main():
         save(state, now, "success",
              f"Chartink matched {len(symbols)} symbols; session label {asof_date}. "
              f"Quotes: {sum(1 for v in quote_sources.values() if v.startswith('Yahoo'))} Yahoo, "
+             f"{sum(1 for v in quote_sources.values() if v.startswith('Angel'))} Angel One, "
              f"{sum(1 for v in quote_sources.values() if v.startswith('Chartink'))} Chartink. " +
              ("Manual after-hours scan; scanner close observed at fetch time, not a historical execution."
               if manual_latest else "Daily paper trading. No real orders executed."))
