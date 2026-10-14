@@ -42,3 +42,15 @@ Chartink login secrets (if needed) must be set separately in **this** repository
 The graphical website works only after Pages is enabled under **Source: GitHub Actions** and the **Publish Trading Dashboard** workflow finishes successfully. Afterwards it automatically republishes when the trading workflow completes. The active trades and scanner Markdown tables can always be viewed on GitHub.
 
 Updated links index: 14 October 2026.
+
+## Angel One backup pricing
+
+An optional **read-only** fallback is available in
+[src/angel_prices.py](src/angel_prices.py) when Yahoo Finance rate-limits
+price requests for existing positions. It uses Angel One historical 1-minute
+candles only for the requested NSE session; no real brokerage orders.
+To activate, configure \`ANGEL_API_KEY\`, \`ANGEL_CLIENT_CODE\`,
+\`ANGEL_PIN\`, and \`ANGEL_TOTP_SECRET\` as encrypted **Actions secrets in this
+repository**. None of these values can be read from or shared automatically
+by a separate repository. See [README](README.md) for steps and the
+**Angel One static-IP requirement**, which may require a self-hosted runner.

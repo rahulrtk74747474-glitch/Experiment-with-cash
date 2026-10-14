@@ -40,6 +40,48 @@ Regardless of Pages availability, [Active Trades](ACTIVE_TRADES.md),
 [Scanner Symbols](SCANNER_SYMBOLS.md) and [Trade History](TRADE_HISTORY.md)
 are accessible as GitHub tables.
 
+## Optional Angel One price fallback
+
+The system uses Chartink's rendered **Close** for current scanner matches.
+Existing held stocks that no longer appear in today's scan require an
+independent, same-session price to evaluate an exit. Yahoo Finance NSE 1-minute
+quotes are tried first; **if Yahoo fails or returns HTTP 429**, the workflow now
+offers an optional **read-only Angel One SmartAPI historical candle fallback**.
+
+- No trades/orders are ever sent to Angel One; only
+  \`searchScrip("NSE", symbol)\` and \`getCandleData(..., "ONE_MINUTE", ...)\`
+  are used. Prices must have an observed NSE timestamp within
+  14:45–15:28:59 IST **on the requested market date**.
+- If both sources fail, the paper session aborts rather than fabricating an
+  exit or marking a previous day's price as current.
+- The Angel One fallback is **inactive until configured**. Set these four
+  GitHub Actions **repository secrets in Experiment-with-cash**, not in
+  Scraping_and_testing:
+  - \`ANGEL_API_KEY\`: your own Angel One SmartAPI application's API key
+  - \`ANGEL_CLIENT_CODE\`: Angel One client code
+  - \`ANGEL_PIN\`: Angel One login PIN/MPIN used by SmartAPI
+  - \`ANGEL_TOTP_SECRET\`: TOTP enrollment secret, not the changing six-digit
+    OTP; stored only as a GitHub encrypted secret
+- Never paste secrets into a chat, public issue, README, commit, or JSON.
+  The workflow creates a new SmartAPI session using the TOTP seed at run time.
+- **Important deployment limitation (2026):** Angel One's SmartAPI forum
+  moderators state that a registered **static IP is required even for
+  historical-data access**. Standard GitHub-hosted Actions runners use
+  changeable outbound IP addresses. For production dependability you may
+  need a self-hosted GitHub Actions runner using an Angel One-authorized
+  fixed IP (and its associated account policies). This repo currently uses
+  \`ubuntu-latest\`; supplying secrets alone may therefore not make Angel
+  price retrieval work. No bypass of Angel's network restrictions is included.
+- Reference [official SmartAPI documentation](https://smartapi.angelone.in/docs)
+  and [Angel One's static IP policy discussion](https://smartapi.angelone.in/smartapi/forum/topic/5671/asking-for-static-ip-for-getting-api-for-historical-data/3).
+- \`Scraping_and_testing\` is not modified, and none of its credentials, code,
+  trading state or branches are used for Angel authentication.
+
+The fallback is implemented in [src/angel_prices.py](src/angel_prices.py)
+with offline tests in
+[tests/test_angel_prices.py](tests/test_angel_prices.py).
+
+
 ## Automated schedule
 
 [GitHub Actions workflow](.github/workflows/vertex-paper-trading.yml) targets **Monday–Friday at 3:29 PM IST**, with backup attempts at **3:41 PM, 4:11 PM and 5:11 PM IST** (\`59 9 * * 1-5\` UTC). The workflow also supports **Actions → Vertex Paper Trading → Run workflow** and runs once on code pushes. GitHub **does not guarantee exact cron execution time**: scheduled jobs can start late or be skipped when GitHub is congested. The system allows a delayed session attempt until 6 PM IST and accepts only prices from the current NSE trading session.
