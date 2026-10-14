@@ -1,7 +1,7 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-10-15T03:51:11.161186+05:30",
+  "fetched_at": "2026-10-15T03:58:07.614670+05:30",
   "count": 6,
   "rows": [
     {
@@ -55,6 +55,6 @@
     "NAGAFERT",
     "MORARJEE"
   ],
-  "message": "Chartink scan complete; result prices are observed scanner quotes.",
+  "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
   "is_verified_live_scan": true
 }

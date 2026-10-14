@@ -1,0 +1,104 @@
+{
+  "status": "error",
+  "session_date": "2026-10-14",
+  "checked_at": "2026-10-15T03:58:07.614670+05:30",
+  "source": "Angel One SmartAPI NSE ONE_DAY only",
+  "counts": {
+    "total": 9,
+    "verified": 0,
+    "missing": 9
+  },
+  "note": "Daily close is a bar value, not an executable price at the candle timestamp.",
+  "rows": [
+    {
+      "symbol": "BUILDPRO",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "missing",
+      "daily_close": null,
+      "source": null,
+      "candle_timestamp": null,
+      "error": "Expected exactly one valid NSE ONE_DAY bar for BUILDPRO on 2026-10-14; got 0"
+    },
+    {
+      "symbol": "RAJVIR",
+      "scanner_match": true,
+      "held_position": true,
+      "status": "missing",
+      "daily_close": null,
+      "source": null,
+      "candle_timestamp": null,
+      "error": "No exact NSE equity token found in instrument master for RAJVIR"
+    },
+    {
+      "symbol": "FCONSUMER",
+      "scanner_match": true,
+      "held_position": true,
+      "status": "missing",
+      "daily_close": null,
+      "source": null,
+      "candle_timestamp": null,
+      "error": "No exact NSE equity token found in instrument master for FCONSUMER"
+    },
+    {
+      "symbol": "DIL",
+      "scanner_match": true,
+      "held_position": true,
+      "status": "missing",
+      "daily_close": null,
+      "source": null,
+      "candle_timestamp": null,
+      "error": "No exact NSE equity token found in instrument master for DIL"
+    },
+    {
+      "symbol": "NAGAFERT",
+      "scanner_match": true,
+      "held_position": true,
+      "status": "missing",
+      "daily_close": null,
+      "source": null,
+      "candle_timestamp": null,
+      "error": "No exact NSE equity token found in instrument master for NAGAFERT"
+    },
+    {
+      "symbol": "MORARJEE",
+      "scanner_match": true,
+      "held_position": true,
+      "status": "missing",
+      "daily_close": null,
+      "source": null,
+      "candle_timestamp": null,
+      "error": "Expected exactly one valid NSE ONE_DAY bar for MORARJEE on 2026-10-14; got 0"
+    },
+    {
+      "symbol": "V2RETAIL",
+      "scanner_match": false,
+      "held_position": true,
+      "status": "missing",
+      "daily_close": null,
+      "source": null,
+      "candle_timestamp": null,
+      "error": "Expected exactly one valid NSE ONE_DAY bar for V2RETAIL on 2026-10-14; got 0"
+    },
+    {
+      "symbol": "SETUINFRA",
+      "scanner_match": false,
+      "held_position": true,
+      "status": "missing",
+      "daily_close": null,
+      "source": null,
+      "candle_timestamp": null,
+      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-14; got 0"
+    },
+    {
+      "symbol": "GENSOL",
+      "scanner_match": false,
+      "held_position": true,
+      "status": "missing",
+      "daily_close": null,
+      "source": null,
+      "candle_timestamp": null,
+      "error": "Expected exactly one valid NSE ONE_DAY bar for GENSOL on 2026-10-14; got 0"
+    }
+  ]
+}
