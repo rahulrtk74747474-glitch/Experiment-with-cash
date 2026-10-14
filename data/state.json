@@ -246,6 +246,11 @@
   ],
   "next_trade_id": 9,
   "last_run": "2026-10-14T02:00:59.959625+05:30",
-  "status": "success",
-  "errors": []
+  "status": "error",
+  "errors": [
+    {
+      "at": "2026-10-15T03:21:03.966938+05:30",
+      "message": "RuntimeError: No current quote for open holding V2RETAIL: Cannot obtain fresh Yahoo price for V2RETAIL: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v8/finance/chart/V2RETAIL.NS?interval=1m&range=5d"
+    }
+  ]
 }

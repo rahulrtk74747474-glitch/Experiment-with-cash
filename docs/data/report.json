@@ -1,9 +1,9 @@
 {
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "updated_at": "2026-10-14T20:27:12.638001+05:30",
+  "updated_at": "2026-10-15T03:21:03.966938+05:30",
   "last_successful_run": "2026-10-14T02:00:59.959625+05:30",
-  "status": "outside_market_window",
-  "message": "Browser scanner refreshed; no paper trades outside 15:20–18:00 IST",
+  "status": "error",
+  "message": "RuntimeError: No current quote for open holding V2RETAIL: Cannot obtain fresh Yahoo price for V2RETAIL: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v8/finance/chart/V2RETAIL.NS?interval=1m&range=5d",
   "sessions": 1,
   "summary": {
     "initial_cash": 100000,
