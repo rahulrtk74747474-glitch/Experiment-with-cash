@@ -8,6 +8,8 @@ from __future__ import annotations
 
 import os
 from datetime import date, datetime, time
+
+import requests
 from zoneinfo import ZoneInfo
 
 IST = ZoneInfo("Asia/Kolkata")
@@ -81,10 +83,47 @@ def _dated_candle(response: dict, symbol: str, expected_date: str) -> dict:
             "source": "Angel One SmartAPI NSE 1m"}
 
 
+MASTER_URL = "https://margincalculator.angelone.in/OpenAPI_File/files/OpenAPIScripMaster.json"
+
+
+def _token_from_master(records: list, symbol: str) -> str:
+    """Resolve an NSE cash-equity token from Angel One's published instrument master.
+
+    Never choose derivative, BSE or partial-name symbols. Reject ambiguous tokens.
+    """
+    if not isinstance(records, list):
+        raise AngelPriceError("Angel One instrument master has an invalid format")
+    matches = []
+    for row in records:
+        if not isinstance(row, dict):
+            continue
+        seg = str(row.get("exch_seg", "")).strip().lower()
+        if seg not in ("nse", "nse_cm"):
+            continue
+        if str(row.get("expiry") or "").strip():
+            continue
+        if str(row.get("instrumenttype") or "").strip().upper() not in ("", "EQ"):
+            continue
+        name = str(row.get("symbol", "")).strip().upper()
+        if name not in (symbol, symbol + "-EQ", symbol + "-BE", symbol + "-BZ"):
+            continue
+        token = str(row.get("token") or "").strip()
+        if token.isdigit() and int(token) > 0:
+            matches.append((name, token))
+    for suffix in ("-EQ", "", "-BE", "-BZ"):
+        exact = {token for name, token in matches if name == symbol + suffix}
+        if len(exact) == 1:
+            return next(iter(exact))
+        if len(exact) > 1:
+            raise AngelPriceError(f"Ambiguous NSE instrument master tokens for {symbol}")
+    raise AngelPriceError(f"No exact NSE equity token found in instrument master for {symbol}")
+
+
 class AngelHistoricalPrices:
     def __init__(self, client=None):
         self.client = client
         self.tokens = {}
+        self._master_records = None
 
     def _client(self):
         if self.client is not None:
@@ -127,11 +166,26 @@ class AngelHistoricalPrices:
 
         client = self._client()
         if symbol not in self.tokens:
+            # Angel searchScrip can return a successful but empty result even
+            # for a listed symbol. Angel publishes an exact instrument master.
             try:
                 response = client.searchScrip("NSE", symbol)
+                self.tokens[symbol] = _exact_instrument(response, symbol)
             except Exception:
-                raise AngelPriceError(f"Angel One instrument lookup failed for {symbol}") from None
-            self.tokens[symbol] = _exact_instrument(response, symbol)
+                # Public instrument-master endpoint; never send login secrets.
+                if self._master_records is None:
+                    try:
+                        response = requests.get(MASTER_URL, timeout=(9, 55))
+                        response.raise_for_status()
+                        records = response.json()
+                        if not isinstance(records, list):
+                            raise ValueError("Non-array instrument master")
+                        self._master_records = records
+                    except Exception:
+                        raise AngelPriceError(
+                            f"Angel One instrument search and master list unavailable for {symbol}"
+                        ) from None
+                self.tokens[symbol] = _token_from_master(self._master_records, symbol)
         query = {
             "exchange": "NSE",
             "symboltoken": self.tokens[symbol],

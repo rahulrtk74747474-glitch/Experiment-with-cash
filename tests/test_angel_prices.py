@@ -16,6 +16,36 @@ class TestAngelPriceFallback(unittest.TestCase):
         self.assertTrue(callable(SmartConnect))
         self.assertTrue(callable(pyotp.TOTP))
 
+    def test_official_instrument_master_fallback_when_search_is_empty(self):
+        api = Mock()
+        api.searchScrip.return_value = {"status": True, "data": []}
+        api.getCandleData.return_value = {"status": True, "data": [
+            ["2026-10-14T15:28:00+05:30", 100, 101, 99, 100.8, 200]
+        ]}
+        source = AngelHistoricalPrices(client=api)
+        source._master_records = [
+            {"symbol": "RELIANCE-EQ", "token": "2885", "exch_seg": "NSE",
+             "expiry": "", "instrumenttype": ""},
+            {"symbol": "RELIANCE24OCTFUT", "token": "12345",
+             "exch_seg": "NFO", "expiry": "24OCT2026", "instrumenttype": "FUT"},
+        ]
+        quote = source.get_nse_quote("RELIANCE", "2026-10-14")
+        self.assertEqual(quote["price"], 100.8)
+        self.assertEqual(api.getCandleData.call_args.args[0]["symboltoken"], "2885")
+
+    def test_instrument_master_rejects_bse_and_unrelated_or_ambiguous_tokens(self):
+        from src.angel_prices import _token_from_master
+        with self.assertRaisesRegex(AngelPriceError, "No exact"):
+            _token_from_master([
+                {"symbol": "RELIANCE-EQ", "token": "12", "exch_seg": "BSE"},
+                {"symbol": "RELIANCE-EQ", "token": "13", "exch_seg": "NFO"},
+            ], "RELIANCE")
+        with self.assertRaisesRegex(AngelPriceError, "Ambiguous"):
+            _token_from_master([
+                {"symbol": "RELIANCE-EQ", "token": "12", "exch_seg": "NSE"},
+                {"symbol": "RELIANCE-EQ", "token": "13", "exch_seg": "NSE"},
+            ], "RELIANCE")
+
     def test_no_credentials_means_no_connection(self):
         with patch.dict(os.environ, {}, clear=True):
             self.assertFalse(configured())
