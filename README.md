@@ -42,7 +42,7 @@ are accessible as GitHub tables.
 
 ## Automated schedule
 
-[GitHub Actions workflow](.github/workflows/vertex-paper-trading.yml) runs **Monday–Friday at 3:29 PM IST** (\`59 9 * * 1-5\` UTC). The workflow also supports **Actions → Vertex Paper Trading → Run workflow** and runs once on code pushes. GitHub **does not guarantee exact cron execution time**: scheduled jobs can start late or be skipped when GitHub is congested. The system allows a delayed session attempt until 6 PM IST and accepts only prices from the current NSE trading session.
+[GitHub Actions workflow](.github/workflows/vertex-paper-trading.yml) targets **Monday–Friday at 3:29 PM IST**, with backup attempts at **3:41 PM, 4:11 PM and 5:11 PM IST** (\`59 9 * * 1-5\` UTC). The workflow also supports **Actions → Vertex Paper Trading → Run workflow** and runs once on code pushes. GitHub **does not guarantee exact cron execution time**: scheduled jobs can start late or be skipped when GitHub is congested. The system allows a delayed session attempt until 6 PM IST and accepts only prices from the current NSE trading session.
 
 To do a manual run **outside market hours**, use **Actions → Vertex Paper Trading → Run workflow**. This attempts to capture the current scanner list at run time and values it using the latest completed NSE weekday's Yahoo price observations; it does not pretend these are 3:29 PM trades placed today. If scanner output or dated prices cannot be verified, it fails safely rather than making up holdings. If markets are open, wait until the current session ends before manually capturing a completed-session snapshot. 
 
@@ -90,7 +90,7 @@ If your saved Chartink scan relies on a **private/custom indicator**, public scr
 - The scanner table is recorded in [SCANNER_SYMBOLS.md](SCANNER_SYMBOLS.md), whether or not this particular run is eligible to place simulated trades.
 - Trading stays limited to eligible paper sessions; scanning outside market hours must **not** create or retroactively represent real market executions.
 - A blocked browser, login challenge, or unreadable results table causes a clear failure, not an empty signal or an alternative unverified scrape. If Chartink demands login, add secrets in **this repository**, never in source code.
-- All scraping and simulation happen in **GitHub Actions**, independently of the ChatGPT conversation. The schedule is still approximately 3:29 PM IST on weekdays; GitHub scheduled starts may be delayed.
+- All scraping and simulation happen in **GitHub Actions**, independently of the ChatGPT conversation. The primary scheduled time is 3:29 PM IST, with additional 3:41 PM, 4:11 PM and 5:11 PM attempts on weekdays. GitHub may delay or drop scheduled jobs; none of the times are guaranteed.
 
 ## Separate-repository scraper reuse (October 2026)
 

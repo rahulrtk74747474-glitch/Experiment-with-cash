@@ -35,7 +35,7 @@
 
 ## Schedule, behavior and safety
 
-The workflow is set to run at approximately **3:29 PM India time, Monday–Friday**. GitHub's scheduled execution can start late. On every run, Playwright/Chromium opens the Chartink `vertex-signal-lue-line` scanner and records the results. It processes trades only in an eligible session or a manual retrospective paper snapshot. Missing browser access results in an error and does **not** mean zero matched stocks.
+The workflow has a primary run at **3:29 PM India time, Monday–Friday**, and fallback attempts at **3:41 PM, 4:11 PM and 5:11 PM IST**. These are retry opportunities, not additional simulated trading sessions; the engine applies each NSE session only once. GitHub's scheduled execution can start late or be dropped. On every run, Playwright/Chromium opens the Chartink `vertex-signal-lue-line` scanner and records the results. It processes trades only in an eligible session or a manual retrospective paper snapshot. Missing browser access results in an error and does **not** mean zero matched stocks.
 
 Chartink login secrets (if needed) must be set separately in **this** repository. `Scraping_and_testing` remains a separate repository and is not modified by these workflows.
 
