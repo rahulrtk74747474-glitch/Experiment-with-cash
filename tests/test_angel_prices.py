@@ -9,6 +9,13 @@ from src.angel_prices import (
 
 
 class TestAngelPriceFallback(unittest.TestCase):
+    def test_official_smartapi_sdk_imports_on_workflow_runner(self):
+        # Detect missing third-party runtime imports before a credentialed run.
+        from SmartApi import SmartConnect
+        import pyotp
+        self.assertTrue(callable(SmartConnect))
+        self.assertTrue(callable(pyotp.TOTP))
+
     def test_no_credentials_means_no_connection(self):
         with patch.dict(os.environ, {}, clear=True):
             self.assertFalse(configured())
