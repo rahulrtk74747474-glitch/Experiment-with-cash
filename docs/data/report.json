@@ -1,9 +1,9 @@
 {
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "updated_at": "2026-10-14T02:00:59.959625+05:30",
+  "updated_at": "2026-10-14T19:25:22.080378+05:30",
   "last_successful_run": "2026-10-14T02:00:59.959625+05:30",
-  "status": "success",
-  "message": "Chartink matched 8 symbols; session label 2026-10-13. Quotes: 0 Yahoo, 8 Chartink. Manual after-hours scan; scanner close observed at fetch time, not a historical execution.",
+  "status": "outside_market_window",
+  "message": "Browser scanner refreshed; no paper trades outside 15:20–18:00 IST",
   "sessions": 1,
   "summary": {
     "initial_cash": 100000,

@@ -1,75 +1,59 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-10-14T02:00:59.959625+05:30",
-  "count": 8,
+  "fetched_at": "2026-10-14T19:25:22.080378+05:30",
+  "count": 6,
   "rows": [
     {
-      "symbol": "V2RETAIL",
-      "name": "V2 Retail Limited",
-      "close": 151.45,
-      "change_pct": -1.41,
-      "volume": 1129342.0
+      "symbol": "BUILDPRO",
+      "name": "Shankara Buildpro Ltd",
+      "close": 234.0,
+      "change_pct": 0.52,
+      "volume": 352367.0
     },
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 5.21,
       "change_pct": -2.07,
-      "volume": 16.0
-    },
-    {
-      "symbol": "SETUINFRA",
-      "name": "Setubandhan Infrastructure Ltd",
-      "close": 0.44,
-      "change_pct": -2.22,
-      "volume": 4384.0
+      "volume": 17.0
     },
     {
       "symbol": "FCONSUMER",
       "name": "Future Consumer Limited",
       "close": 0.22,
       "change_pct": -4.35,
-      "volume": 36892674.0
+      "volume": 38649468.0
     },
     {
       "symbol": "DIL",
       "name": "Debock Industries Ltd",
       "close": 0.65,
       "change_pct": -4.41,
-      "volume": 7179501.0
-    },
-    {
-      "symbol": "MORARJEE",
-      "name": "Morarjee Textiles Limited",
-      "close": 6.81,
-      "change_pct": -4.89,
-      "volume": 506.0
-    },
-    {
-      "symbol": "GENSOL",
-      "name": "Gensol Engineering Ltd",
-      "close": 9.68,
-      "change_pct": -4.91,
-      "volume": 434158.0
+      "volume": 7521382.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.53,
       "change_pct": -4.97,
-      "volume": 407424.0
+      "volume": 611136.0
+    },
+    {
+      "symbol": "MORARJEE",
+      "name": "Morarjee Textiles Limited",
+      "close": 6.47,
+      "change_pct": -4.99,
+      "volume": 21354.0
     }
   ],
   "symbols": [
-    "V2RETAIL",
+    "BUILDPRO",
     "RAJVIR",
-    "SETUINFRA",
     "FCONSUMER",
     "DIL",
-    "MORARJEE",
-    "GENSOL",
-    "NAGAFERT"
+    "NAGAFERT",
+    "MORARJEE"
   ],
   "message": "Chartink scan complete; result prices are observed scanner quotes.",
   "is_verified_live_scan": true
