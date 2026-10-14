@@ -13,6 +13,7 @@
 | All workflow executions | [Actions history](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/actions) | Check success, warnings, failures |
 | First verified successful run | [Run #1](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/actions/runs/38463353965) | Full logs and test results |
 | **Active simulated trades** | [ACTIVE_TRADES.md](ACTIVE_TRADES.md) | Current positions and unrealised profit |
+| **Angel One daily-close verification** | [PRICE_CHECK.md](PRICE_CHECK.md) | All scanned stocks + held stocks; verified NSE daily closes and missing prices |
 | **Latest Chartink symbols** | [SCANNER_SYMBOLS.md](SCANNER_SYMBOLS.md) | Verified stock symbols, scanner close, change and volume |
 | Closed trade history | [TRADE_HISTORY.md](TRADE_HISTORY.md) | Completed transactions and realised profit |
 | Portfolio machine-readable report | [report.json](docs/data/report.json) | Full summary, charts data and all trades |
@@ -35,7 +36,7 @@
 
 ## Schedule, behavior and safety
 
-The workflow has a primary run at **3:29 PM India time, Monday–Friday**, and fallback attempts at **3:41 PM, 4:11 PM and 5:11 PM IST**. These are retry opportunities, not additional simulated trading sessions; the engine applies each NSE session only once. GitHub's scheduled execution can start late or be dropped. On every run, Playwright/Chromium opens the Chartink `vertex-signal-lue-line` scanner and records the results. It processes trades only in an eligible session or a manual retrospective paper snapshot. Missing browser access results in an error and does **not** mean zero matched stocks.
+The workflow has a primary run at **3:51 PM India time, Monday–Friday**, and fallback attempts at **4:11 PM, 4:41 PM and 5:11 PM IST**. These are retry opportunities, not additional simulated trading sessions; the engine applies each NSE session only once. GitHub's scheduled execution can start late or be dropped. On every run, Playwright/Chromium opens the Chartink `vertex-signal-lue-line` scanner and records the results. It processes trades only in an eligible session or a manual retrospective paper snapshot. Missing browser access results in an error and does **not** mean zero matched stocks.
 
 Chartink login secrets (if needed) must be set separately in **this** repository. `Scraping_and_testing` remains a separate repository and is not modified by these workflows.
 
@@ -43,14 +44,20 @@ The graphical website works only after Pages is enabled under **Source: GitHub A
 
 Updated links index: 14 October 2026.
 
-## Angel One backup pricing
+## Daily NSE close price policy
 
-An optional **read-only** fallback is available in
-[src/angel_prices.py](src/angel_prices.py) when Yahoo Finance rate-limits
-price requests for existing positions. It uses Angel One historical 1-minute
-candles only for the requested NSE session; no real brokerage orders.
-To activate, configure \`ANGEL_API_KEY\`, \`ANGEL_CLIENT_CODE\`,
-\`ANGEL_PIN\`, and \`ANGEL_TOTP_SECRET\` as encrypted **Actions secrets in this
-repository**. None of these values can be read from or shared automatically
-by a separate repository. See [README](README.md) for steps and the
-**Angel One static-IP requirement**, which may require a self-hosted runner.
+Chartink is used for **stock symbols only**. All prices for simulated
+BUY, SELL, daily valuation and trade exits now come exclusively from
+Angel One SmartAPI **NSE ONE_DAY** candles. No Yahoo or Chartink price
+is substituted. The complete scanner-stock price check is in
+[PRICE_CHECK.md](PRICE_CHECK.md) and
+[latest_prices.json](docs/data/latest_prices.json).
+
+Trading is scheduled after the market has closed, starting at
+**3:51 PM IST, Monday–Friday**, with backups at
+**4:11, 4:41 and 5:11 PM IST**. The workflow will stop rather than
+invent a quote for a held position. Code-push executions outside the
+market window test prices but do not alter demo trades.
+
+**Note:** Angel API secrets are encrypted repository Actions secrets
+and are never printed or copied to another repository.

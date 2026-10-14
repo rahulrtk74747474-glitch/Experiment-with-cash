@@ -1,4 +1,4 @@
-"""Read-only NSE historical price fallback through Angel One SmartAPI.
+"""Read-only NSE daily closing prices from Angel One SmartAPI.
 
 No brokerage order functions are called anywhere in this module.
 Credentials are provided only through environment variables / GitHub Actions secrets.
@@ -6,6 +6,7 @@ No network connection is made when unconfigured.
 """
 from __future__ import annotations
 
+import math
 import os
 from datetime import date, datetime, time
 
@@ -83,6 +84,43 @@ def _dated_candle(response: dict, symbol: str, expected_date: str) -> dict:
             "source": "Angel One SmartAPI NSE 1m"}
 
 
+def _daily_candle(response: dict, symbol: str, expected_date: str) -> dict:
+    """Require an actual NSE daily OHLC candle on the target session date.
+
+    SmartAPI timestamps ONE_DAY bars at the *start* of a daily candle.
+    Its close field is the daily close, not an execution price at that timestamp.
+    """
+    if not isinstance(response, dict) or response.get("status") is not True:
+        raise AngelPriceError(f"Angel One NSE ONE_DAY request rejected for {symbol}")
+    candles = response.get("data")
+    if not isinstance(candles, list):
+        raise AngelPriceError(f"Angel One returned no NSE daily OHLC data for {symbol}")
+    valid = []
+    for row in candles:
+        if not isinstance(row, (list, tuple)) or len(row) < 5:
+            continue
+        try:
+            at = datetime.fromisoformat(str(row[0]).replace("Z", "+00:00"))
+            if at.tzinfo is None:
+                at = at.replace(tzinfo=IST)
+            at = at.astimezone(IST)
+            close = float(row[4])
+            if at.date().isoformat() == expected_date and math.isfinite(close) and close > 0:
+                valid.append((at, close))
+        except (ValueError, TypeError, OverflowError):
+            continue
+    if len(valid) != 1:
+        raise AngelPriceError(
+            f"Expected exactly one valid NSE ONE_DAY bar for {symbol} on {expected_date}; got {len(valid)}"
+        )
+    at, close = valid[0]
+    return {
+        "price": round(close, 4),
+        "quote_time": at.isoformat(),
+        "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+    }
+
+
 MASTER_URL = "https://margincalculator.angelone.in/OpenAPI_File/files/OpenAPIScripMaster.json"
 
 
@@ -154,6 +192,53 @@ class AngelHistoricalPrices:
             ) from None
         self.client = api
         return api
+
+    def _token(self, symbol: str, client) -> str:
+        if symbol not in self.tokens:
+            try:
+                self.tokens[symbol] = _exact_instrument(client.searchScrip("NSE", symbol), symbol)
+            except Exception:
+                if self._master_records is None:
+                    try:
+                        response = requests.get(MASTER_URL, timeout=(9, 55))
+                        response.raise_for_status()
+                        records = response.json()
+                        if not isinstance(records, list):
+                            raise ValueError("Non-array Angel instrument master")
+                        self._master_records = records
+                    except Exception:
+                        raise AngelPriceError(
+                            f"Angel One instrument master unavailable for {symbol}"
+                        ) from None
+                self.tokens[symbol] = _token_from_master(self._master_records, symbol)
+        return self.tokens[symbol]
+
+    def get_daily_close(self, symbol: str, expected_date: str) -> dict:
+        """Retrieve the verified daily close for one NSE trading session.
+
+        Never substitute a scanner price, a minute bar or a prior-day close.
+        """
+        symbol = str(symbol).strip().upper().removesuffix(".NS")
+        if not symbol or not symbol.replace("-", "").replace("&", "").replace("_", "").isalnum():
+            raise AngelPriceError("Invalid NSE symbol")
+        try:
+            date.fromisoformat(expected_date)
+        except ValueError as exc:
+            raise AngelPriceError("Invalid NSE session date") from exc
+        client = self._client()
+        token = self._token(symbol, client)
+        query = {
+            "exchange": "NSE",
+            "symboltoken": token,
+            "interval": "ONE_DAY",
+            "fromdate": expected_date + " 09:00",
+            "todate": expected_date + " 15:35",
+        }
+        try:
+            response = client.getCandleData(query)
+        except Exception:
+            raise AngelPriceError(f"Angel One daily close request failed for {symbol}") from None
+        return _daily_candle(response, symbol, expected_date)
 
     def get_nse_quote(self, symbol: str, expected_date: str) -> dict:
         symbol = str(symbol).strip().upper().removesuffix(".NS")

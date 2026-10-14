@@ -1,4 +1,4 @@
-"""Chartink screener collector and Yahoo Finance NSE paper-price adapter.
+"""Chartink browser scanner for signals; prices come from Angel One.
 
 Never infer a zero-result screener from an HTTP error, login wall or missing token.
 If Chartink changes its frontend, a visible failure prevents invented trades.
@@ -7,13 +7,10 @@ import html
 import json
 import re
 from urllib.parse import unquote
-from datetime import datetime, time
-from zoneinfo import ZoneInfo
 
 import requests
 from bs4 import BeautifulSoup
 
-IST = ZoneInfo("Asia/Kolkata")
 SCAN_URL = "https://chartink.com/screener/vertex-signal-lue-line"
 HEADERS = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
            "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8"}
@@ -202,28 +199,3 @@ def fetch_signal_details():
 def fetch_signals():
     return [row["symbol"] for row in fetch_signal_details()]
 
-def get_nse_quote(symbol, expected_date):
-    ticker = normalise(symbol)
-    if not ticker:
-        raise ValueError("Invalid NSE symbol " + str(symbol))
-    last_error = None
-    for hostname in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
-        try:
-            url = f"https://{hostname}/v8/finance/chart/{ticker}.NS"
-            r = requests.get(url, params={"interval": "1m", "range": "5d"}, headers=HEADERS, timeout=25)
-            r.raise_for_status()
-            result = r.json()["chart"]["result"][0]
-            ticks = result.get("timestamp") or []
-            close = result["indicators"]["quote"][0].get("close", [])
-            candidates = [(datetime.fromtimestamp(t, IST), float(price))
-                          for t, price in zip(ticks, close) if price is not None and float(price) > 0]
-            today = [(dt, price) for dt, price in candidates
-                     if dt.date().isoformat() == expected_date
-                     and time(14, 45) <= dt.time() <= time(15, 28, 59)]
-            if not today:
-                raise RuntimeError(f"No recent pre-3:29 PM {expected_date} Yahoo minute bar for {ticker}")
-            dt, price = today[-1]
-            return {"price": round(price, 4), "quote_time": dt.isoformat(), "source": "Yahoo Finance NSE 1m"}
-        except Exception as exc:
-            last_error = exc
-    raise RuntimeError(f"Cannot obtain fresh Yahoo price for {ticker}: {last_error}")

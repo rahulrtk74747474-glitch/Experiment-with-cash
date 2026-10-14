@@ -40,55 +40,44 @@ Regardless of Pages availability, [Active Trades](ACTIVE_TRADES.md),
 [Scanner Symbols](SCANNER_SYMBOLS.md) and [Trade History](TRADE_HISTORY.md)
 are accessible as GitHub tables.
 
-## Optional Angel One price fallback
+## Only Angel One NSE daily closes for paper trading
 
-The system uses Chartink's rendered **Close** for current scanner matches.
-Existing held stocks that no longer appear in today's scan require an
-independent, same-session price to evaluate an exit. Yahoo Finance NSE 1-minute
-quotes are tried first; **if Yahoo fails or returns HTTP 429**, the workflow now
-offers an optional **read-only Angel One SmartAPI historical candle fallback**.
-
-- No trades/orders are ever sent to Angel One; only
-  \`searchScrip("NSE", symbol)\` and \`getCandleData(..., "ONE_MINUTE", ...)\`
-  are used. Prices must have an observed NSE timestamp within
-  14:45–15:28:59 IST **on the requested market date**.
-- If both sources fail, the paper session aborts rather than fabricating an
-  exit or marking a previous day's price as current.
-- The Angel One fallback is **inactive until configured**. Set these four
-  GitHub Actions **repository secrets in Experiment-with-cash**, not in
-  Scraping_and_testing:
-  - \`ANGEL_API_KEY\`: your own Angel One SmartAPI application's API key
-  - \`ANGEL_CLIENT_CODE\`: Angel One client code
-  - \`ANGEL_PIN\`: Angel One login PIN/MPIN used by SmartAPI
-  - \`ANGEL_TOTP_SECRET\`: TOTP enrollment secret, not the changing six-digit
-    OTP; stored only as a GitHub encrypted secret
-- Never paste secrets into a chat, public issue, README, commit, or JSON.
-  The workflow creates a new SmartAPI session using the TOTP seed at run time.
-- **Important deployment limitation (2026):** Angel One's SmartAPI forum
-  moderators state that a registered **static IP is required even for
-  historical-data access**. Standard GitHub-hosted Actions runners use
-  changeable outbound IP addresses. For production dependability you may
-  need a self-hosted GitHub Actions runner using an Angel One-authorized
-  fixed IP (and its associated account policies). This repo currently uses
-  \`ubuntu-latest\`; supplying secrets alone may therefore not make Angel
-  price retrieval work. No bypass of Angel's network restrictions is included.
-- Reference [official SmartAPI documentation](https://smartapi.angelone.in/docs)
-  and [Angel One's static IP policy discussion](https://smartapi.angelone.in/smartapi/forum/topic/5671/asking-for-static-ip-for-getting-api-for-historical-data/3).
-- \`Scraping_and_testing\` is not modified, and none of its credentials, code,
-  trading state or branches are used for Angel authentication.
-
-The fallback is implemented in [src/angel_prices.py](src/angel_prices.py)
-with offline tests in
-[tests/test_angel_prices.py](tests/test_angel_prices.py).
-
+- Chartink/Chromium supplies **scanner symbols only**. Its displayed Close is shown
+  for reference but **never used to buy, sell or mark-to-market**.
+- Angel One SmartAPI `getCandleData` with `interval: ONE_DAY`
+  and an exact same-session date supplies **every stock price** for open holdings
+  and scanner matches. No Yahoo Finance calls remain in the trading system.
+- The **daily closing price is not known at 3:29 PM** (the market closes at
+  3:30 PM IST). Trading workflows therefore begin at **3:51 PM IST**;
+  backups attempt at **4:11, 4:41, 5:11 PM IST** weekdays.
+- At every invocation—even when trading is not allowed—the script checks
+  Angel One daily closes and updates [PRICE_CHECK.md](PRICE_CHECK.md) and
+  [docs/data/latest_prices.json](docs/data/latest_prices.json) with verified
+  prices and errors per stock. This is read-only outside the eligible window.
+- All 4 `ANGEL_API_KEY`, `ANGEL_CLIENT_CODE`, `ANGEL_PIN` and
+  `ANGEL_TOTP_SECRET` must be repository Actions secrets. Never put actual
+  values in files, logs or chat.
+- Existing open positions **cannot** be sold without a verified close on the
+  requested session date; missing prices fail closed. A fresh stock with
+  missing Angel price is **skipped**, not bought at its Chartink price.
+- A manual run can record retrospective paper buys/sells for the last
+  completed weekday using the scanner at run time; that is a simulation,
+  not a historical executable trade. Actual trading is never performed.
+- Angel One may block data from unapproved outbound IP addresses. The
+  [read-only connection test](.github/workflows/angel-one-connection-test.yml)
+  has previously verified login and NSE minute data; daily closing prices
+  must be verified separately with [PRICE_CHECK](PRICE_CHECK.md).
+- `Scraping_and_testing` is **not modified**.
 
 ## Automated schedule
 
-[GitHub Actions workflow](.github/workflows/vertex-paper-trading.yml) targets **Monday–Friday at 3:29 PM IST**, with backup attempts at **3:41 PM, 4:11 PM and 5:11 PM IST** (\`59 9 * * 1-5\` UTC). The workflow also supports **Actions → Vertex Paper Trading → Run workflow** and runs once on code pushes. GitHub **does not guarantee exact cron execution time**: scheduled jobs can start late or be skipped when GitHub is congested. The system allows a delayed session attempt until 6 PM IST and accepts only prices from the current NSE trading session.
+The [trading workflow](.github/workflows/vertex-paper-trading.yml) runs
+Monday–Friday from **3:51 PM IST** with backup schedules listed above.
+GitHub Actions cron triggers can be delayed/dropped. The program processes
+each session once and records prices only from dated Angel daily candles.
+Code-push runs perform a price check without paper trades outside
+15:45–18:00 IST. GitHub Pages publishing remains separately configured.
 
-To do a manual run **outside market hours**, use **Actions → Vertex Paper Trading → Run workflow**. This attempts to capture the current scanner list at run time and values it using the latest completed NSE weekday's Yahoo price observations; it does not pretend these are 3:29 PM trades placed today. If scanner output or dated prices cannot be verified, it fails safely rather than making up holdings. If markets are open, wait until the current session ends before manually capturing a completed-session snapshot. 
-
-A fresh clone works as-is: GitHub-hosted runner installs Python dependencies and Chromium for Chartink's newer JavaScript UI. Workflow needs GitHub Actions enabled and **Read/write permissions** for \`GITHUB_TOKEN\` (workflow requests \`contents: write\`). It commits portfolio state after every run. **Do not delete** \`data/state.json\`.
 
 ## Position accounting
 
@@ -97,30 +86,30 @@ A fresh clone works as-is: GitHub-hosted runner installs Python dependencies and
 - Buy signals are de-duplicated inside the same day.
 - Example: Monday initial BUY, Tuesday same symbol **IGNORE**, Wednesday same symbol **SELL then BUY again** (a new, max-₹5k position), Thursday **IGNORE**. This is a rollover, not an additional buy beyond ₹5k. The fresh buy price resets P&L and the 3-session timer.
 - A holding expires after **three subsequently processed NSE trading sessions** without a qualifying repeat. Thus a Monday buy with no repeats exits Thursday, not calendar Wednesday. NSE holidays/non-working days don't increment the counter if no verified price-and-scan session completes.
-- Each successful session marks every open position to a fresh Yahoo Finance NSE minute-close price, independently of whether today's Chartink screener contains it. Max unrealised profit and max peak-to-trough drawdown update on those **observed prices** only, **not tick-by-tick/intraday extrema**. Portfolio drawdown also uses daily observed equity snapshots.
-- The system records amounts and returns **before brokerage fees, taxes and slippage**; zero fees are assumed. Scan results and quote timestamps can be delayed, and 3:29 PM is not necessarily the real close or executable bid/ask.
-- A Chartink login-wall/block, malformed JSON or lack of a fresh quote for an existing holding **aborts the day's simulation** with an error rather than converting data absence into sell/buy signals. New signals without a Yahoo quote are skipped.
+- Each successful session marks every open position to a verified Angel One NSE ONE_DAY close, independently of whether today's Chartink screener contains it. Max unrealised profit and max peak-to-trough drawdown update on those **observed prices** only, **not tick-by-tick/intraday extrema**. Portfolio drawdown also uses daily observed equity snapshots.
+- The system records amounts and returns **before brokerage fees, taxes and slippage**; zero fees are assumed. Scan results and quote timestamps can be delayed, and the official daily closing value is not necessarily an executable bid/ask after the close.
+- A Chartink login-wall/block, malformed JSON or lack of a fresh quote for an existing holding **aborts the day's simulation** with an error rather than converting data absence into sell/buy signals. New signals without an Angel One daily close are skipped.
 
 ## Files
 
 | Path | Purpose |
 |---|---|
-| \`src/market.py\` | Fetch saved Chartink scan (session CSRF + Chromium fallback), Yahoo NSE quotes |
-| \`src/engine.py\` | Deterministic buy/ignore/rollover/expiry, cash and P&L accounting |
-| \`src/run.py\` | Trade-session orchestration, fail-safe state/report persistence |
-| \`data/state.json\` | **Source of truth** for wallet, positions, trade ledger and sessions |
-| \`docs/data/report.json\` | Dashboard view of the latest stored state |
-| \`docs/index.html\` | Mobile/tablet-friendly dashboard with tables and charts |
-| \`tests/test_engine.py\` | Repeat signal, expiry, MDD and risk-limit unit tests |
+| `src/market.py` | Browser-only Chartink scanner (symbols only; no quote sourcing) |
+| `src/engine.py` | Deterministic buy/ignore/rollover/expiry, cash and P&L accounting |
+| `src/run.py` | Trade-session orchestration, fail-safe state/report persistence |
+| `data/state.json` | **Source of truth** for wallet, positions, trade ledger and sessions |
+| `docs/data/report.json` | Dashboard view of the latest stored state |
+| `docs/index.html` | Mobile/tablet-friendly dashboard with tables and charts |
+| `tests/test_engine.py` | Repeat signal, expiry, MDD and risk-limit unit tests |
 
 ## Manual check
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt playwright
 python -m playwright install chromium
 python -m unittest discover -s tests -v
 python -m src.run
-\`\`\`
+```
 
 If your saved Chartink scan relies on a **private/custom indicator**, public scraping may not be sufficient. Do not assume a successful run without the GitHub Actions log confirming the data was fetched. Scraping is best-effort and may require Chartink account authorization or an officially supported data feed if access changes.
 
@@ -132,14 +121,14 @@ If your saved Chartink scan relies on a **private/custom indicator**, public scr
 - The scanner table is recorded in [SCANNER_SYMBOLS.md](SCANNER_SYMBOLS.md), whether or not this particular run is eligible to place simulated trades.
 - Trading stays limited to eligible paper sessions; scanning outside market hours must **not** create or retroactively represent real market executions.
 - A blocked browser, login challenge, or unreadable results table causes a clear failure, not an empty signal or an alternative unverified scrape. If Chartink demands login, add secrets in **this repository**, never in source code.
-- All scraping and simulation happen in **GitHub Actions**, independently of the ChatGPT conversation. The primary scheduled time is 3:29 PM IST, with additional 3:41 PM, 4:11 PM and 5:11 PM attempts on weekdays. GitHub may delay or drop scheduled jobs; none of the times are guaranteed.
+- All scraping and simulation happen in **GitHub Actions**, independently of the ChatGPT conversation. The primary scheduled time is 3:51 PM IST, with 4:11 PM, 4:41 PM and 5:11 PM backups on weekdays. GitHub may delay or drop scheduled jobs; none of the times are guaranteed.
 
 ## Separate-repository scraper reuse (October 2026)
 
 This project **does not fetch from, commit to, dispatch, or depend on** the
-\`Scraping_and_testing\` repository at runtime. Its working browser-based scanner
-was copied into \`src/chartink_browser.py\` as a standalone module, then adapted
-to **this project's** \`vertex-signal-lue-line\` scanner and its own trade rules.
+`Scraping_and_testing` repository at runtime. Its working browser-based scanner
+was copied into `src/chartink_browser.py` as a standalone module, then adapted
+to **this project's** `vertex-signal-lue-line` scanner and its own trade rules.
 The other repository's scanner URL, ₹10,000 sizing, workflows, state and trades
 are not imported.
 
@@ -148,17 +137,12 @@ Chartink's **Backtest "matched 0 stocks" text is not treated as evidence
 that the live stock-result grid is empty**.
 
 In this repository only, under **Settings → Secrets and variables → Actions**,
-add either \`CHARTINK_COOKIE\` or \`CHARTINK_USER\` and
-\`CHARTINK_PASSWORD\` if the scanner requires authentication. Secrets from
+add either `CHARTINK_COOKIE` or `CHARTINK_USER` and
+`CHARTINK_PASSWORD` if the scanner requires authentication. Secrets from
 the separate repository are **not shared automatically**. Never commit
 credentials to a public file.
 
-**Price policy:** current scanner matches use the fetched scanner's displayed
-Close as a paper observation with its actual fetch time; held stocks absent from
-today's scan are valued using a dated Yahoo Finance minute quote. The
-simulated trade date may be the prior completed market session when a manual
-night-time run is requested; this is explicitly a retrospective paper
-snapshot, **not a claim that an order was executed at that earlier time**.
+**Price policy:** Chartink only identifies signals; Angel One historical NSE ONE_DAY candles provide every paper BUY/SELL and mark-to-market close, strictly on the selected session date. All results are documented in [PRICE_CHECK.md](PRICE_CHECK.md).
 
 The [scanner result table](SCANNER_SYMBOLS.md) publishes each parsed symbol,
 stock name, scanner Close, percent change, and volume from a verified fetch.
@@ -174,6 +158,6 @@ there; without any recorded run the system still shows an empty demo ledger.
 
 Chartink scraping is **browser-only**: [Playwright/Chromium](src/chartink_browser.py) loads the page and reads its rendered result rows. If the browser scan fails or returns unverified emptiness, the workflow reports an error and leaves existing paper trades unchanged. No direct Chartink HTTP or scan-clause fallback is invoked.
 
-The updated [scanner symbol table](SCANNER_SYMBOLS.md) distinguishes a verified result from a failed fetch. Data at [latest_scan.json](docs/data/latest_scan.json) includes the URL, timestamp, result count, status and the exact symbols. A successfully fetched scanner list can be published even if Yahoo Finance cannot price a particular stock. An error never silently means zero matches. The four symbols in the user screenshot are used in [offline regression tests](tests/test_market.py) only; they are not treated as a live result.
+The updated [scanner symbol table](SCANNER_SYMBOLS.md) distinguishes a verified result from a failed fetch. Data at [latest_scan.json](docs/data/latest_scan.json) includes the URL, timestamp, result count, status and the exact symbols. A successfully fetched scanner list can be published even if Angel One cannot price a particular stock; missing prices are reported separately. An error never silently means zero matches. The four symbols in the user screenshot are used in [offline regression tests](tests/test_market.py) only; they are not treated as a live result.
 
 **To verify:** open [Actions](../../actions), enable Actions if required, and run **Vertex Paper Trading - 3:29 PM IST → Run workflow**. Check logs for Chartink failures. The linked table updates only after the workflow has executed and committed data; merely adding code does not mean it has run.

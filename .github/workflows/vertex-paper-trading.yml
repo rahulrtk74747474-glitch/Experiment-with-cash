@@ -10,15 +10,14 @@ on:
       - 'requirements.txt'
       - '.github/workflows/vertex-paper-trading.yml'
   schedule:
-    # Primary: 09:59 UTC = 15:29 IST, Monday–Friday.
-    # Backup schedules tolerate delayed/dropped GitHub cron events.
-    # The engine applies only one trading session per NSE date.
-    - cron: '59 9 * * 1-5'
-    # Backup 1: 10:11 UTC = 15:41 IST
-    - cron: '11 10 * * 1-5'
-    # Backup 2: 10:41 UTC = 16:11 IST
+    # Full NSE daily candle is only available after the 15:30 market close.
+    # First attempt 15:51 IST, then backups. Idempotent session processing.
+    - cron: '21 10 * * 1-5'
+    # 16:11 IST
     - cron: '41 10 * * 1-5'
-    # Backup 3: 11:41 UTC = 17:11 IST
+    # 16:41 IST
+    - cron: '11 11 * * 1-5'
+    # 17:11 IST
     - cron: '41 11 * * 1-5'
 
 permissions:
@@ -57,7 +56,7 @@ jobs:
           CHARTINK_USER: ${{ secrets.CHARTINK_USER }}
           CHARTINK_PASSWORD: ${{ secrets.CHARTINK_PASSWORD }}
           CHARTINK_COOKIE: ${{ secrets.CHARTINK_COOKIE }}
-          # Read-only Angel One fallback; configured independently for this repository.
+          # Angel One is the ONLY market-price provider for paper buys, sells and daily verification.
           # Credentials are never written to report/state/logs.
           ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
           ANGEL_CLIENT_CODE: ${{ secrets.ANGEL_CLIENT_CODE }}
@@ -70,7 +69,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/state.json docs/data/report.json docs/data/latest_scan.json ACTIVE_TRADES.md TRADE_HISTORY.md SCANNER_SYMBOLS.md
+          git add data/state.json docs/data/report.json docs/data/latest_scan.json docs/data/latest_prices.json ACTIVE_TRADES.md TRADE_HISTORY.md SCANNER_SYMBOLS.md PRICE_CHECK.md
           if ! git diff --cached --quiet; then
             git commit -m "data: record daily paper trading session [skip ci]"
             # A commit can land on main while Chromium is scraping.
