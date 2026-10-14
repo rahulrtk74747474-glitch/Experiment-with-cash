@@ -47,6 +47,9 @@ are accessible as GitHub tables.
 - Angel One SmartAPI `getCandleData` with `interval: ONE_DAY`
   and an exact same-session date supplies **every stock price** for open holdings
   and scanner matches. No Yahoo Finance calls remain in the trading system.
+- Daily bars may be timestamped **00:00 IST**, indicating the bar's session date,
+  not an execution at midnight. SmartAPI requests therefore include the full
+  day, from 00:00 to 23:59 IST.
 - The **daily closing price is not known at 3:29 PM** (the market closes at
   3:30 PM IST). Trading workflows therefore begin at **3:51 PM IST**;
   backups attempt at **4:11, 4:41, 5:11 PM IST** weekdays.

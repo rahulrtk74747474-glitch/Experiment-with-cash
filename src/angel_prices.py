@@ -227,12 +227,14 @@ class AngelHistoricalPrices:
             raise AngelPriceError("Invalid NSE session date") from exc
         client = self._client()
         token = self._token(symbol, client)
+        # Daily bars are typically timestamped at 00:00 (start of candle),
+        # not 09:15. Use full calendar-day bounds so SmartAPI includes the bar.
         query = {
             "exchange": "NSE",
             "symboltoken": token,
             "interval": "ONE_DAY",
-            "fromdate": expected_date + " 09:00",
-            "todate": expected_date + " 15:35",
+            "fromdate": expected_date + " 00:00",
+            "todate": expected_date + " 23:59",
         }
         try:
             response = client.getCandleData(query)

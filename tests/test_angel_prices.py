@@ -57,18 +57,26 @@ class TestAngelPriceFallback(unittest.TestCase):
         self.assertIn("ONE_DAY", data["source"])
         self.assertTrue(data["quote_time"].startswith("2026-10-14"))
 
+    def test_midnight_timestamped_daily_close_not_dropped(self):
+        from src.angel_prices import _daily_candle
+        record=_daily_candle({"status":True,"data":[
+            ["2026-10-14T00:00:00+05:30",100,110,98,103.75,1000]
+        ]},"V2RETAIL","2026-10-14")
+        self.assertEqual(record["price"],103.75)
+        self.assertEqual(record["quote_time"],"2026-10-14T00:00:00+05:30")
+
     def test_daily_lookup_invokes_only_smartapi_daily_history(self):
         api = Mock()
         api.searchScrip.return_value={"status":True,"data":[
             {"exchange":"NSE","tradingsymbol":"TCS-EQ","symboltoken":"11536"}]}
         api.getCandleData.return_value={"status":True,"data":[
-            ["2026-10-14T09:15:00+05:30",3000,3010,2990,3001.5,5000]]}
+            ["2026-10-14T00:00:00+05:30",3000,3010,2990,3001.5,5000]]}
         client=AngelHistoricalPrices(client=api)
         q=client.get_daily_close("TCS","2026-10-14")
         self.assertEqual(q["price"],3001.5)
         api.getCandleData.assert_called_once_with({
             "exchange":"NSE","symboltoken":"11536","interval":"ONE_DAY",
-            "fromdate":"2026-10-14 09:00","todate":"2026-10-14 15:35"})
+            "fromdate":"2026-10-14 00:00","todate":"2026-10-14 23:59"})
         self.assertFalse(api.placeOrder.called)
 
     def test_daily_close_rejects_stale_bars(self):
