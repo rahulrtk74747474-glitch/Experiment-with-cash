@@ -57,6 +57,12 @@ jobs:
           CHARTINK_USER: ${{ secrets.CHARTINK_USER }}
           CHARTINK_PASSWORD: ${{ secrets.CHARTINK_PASSWORD }}
           CHARTINK_COOKIE: ${{ secrets.CHARTINK_COOKIE }}
+          # Read-only Angel One fallback; configured independently for this repository.
+          # Credentials are never written to report/state/logs.
+          ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+          ANGEL_CLIENT_CODE: ${{ secrets.ANGEL_CLIENT_CODE }}
+          ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
+          ANGEL_TOTP_SECRET: ${{ secrets.ANGEL_TOTP_SECRET }}
         # Push also attempts an initial run. Outside market hours it safely skips.
         run: python -m src.run
       - name: Persist paper-trading state and public dashboard data
