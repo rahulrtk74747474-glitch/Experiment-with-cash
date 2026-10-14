@@ -67,5 +67,22 @@ jobs:
           git add data/state.json docs/data/report.json docs/data/latest_scan.json ACTIVE_TRADES.md TRADE_HISTORY.md SCANNER_SYMBOLS.md
           if ! git diff --cached --quiet; then
             git commit -m "data: record daily paper trading session [skip ci]"
-            git push
+            # A commit can land on main while Chromium is scraping.
+            # Fetch and rebase rather than force-pushing over those changes.
+            for attempt in 1 2 3; do
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                echo "::error::Conflict while rebasing paper data; refusing to overwrite remote portfolio"
+                exit 1
+              fi
+              if git push origin HEAD:main; then
+                echo "Paper results saved on attempt $attempt"
+                exit 0
+              fi
+              echo "Remote moved during push; retrying $attempt/3"
+              sleep 3
+            done
+            echo "::error::Unable to save results after 3 safe push attempts"
+            exit 1
           fi
