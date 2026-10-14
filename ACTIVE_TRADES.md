@@ -5,7 +5,7 @@
 > **PAPER TRADES ONLY — NOT LIVE ORDERS**
 
 **System status:** outside_market_window  
-**Last attempt (IST):** 14 Oct 2026 07:25 PM  
+**Last attempt (IST):** 14 Oct 2026 08:27 PM  
 **Last successful run (IST):** 14 Oct 2026 02:00 AM  
 **Note:** Browser scanner refreshed; no paper trades outside 15:20–18:00 IST
 
