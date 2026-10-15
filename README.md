@@ -1,8 +1,19 @@
 # Experiment with Cash — Vertex Paper Trading
 
-**[OPEN ALL IMPORTANT LINKS — Dashboard, Scanner, Active Trades, History, Run Workflow](QUICK_LINKS.md)**
+**[OPEN GITHUB DASHBOARD — VERIFIED ANGEL ONE CLOSES](DASHBOARD.md)** · **[ALL IMPORTANT LINKS](QUICK_LINKS.md)**
 
 A fully unattended **paper-only** Indian stock screener portfolio. The scanner is [vertex-signal-lue-line](https://chartink.com/screener/vertex-signal-lue-line); no live brokerage orders and no need to open ChatGPT every day.
+
+## Dashboard price update explanation
+
+The standalone [GitHub dashboard](DASHBOARD.md) shows independently verified
+Angel One daily closing prices even if some existing stocks cannot be priced
+and the trade engine correctly refuses to execute simulated orders. The
+graphical Pages dashboard also loads `docs/data/latest_prices.json` to
+separate **verified daily close** from **previously processed/stale price**.
+Neither display invents a current price for missing securities or claims
+that the last fully processed portfolio equity is current. The static Pages
+website remains inaccessible until GitHub Pages is enabled in Settings.
 
 ## View current trades directly on GitHub
 

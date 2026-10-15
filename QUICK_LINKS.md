@@ -12,6 +12,7 @@
 | **Run scanner now** | [Vertex Paper Trading workflow](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/actions/workflows/vertex-paper-trading.yml) | Tap **Run workflow**, select **main**, tap green **Run workflow** |
 | All workflow executions | [Actions history](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/actions) | Check success, warnings, failures |
 | First verified successful run | [Run #1](https://github.com/rahulrtk74747474-glitch/Experiment-with-cash/actions/runs/38463353965) | Full logs and test results |
+| **GitHub-native dashboard (no Pages needed)** | [DASHBOARD.md](DASHBOARD.md) | Verified daily closes next to each holding, missing quote flags and previous portfolio totals |
 | **Active simulated trades** | [ACTIVE_TRADES.md](ACTIVE_TRADES.md) | Current positions and unrealised profit |
 | **Angel One daily-close verification** | [PRICE_CHECK.md](PRICE_CHECK.md) | All scanned stocks + held stocks; verified NSE daily closes and missing prices |
 | **Latest Chartink symbols** | [SCANNER_SYMBOLS.md](SCANNER_SYMBOLS.md) | Verified stock symbols, scanner close, change and volume |

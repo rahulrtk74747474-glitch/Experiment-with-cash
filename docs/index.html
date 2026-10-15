@@ -23,11 +23,15 @@ tbody tr:hover{background:#1e3047}.empty{text-align:center;padding:30px;color:va
 <body><header><div class="inner"><div class="top"><div><div class="eyebrow">SIMULATED • NSE • NOT REAL MONEY</div><h1>Experiment with Cash</h1><p>Chartink signals • Angel One daily close • ₹1,00,000 demo • ≤ ₹5,000 per stock</p></div><div><span id="status-chip" class="chip">Loading…</span><p id="updated">Loading latest report</p></div></div></div></header>
 <main>
 <div class="status" id="status-message">Fetching the latest stored daily report…</div>
+<div class="status" id="price-status">Fetching the independently verified Angel One NSE daily closing prices…</div>
+<section class="panel" style="margin:15px 0"><h2>Verified Angel One daily closes — independent of trade processing</h2>
+<p>Daily prices below update when GitHub runs a successful price check, even if trades cannot be processed. A missing price is never assumed to equal the last traded price.</p>
+<div class="scroll" id="verified-price-table"><div class="empty">Loading verified prices…</div></div></section>
 <div class="metric-grid" id="metrics"></div>
-<div class="two"><section class="panel"><h2>Portfolio equity (₹)</h2><div class="chart-wrap"><canvas id="equity"></canvas></div></section>
-<section class="panel"><h2>Realised vs unrealised P&L</h2><div class="chart-wrap"><canvas id="pnl"></canvas></div></section></div>
+<div class="two"><section class="panel"><h2>Last processed portfolio equity (₹)</h2><div class="chart-wrap"><canvas id="equity"></canvas></div></section>
+<section class="panel"><h2>Previous processed realised vs unrealised P&L</h2><div class="chart-wrap"><canvas id="pnl"></canvas></div></section></div>
 <div class="two"><section class="panel"><h2>Portfolio drawdown by session</h2><div class="chart-wrap"><canvas id="drawdown"></canvas></div></section>
-<section class="panel"><h2>Open position unrealised P&L</h2><div class="chart-wrap"><canvas id="stocks"></canvas></div></section></div>
+<section class="panel"><h2>Previous processed unrealised P&L (historical)</h2><div class="chart-wrap"><canvas id="stocks"></canvas></div></section></div>
 <div class="nav"><button class="tab active" data-tab="open">Open positions</button><button class="tab" data-tab="closed">Trade history</button><button class="tab" data-tab="events">Signal / order log</button></div>
 <section class="panel view active" id="open"><div class="table-head"><h2>Open positions</h2><div><input id="search-open" placeholder="Filter symbol"/><button class="action" data-csv="positions">Download CSV</button></div></div><div class="scroll" id="open-table"></div></section>
 <section class="panel view" id="closed"><div class="table-head"><h2>Completed trades</h2><div><input id="search-closed" placeholder="Filter symbol"/><button class="action" data-csv="closed_trades">Download CSV</button></div></div><div class="scroll" id="closed-table"></div></section>
@@ -41,7 +45,23 @@ const percent=n=>(Number(n)||0).toFixed(2)+'%';
 const escapeHTML=v=>String(v??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const color=n=>Number(n)<0?'negative':Number(n)>0?'positive':'';
 const date=v=>v?new Date(v).toLocaleString('en-IN',{timeZone:'Asia/Kolkata',year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit'}):'—';
-let DATA=null; const charts={};
+let DATA=null; let PRICE=null; let PRICE_BY_SYMBOL={}; const charts={};
+function renderVerifiedPrices(d){
+  const banner=document.getElementById('price-status');
+  if(!d||!Array.isArray(d.rows)){
+    banner.className='status error';
+    banner.textContent='Independent Angel One price report unavailable. Last processed positions are historical, not current NSE prices.';
+    document.getElementById('verified-price-table').innerHTML='<div class="empty">No verified daily-price report available.</div>';
+    return;
+  }
+  PRICE=d;PRICE_BY_SYMBOL=Object.fromEntries(d.rows.filter(r=>r&&r.symbol).map(r=>[r.symbol,r]));
+  const counts=d.counts||{};
+  banner.className='status'+(counts.missing?' error':'');
+  banner.textContent='Angel One NSE daily close for '+d.session_date+': '+(counts.verified||0)+'/'+(counts.total||0)+' prices verified; '+(counts.missing||0)+' missing. Last price check: '+date(d.checked_at)+'. Missing prices are not replaced with stale quotes. The trading ledger is not updated unless all held stocks are priced.';
+  const P_COLS=[['Stock',t('symbol')],['Scanner?',r=>r.scanner_match?'Yes':'No'],['Held?',r=>r.held_position?'Yes':'No'],['NSE session',r=>escapeHTML(d.session_date)],['Verified close ₹',r=>r.status==='verified'&&Number(r.daily_close)>0?money(r.daily_close):'—'],['Status',r=>r.status==='verified'?'Verified':'<span class="negative">Missing</span>'],['Reason',r=>escapeHTML(r.error||'—')]];
+  table('verified-price-table',d.rows,P_COLS);
+}
+
 function metric(label,value,detail,cls=''){return '<div class="metric"><small>'+label+'</small><strong class="'+cls+'">'+value+'</strong><span>'+detail+'</span></div>'}
 function drawChart(id,config){if(!window.Chart)return; if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),config)}
 function seriesChart(id,labels,data,label,mainColor,fill=false){drawChart(id,{type:'line',data:{labels,datasets:[{label,data,borderColor:mainColor,backgroundColor:mainColor+'22',pointRadius:2,tension:0.18,fill}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#8ba5c7',maxTicksLimit:8},grid:{color:'#2a3950'}},y:{ticks:{color:'#8ba5c7'},grid:{color:'#2a3950'}}}}})}
@@ -49,13 +69,18 @@ function table(id,rows,cols,filter=''){let selected=rows.filter(r=>!filter||JSON
 document.getElementById(id).innerHTML='<table><thead><tr>'+cols.map(c=>'<th>'+c[0]+'</th>').join('')+'</tr></thead><tbody>'+selected.map(r=>'<tr>'+cols.map(c=>'<td class="'+(c[2]?color(r[c[2]]):'')+'">'+(c[1]?c[1](r):escapeHTML(r[c[0]]))+'</td>').join('')+'</tr>').join('')+'</tbody></table>'}
 const t=(key)=>r=>escapeHTML(r[key]);
 const fmt=(key,f=money)=>r=>f(r[key]);
-const OPEN=[['Symbol',t('symbol')],['Processed buy time (IST)',r=>date(r.buy_time)],['Quote as of (IST)',r=>date(r.last_quote_time)],['Price source',t('last_quote_source')],['Qty',fmt('quantity',number)],['Entry',fmt('buy_price')],['Current',fmt('current_price')],['Invested',fmt('invested')],['Market value',fmt('market_value')],['Unrealised ₹',fmt('unrealised_profit'),'unrealised_profit'],['Unrealised %',fmt('unrealised_pct',percent),'unrealised_pct'],['Peak unrealised ₹',fmt('max_unrealised_profit')],['Peak unrealised %',fmt('max_unrealised_pct',percent)],['Max DD %',fmt('max_drawdown_pct',percent),'max_drawdown_pct'],['Worst unrealised ₹',fmt('min_unrealised_profit')],['Sessions held',fmt('sessions_elapsed',number)]];
+const OBSERVED=(r)=>PRICE_BY_SYMBOL[r.symbol]||null;
+const validated=(r)=>{const q=OBSERVED(r);return q&&q.status==='verified'&&Number(q.daily_close)>0&&PRICE&&q.candle_timestamp&&q.candle_timestamp.slice(0,10)===PRICE.session_date};
+const knownClose=(r)=>validated(r)?money(OBSERVED(r).daily_close):'—';
+const priceState=(r)=>validated(r)?'Verified '+escapeHTML(PRICE.session_date):'<span class="negative">Missing / not verified</span>';
+const markPnl=(r)=>validated(r)?money((Number(OBSERVED(r).daily_close)-Number(r.buy_price))*Number(r.quantity)):'—';
+const OPEN=[['Symbol',t('symbol')],['Angel verified close ₹',knownClose],['Angel quote status',priceState],['Verified P&L ₹',markPnl],['Processed buy time (IST)',r=>date(r.buy_time)],['Previous processed quote (IST)',r=>date(r.last_quote_time)],['Previous price source',t('last_quote_source')],['Qty',fmt('quantity',number)],['Entry',fmt('buy_price')],['Previous processed price',fmt('current_price')],['Invested',fmt('invested')],['Previous processed value',fmt('market_value')],['Previous P&L ₹',fmt('unrealised_profit'),'unrealised_profit'],['Unrealised %',fmt('unrealised_pct',percent),'unrealised_pct'],['Peak unrealised ₹',fmt('max_unrealised_profit')],['Peak unrealised %',fmt('max_unrealised_pct',percent)],['Max DD %',fmt('max_drawdown_pct',percent),'max_drawdown_pct'],['Worst unrealised ₹',fmt('min_unrealised_profit')],['Sessions held',fmt('sessions_elapsed',number)]];
 const CLOSED=[['Symbol',t('symbol')],['Buy processing time (IST)',r=>date(r.buy_time)],['Buy quote time (IST)',r=>date(r.buy_quote_time)],['Buy source',t('buy_quote_source')],['Sell processing time (IST)',r=>date(r.sell_time)],['Sell quote time (IST)',r=>date(r.sell_quote_time)],['Sell source',t('sell_quote_source')],['Qty',fmt('quantity',number)],['Buy',fmt('buy_price')],['Sell',fmt('sell_price')],['Invested',fmt('invested')],['Proceeds',fmt('proceeds')],['Net profit ₹',fmt('realised_profit'),'realised_profit'],['Return %',fmt('return_pct',percent),'return_pct'],['Max DD %',fmt('max_drawdown_pct',percent),'max_drawdown_pct'],['Peak unrealised ₹',fmt('max_unrealised_profit')],['Reason',t('exit_reason')]];
 const EVENTS=[['Time (IST)',r=>date(r.date)],['Symbol',t('symbol')],['Action',t('action')],['Qty',fmt('quantity',number)],['Price',fmt('price')],['Profit',fmt('profit')],['Reason',t('reason')]];
 function render(d){DATA=d;const s=d.summary||{};let chip=document.getElementById('status-chip');chip.textContent=d.status||'unknown';chip.className='chip '+(d.status==='success'?'ok':d.status==='error'?'err':'');document.getElementById('updated').textContent='Last attempt: '+date(d.updated_at)+' | Last successful: '+date(d.last_successful_run);document.getElementById('status-message').textContent=d.message||'Report loaded. Trades are simulated, not live orders.';document.getElementById('status-message').className='status'+(d.status==='error'?' error':'');
 document.getElementById('metrics').innerHTML=[
-metric('Portfolio value',money(s.equity),'Initial '+money(s.initial_cash)),
-metric('Total net P&L',money(s.total_profit),percent(s.return_pct)+' return',color(s.total_profit)),
+metric('Last processed portfolio equity',money(s.equity),'Historical — NOT a live valuation; initial '+money(s.initial_cash)),
+metric('Last processed P&L',money(s.total_profit),percent(s.return_pct)+' from processed session',color(s.total_profit)),
 metric('Available cash',money(s.cash),money(s.invested_cost)+' deployed'),
 metric('Unrealised P&L',money(s.unrealised_profit),s.open_count+' open stocks',color(s.unrealised_profit)),
 metric('Realised profit',money(s.realised_profit),s.closed_count+' completed trades',color(s.realised_profit)),
@@ -72,5 +97,10 @@ table('open-table',positions,OPEN,document.getElementById('search-open').value);
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab,.view').forEach(e=>e.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active')});
 for(let type of ['open','closed'])document.getElementById('search-'+type).oninput=()=>{if(DATA)table(type==='open'?'open-table':'closed-table',DATA[type==='open'?'positions':'closed_trades']||[],type==='open'?OPEN:CLOSED,document.getElementById('search-'+type).value)};
 document.querySelectorAll('[data-csv]').forEach(b=>b.onclick=()=>{if(!DATA)return;const name=b.dataset.csv,rows=DATA[name]||[];if(!rows.length)return;const keys=Object.keys(rows[0]);const csv=[keys.join(','),...rows.map(r=>keys.map(k=>'"'+String(r[k]??'').replace(/"/g,'""')+'"').join(','))].join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download=name+'.csv';a.click();URL.revokeObjectURL(a.href)});
-fetch('./data/report.json?cache='+Date.now()).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(render).catch(e=>{document.getElementById('status-message').textContent='Unable to load stored report: '+e.message;document.getElementById('status-message').className='status error'});
+const loadJSON=(p)=>fetch('./data/'+p+'?cache='+Date.now()).then(r=>{if(!r.ok)throw Error(p+': HTTP '+r.status);return r.json()});
+Promise.allSettled([loadJSON('report.json'),loadJSON('latest_prices.json')]).then(out=>{
+  renderVerifiedPrices(out[1].status==='fulfilled'?out[1].value:null);
+  if(out[0].status==='fulfilled')render(out[0].value);
+  else {document.getElementById('status-message').textContent='Unable to load portfolio ledger: '+out[0].reason;document.getElementById('status-message').className='status error'}
+});
 </script></body></html>

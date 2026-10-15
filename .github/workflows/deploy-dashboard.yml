@@ -41,8 +41,10 @@ jobs:
           test -s docs/index.html
           test -s docs/data/report.json
           test -s docs/data/latest_scan.json
+          test -s docs/data/latest_prices.json
           python -m json.tool docs/data/report.json > /dev/null
           python -m json.tool docs/data/latest_scan.json > /dev/null
+          python -m json.tool docs/data/latest_prices.json > /dev/null
           echo "Dashboard HTML and portfolio data validated"
 
       - name: Configure GitHub Pages
