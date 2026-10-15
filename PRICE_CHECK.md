@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
 **NSE session:** 2026-10-15  
-**Checked at (IST):** 15 Oct 2026 08:38 PM  
+**Checked at (IST):** 15 Oct 2026 08:50 PM  
 **Status:** partial  
 **Verified:** 6/11  
 
@@ -15,7 +15,7 @@ Chartink supplies stock symbols only. Prices below are Angel One daily candle cl
 | RAJVIR | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for RAJVIR |
 | INA | Yes | No | 73.18 | 2026-10-15T00:00:00+05:30 | verified | — |
 | FCONSUMER | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for DIL |
+| DIL | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-15; got 0 |
 | TALBROAUTO | Yes | No | 371.85 | 2026-10-15T00:00:00+05:30 | verified | — |
 | MORARJEE | Yes | Yes | 6.15 | 2026-10-15T00:00:00+05:30 | verified | — |
 | NAGAFERT | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for NAGAFERT |

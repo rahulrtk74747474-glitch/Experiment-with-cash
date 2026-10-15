@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-10-15
-- **Last attempted price check:** 2026-10-15T20:38:48.665973+05:30
+- **Last attempted price check:** 2026-10-15T20:50:47.297574+05:30
 - **Prices independently verified:** 6/11
 - **Prices missing:** 5
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -44,7 +44,7 @@
 | RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
 | INA | Yes | No | ₹73.18 | Verified |
 | FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | No exact NSE equity token found in instrument master for DIL |
+| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-15; got 0 |
 | TALBROAUTO | Yes | No | ₹371.85 | Verified |
 | MORARJEE | Yes | Yes | ₹6.15 | Verified |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
