@@ -1,59 +1,75 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-10-15T04:00:04.295468+05:30",
-  "count": 6,
+  "fetched_at": "2026-10-15T19:55:53.829579+05:30",
+  "count": 8,
   "rows": [
     {
-      "symbol": "BUILDPRO",
-      "name": "Shankara Buildpro Ltd",
-      "close": 234.0,
-      "change_pct": 0.52,
-      "volume": 352367.0
+      "symbol": "CAPLIPOINT",
+      "name": "Caplin Point Laboratories Limited",
+      "close": 2301.8,
+      "change_pct": -1.56,
+      "volume": 132807.0
     },
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 5.21,
       "change_pct": -2.07,
-      "volume": 17.0
+      "volume": 18.0
+    },
+    {
+      "symbol": "INA",
+      "name": "Insolation Energy Ltd",
+      "close": 73.18,
+      "change_pct": -3.9,
+      "volume": 638416.0
     },
     {
       "symbol": "FCONSUMER",
       "name": "Future Consumer Limited",
       "close": 0.22,
       "change_pct": -4.35,
-      "volume": 38649468.0
+      "volume": 40406262.0
     },
     {
       "symbol": "DIL",
       "name": "Debock Industries Ltd",
       "close": 0.65,
       "change_pct": -4.41,
-      "volume": 7521382.0
+      "volume": 7863263.0
+    },
+    {
+      "symbol": "TALBROAUTO",
+      "name": "Talbros Automotive Components Limited",
+      "close": 368.2,
+      "change_pct": -4.64,
+      "volume": 225410.0
+    },
+    {
+      "symbol": "MORARJEE",
+      "name": "Morarjee Textiles Limited",
+      "close": 6.15,
+      "change_pct": -4.95,
+      "volume": 3806.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.53,
       "change_pct": -4.97,
-      "volume": 611136.0
-    },
-    {
-      "symbol": "MORARJEE",
-      "name": "Morarjee Textiles Limited",
-      "close": 6.47,
-      "change_pct": -4.99,
-      "volume": 21354.0
+      "volume": 814848.0
     }
   ],
   "symbols": [
-    "BUILDPRO",
+    "CAPLIPOINT",
     "RAJVIR",
+    "INA",
     "FCONSUMER",
     "DIL",
-    "NAGAFERT",
-    "MORARJEE"
+    "TALBROAUTO",
+    "MORARJEE",
+    "NAGAFERT"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
   "is_verified_live_scan": true
