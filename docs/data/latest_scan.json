@@ -1,73 +1,73 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-10-15T21:14:14.727479+05:30",
+  "fetched_at": "2026-10-16T20:26:07.491672+05:30",
   "count": 8,
   "rows": [
     {
       "symbol": "CAPLIPOINT",
       "name": "Caplin Point Laboratories Limited",
-      "close": 2301.8,
-      "change_pct": -1.56,
-      "volume": 132807.0
+      "close": 2301.3,
+      "change_pct": -0.02,
+      "volume": 64351.0
+    },
+    {
+      "symbol": "INNOVACAP",
+      "name": "Innova Captab Ltd",
+      "close": 1019.8,
+      "change_pct": -0.39,
+      "volume": 56963.0
+    },
+    {
+      "symbol": "XPROINDIA",
+      "name": "Xpro India Limited",
+      "close": 977.5,
+      "change_pct": -0.49,
+      "volume": 90801.0
     },
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 5.21,
       "change_pct": -2.07,
-      "volume": 18.0
-    },
-    {
-      "symbol": "INA",
-      "name": "Insolation Energy Ltd",
-      "close": 73.18,
-      "change_pct": -3.9,
-      "volume": 638416.0
+      "volume": 19.0
     },
     {
       "symbol": "FCONSUMER",
       "name": "Future Consumer Limited",
       "close": 0.22,
       "change_pct": -4.35,
-      "volume": 40406262.0
+      "volume": 42163056.0
     },
     {
       "symbol": "DIL",
       "name": "Debock Industries Ltd",
       "close": 0.65,
       "change_pct": -4.41,
-      "volume": 7863263.0
-    },
-    {
-      "symbol": "TALBROAUTO",
-      "name": "Talbros Automotive Components Limited",
-      "close": 368.2,
-      "change_pct": -4.64,
-      "volume": 225410.0
+      "volume": 8205144.0
     },
     {
       "symbol": "MORARJEE",
       "name": "Morarjee Textiles Limited",
-      "close": 6.15,
-      "change_pct": -4.95,
-      "volume": 3806.0
+      "close": 5.85,
+      "change_pct": -4.88,
+      "volume": 1600.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.53,
       "change_pct": -4.97,
-      "volume": 814848.0
+      "volume": 1018560.0
     }
   ],
   "symbols": [
     "CAPLIPOINT",
+    "INNOVACAP",
+    "XPROINDIA",
     "RAJVIR",
-    "INA",
     "FCONSUMER",
     "DIL",
-    "TALBROAUTO",
     "MORARJEE",
     "NAGAFERT"
   ],

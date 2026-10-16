@@ -1,7 +1,7 @@
 {
   "status": "partial",
-  "session_date": "2026-10-15",
-  "checked_at": "2026-10-15T21:14:14.727479+05:30",
+  "session_date": "2026-10-16",
+  "checked_at": "2026-10-16T20:26:07.491672+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
     "total": 11,
@@ -15,9 +15,29 @@
       "scanner_match": true,
       "held_position": false,
       "status": "verified",
-      "daily_close": 2301.8,
+      "daily_close": 2301.3,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-15T00:00:00+05:30",
+      "candle_timestamp": "2026-10-16T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "INNOVACAP",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 1013.0,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-16T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "XPROINDIA",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 975.1,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-16T00:00:00+05:30",
       "error": null
     },
     {
@@ -29,16 +49,6 @@
       "source": null,
       "candle_timestamp": null,
       "error": "No exact NSE equity token found in instrument master for RAJVIR"
-    },
-    {
-      "symbol": "INA",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "verified",
-      "daily_close": 73.18,
-      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-15T00:00:00+05:30",
-      "error": null
     },
     {
       "symbol": "FCONSUMER",
@@ -58,26 +68,16 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-15; got 0"
-    },
-    {
-      "symbol": "TALBROAUTO",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "verified",
-      "daily_close": 371.85,
-      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-15T00:00:00+05:30",
-      "error": null
+      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-16; got 0"
     },
     {
       "symbol": "MORARJEE",
       "scanner_match": true,
       "held_position": true,
       "status": "verified",
-      "daily_close": 6.15,
+      "daily_close": 5.85,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-15T00:00:00+05:30",
+      "candle_timestamp": "2026-10-16T00:00:00+05:30",
       "error": null
     },
     {
@@ -95,9 +95,9 @@
       "scanner_match": false,
       "held_position": true,
       "status": "verified",
-      "daily_close": 166.25,
+      "daily_close": 171.9,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-15T00:00:00+05:30",
+      "candle_timestamp": "2026-10-16T00:00:00+05:30",
       "error": null
     },
     {
@@ -108,16 +108,16 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-15; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-16; got 0"
     },
     {
       "symbol": "GENSOL",
       "scanner_match": false,
       "held_position": true,
       "status": "verified",
-      "daily_close": 9.95,
+      "daily_close": 10.44,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-15T00:00:00+05:30",
+      "candle_timestamp": "2026-10-16T00:00:00+05:30",
       "error": null
     }
   ]
