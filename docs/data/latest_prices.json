@@ -1,23 +1,43 @@
 {
   "status": "partial",
-  "session_date": "2026-10-16",
-  "checked_at": "2026-10-16T21:02:35.613040+05:30",
+  "session_date": "2026-10-19",
+  "checked_at": "2026-10-19T22:32:36.700230+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
-    "total": 11,
-    "verified": 6,
-    "missing": 5
+    "total": 16,
+    "verified": 13,
+    "missing": 3
   },
   "note": "Daily close is a bar value, not an executable price at the candle timestamp.",
   "rows": [
     {
-      "symbol": "CAPLIPOINT",
+      "symbol": "RAJVIR",
+      "scanner_match": true,
+      "held_position": true,
+      "status": "verified",
+      "daily_close": 5.2,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "ROHLTD",
       "scanner_match": true,
       "held_position": false,
       "status": "verified",
-      "daily_close": 2301.3,
+      "daily_close": 274.05,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-16T00:00:00+05:30",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "BLUECHIP",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 1.77,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
       "error": null
     },
     {
@@ -25,30 +45,50 @@
       "scanner_match": true,
       "held_position": false,
       "status": "verified",
-      "daily_close": 1013.0,
+      "daily_close": 1001.7,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-16T00:00:00+05:30",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
       "error": null
     },
     {
-      "symbol": "XPROINDIA",
+      "symbol": "CAPLIPOINT",
       "scanner_match": true,
       "held_position": false,
       "status": "verified",
-      "daily_close": 975.1,
+      "daily_close": 2258.8,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-16T00:00:00+05:30",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
       "error": null
     },
     {
-      "symbol": "RAJVIR",
+      "symbol": "EXIDEIND",
       "scanner_match": true,
-      "held_position": true,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "No exact NSE equity token found in instrument master for RAJVIR"
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 360.15,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "GOCOLORS",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 265.4,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "TALBROAUTO",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 353.1,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "FCONSUMER",
@@ -68,36 +108,46 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-16; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-19; got 0"
+    },
+    {
+      "symbol": "NAGAFERT",
+      "scanner_match": true,
+      "held_position": true,
+      "status": "verified",
+      "daily_close": 1.46,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "LASA",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 4.91,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "MORARJEE",
       "scanner_match": true,
       "held_position": true,
       "status": "verified",
-      "daily_close": 5.85,
+      "daily_close": 5.56,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-16T00:00:00+05:30",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
       "error": null
-    },
-    {
-      "symbol": "NAGAFERT",
-      "scanner_match": true,
-      "held_position": true,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "No exact NSE equity token found in instrument master for NAGAFERT"
     },
     {
       "symbol": "V2RETAIL",
       "scanner_match": false,
       "held_position": true,
       "status": "verified",
-      "daily_close": 171.9,
+      "daily_close": 174.8,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-16T00:00:00+05:30",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
       "error": null
     },
     {
@@ -108,16 +158,16 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-16; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-19; got 0"
     },
     {
       "symbol": "GENSOL",
       "scanner_match": false,
       "held_position": true,
       "status": "verified",
-      "daily_close": 10.44,
+      "daily_close": 10.93,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-10-16T00:00:00+05:30",
+      "candle_timestamp": "2026-10-19T00:00:00+05:30",
       "error": null
     }
   ]

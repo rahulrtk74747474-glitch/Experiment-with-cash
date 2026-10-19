@@ -1,75 +1,115 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-10-16T21:02:35.613040+05:30",
-  "count": 8,
+  "fetched_at": "2026-10-19T22:32:36.700230+05:30",
+  "count": 13,
   "rows": [
     {
-      "symbol": "CAPLIPOINT",
-      "name": "Caplin Point Laboratories Limited",
-      "close": 2301.3,
-      "change_pct": -0.02,
-      "volume": 64351.0
+      "symbol": "RAJVIR",
+      "name": "Rajvir Industries Limited",
+      "close": 5.2,
+      "change_pct": -0.19,
+      "volume": 22.0
+    },
+    {
+      "symbol": "ROHLTD",
+      "name": "Royal Orchid Hotels Limited",
+      "close": 274.05,
+      "change_pct": -1.31,
+      "volume": 25905.0
+    },
+    {
+      "symbol": "BLUECHIP",
+      "name": "Blue Chip India Limited",
+      "close": 1.77,
+      "change_pct": -1.67,
+      "volume": 7.0
     },
     {
       "symbol": "INNOVACAP",
       "name": "Innova Captab Ltd",
-      "close": 1019.8,
-      "change_pct": -0.39,
-      "volume": 56963.0
+      "close": 1001.7,
+      "change_pct": -1.77,
+      "volume": 39267.0
     },
     {
-      "symbol": "XPROINDIA",
-      "name": "Xpro India Limited",
-      "close": 977.5,
-      "change_pct": -0.49,
-      "volume": 90801.0
+      "symbol": "CAPLIPOINT",
+      "name": "Caplin Point Laboratories Limited",
+      "close": 2258.8,
+      "change_pct": -1.85,
+      "volume": 70397.0
     },
     {
-      "symbol": "RAJVIR",
-      "name": "Rajvir Industries Limited",
-      "close": 5.21,
-      "change_pct": -2.07,
-      "volume": 19.0
+      "symbol": "EXIDEIND",
+      "name": "Exide Industries Limited",
+      "close": 360.15,
+      "change_pct": -2.91,
+      "volume": 1599353.0
+    },
+    {
+      "symbol": "GOCOLORS",
+      "name": "Go Fashion (India) Ltd",
+      "close": 265.4,
+      "change_pct": -3.95,
+      "volume": 89177.0
+    },
+    {
+      "symbol": "TALBROAUTO",
+      "name": "Talbros Automotive Components Limited",
+      "close": 353.1,
+      "change_pct": -4.23,
+      "volume": 138791.0
     },
     {
       "symbol": "FCONSUMER",
       "name": "Future Consumer Limited",
       "close": 0.22,
       "change_pct": -4.35,
-      "volume": 42163056.0
+      "volume": 43919850.0
     },
     {
       "symbol": "DIL",
       "name": "Debock Industries Ltd",
       "close": 0.65,
       "change_pct": -4.41,
-      "volume": 8205144.0
-    },
-    {
-      "symbol": "MORARJEE",
-      "name": "Morarjee Textiles Limited",
-      "close": 5.85,
-      "change_pct": -4.88,
-      "volume": 1600.0
+      "volume": 8547025.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
-      "close": 1.53,
-      "change_pct": -4.97,
-      "volume": 1018560.0
+      "close": 1.46,
+      "change_pct": -4.58,
+      "volume": 453033.0
+    },
+    {
+      "symbol": "LASA",
+      "name": "Lasa Supergenerics Ltd",
+      "close": 4.91,
+      "change_pct": -4.85,
+      "volume": 37588.0
+    },
+    {
+      "symbol": "MORARJEE",
+      "name": "Morarjee Textiles Limited",
+      "close": 5.56,
+      "change_pct": -4.96,
+      "volume": 16046.0
     }
   ],
   "symbols": [
-    "CAPLIPOINT",
-    "INNOVACAP",
-    "XPROINDIA",
     "RAJVIR",
+    "ROHLTD",
+    "BLUECHIP",
+    "INNOVACAP",
+    "CAPLIPOINT",
+    "EXIDEIND",
+    "GOCOLORS",
+    "TALBROAUTO",
     "FCONSUMER",
     "DIL",
-    "MORARJEE",
-    "NAGAFERT"
+    "NAGAFERT",
+    "LASA",
+    "MORARJEE"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
   "is_verified_live_scan": true
