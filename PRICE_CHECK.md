@@ -2,28 +2,28 @@
 
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
-**NSE session:** 2026-10-19  
-**Checked at (IST):** 19 Oct 2026 11:16 PM  
-**Status:** partial  
-**Verified:** 13/16  
+**NSE session:** 2026-10-20  
+**Checked at (IST):** 20 Oct 2026 08:43 PM  
+**Status:** error  
+**Verified:** 0/16  
 
 Chartink supplies stock symbols only. Prices below are Angel One daily candle closes, not an assumption that an order executed at that exact price.
 
 | Symbol | Scanner? | Held? | Angel daily close ₹ | Candle date/time | Status | Error |
 | --- | :---: | :---: | ---: | --- | --- | --- |
-| RAJVIR | Yes | Yes | 5.2 | 2026-10-19T00:00:00+05:30 | verified | — |
-| ROHLTD | Yes | No | 274.05 | 2026-10-19T00:00:00+05:30 | verified | — |
-| BLUECHIP | Yes | No | 1.77 | 2026-10-19T00:00:00+05:30 | verified | — |
-| INNOVACAP | Yes | No | 1001.7 | 2026-10-19T00:00:00+05:30 | verified | — |
-| CAPLIPOINT | Yes | No | 2258.8 | 2026-10-19T00:00:00+05:30 | verified | — |
-| EXIDEIND | Yes | No | 360.15 | 2026-10-19T00:00:00+05:30 | verified | — |
-| GOCOLORS | Yes | No | 265.4 | 2026-10-19T00:00:00+05:30 | verified | — |
-| TALBROAUTO | Yes | No | 353.1 | 2026-10-19T00:00:00+05:30 | verified | — |
+| RAJVIR | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for RAJVIR |
+| ROHLTD | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for ROHLTD on 2026-10-20; got 0 |
+| BLUECHIP | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for BLUECHIP on 2026-10-20; got 0 |
+| INNOVACAP | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for INNOVACAP on 2026-10-20; got 0 |
+| CAPLIPOINT | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for CAPLIPOINT on 2026-10-20; got 0 |
+| EXIDEIND | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for EXIDEIND on 2026-10-20; got 0 |
+| GOCOLORS | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for GOCOLORS on 2026-10-20; got 0 |
+| TALBROAUTO | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for TALBROAUTO on 2026-10-20; got 0 |
 | FCONSUMER | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-19; got 0 |
-| NAGAFERT | Yes | Yes | 1.46 | 2026-10-19T00:00:00+05:30 | verified | — |
-| LASA | Yes | No | 4.91 | 2026-10-19T00:00:00+05:30 | verified | — |
-| MORARJEE | Yes | Yes | 5.56 | 2026-10-19T00:00:00+05:30 | verified | — |
-| V2RETAIL | No | Yes | 174.8 | 2026-10-19T00:00:00+05:30 | verified | — |
-| SETUINFRA | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-19; got 0 |
-| GENSOL | No | Yes | 10.93 | 2026-10-19T00:00:00+05:30 | verified | — |
+| DIL | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for DIL |
+| NAGAFERT | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for NAGAFERT |
+| LASA | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-20; got 0 |
+| MORARJEE | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for MORARJEE on 2026-10-20; got 0 |
+| V2RETAIL | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for V2RETAIL on 2026-10-20; got 0 |
+| SETUINFRA | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-20; got 0 |
+| GENSOL | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for GENSOL on 2026-10-20; got 0 |

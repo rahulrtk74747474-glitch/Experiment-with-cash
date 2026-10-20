@@ -5,9 +5,9 @@
 > **PAPER TRADES ONLY — NOT LIVE ORDERS**
 
 **System status:** outside_market_window  
-**Last attempt (IST):** 19 Oct 2026 11:16 PM  
+**Last attempt (IST):** 20 Oct 2026 08:43 PM  
 **Last successful run (IST):** 14 Oct 2026 02:00 AM  
-**Note:** Read-only Angel ONE_DAY price check: 13/16 successful for 2026-10-19; paper trades not processed outside 15:45–18:00 IST.
+**Note:** Read-only Angel ONE_DAY price check: 0/16 successful for 2026-10-20; paper trades not processed outside 15:45–18:00 IST.
 
 **Demo capital:** ₹100,000.00 • **Cash available:** ₹60,014.37 • **Portfolio value:** ₹100,000.00 • **Total P&L:** ₹0.00 (+0.00%)  
 **Realised P&L:** ₹0.00 • **Unrealised P&L:** ₹0.00 • **Portfolio max drawdown:** +0.00%

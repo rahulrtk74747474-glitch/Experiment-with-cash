@@ -4,10 +4,10 @@
 
 ## Price-update status
 
-- **Angel One observed NSE session:** 2026-10-19
-- **Last attempted price check:** 2026-10-19T23:16:42.985346+05:30
-- **Prices independently verified:** 13/16
-- **Prices missing:** 3
+- **Angel One observed NSE session:** 2026-10-20
+- **Last attempted price check:** 2026-10-20T20:43:02.964448+05:30
+- **Prices independently verified:** 0/16
+- **Prices missing:** 16
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
 - **Trade-processing status:** outside_market_window
 
@@ -19,12 +19,12 @@
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | DIL | 7692 | ₹0.65 | — | — | — | **Price unavailable — previous quote stale** |
 | FCONSUMER | 22727 | ₹0.22 | — | — | — | **Price unavailable — previous quote stale** |
-| GENSOL | 516 | ₹9.68 | ₹10.93 | 2026-10-19 | ₹645.00 | Verified |
-| MORARJEE | 734 | ₹6.81 | ₹5.56 | 2026-10-19 | ₹-917.50 | Verified |
-| NAGAFERT | 3267 | ₹1.53 | ₹1.46 | 2026-10-19 | ₹-228.69 | Verified |
-| RAJVIR | 959 | ₹5.21 | ₹5.20 | 2026-10-19 | ₹-9.59 | Verified |
+| GENSOL | 516 | ₹9.68 | — | — | — | **Price unavailable — previous quote stale** |
+| MORARJEE | 734 | ₹6.81 | — | — | — | **Price unavailable — previous quote stale** |
+| NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
+| RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
 | SETUINFRA | 11363 | ₹0.44 | — | — | — | **Price unavailable — previous quote stale** |
-| V2RETAIL | 33 | ₹151.45 | ₹174.80 | 2026-10-19 | ₹770.55 | Verified |
+| V2RETAIL | 33 | ₹151.45 | — | — | — | **Price unavailable — previous quote stale** |
 
 ## Previous fully processed ledger (historical)
 
@@ -40,22 +40,22 @@
 
 | Symbol | Scanner | Existing holding | Angel close ₹ | Status / reason |
 | --- | :---: | :---: | ---: | --- |
-| RAJVIR | Yes | Yes | ₹5.20 | Verified |
-| ROHLTD | Yes | No | ₹274.05 | Verified |
-| BLUECHIP | Yes | No | ₹1.77 | Verified |
-| INNOVACAP | Yes | No | ₹1,001.70 | Verified |
-| CAPLIPOINT | Yes | No | ₹2,258.80 | Verified |
-| EXIDEIND | Yes | No | ₹360.15 | Verified |
-| GOCOLORS | Yes | No | ₹265.40 | Verified |
-| TALBROAUTO | Yes | No | ₹353.10 | Verified |
+| RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
+| ROHLTD | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for ROHLTD on 2026-10-20; got 0 |
+| BLUECHIP | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for BLUECHIP on 2026-10-20; got 0 |
+| INNOVACAP | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for INNOVACAP on 2026-10-20; got 0 |
+| CAPLIPOINT | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for CAPLIPOINT on 2026-10-20; got 0 |
+| EXIDEIND | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for EXIDEIND on 2026-10-20; got 0 |
+| GOCOLORS | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for GOCOLORS on 2026-10-20; got 0 |
+| TALBROAUTO | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for TALBROAUTO on 2026-10-20; got 0 |
 | FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-19; got 0 |
-| NAGAFERT | Yes | Yes | ₹1.46 | Verified |
-| LASA | Yes | No | ₹4.91 | Verified |
-| MORARJEE | Yes | Yes | ₹5.56 | Verified |
-| V2RETAIL | No | Yes | ₹174.80 | Verified |
-| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-19; got 0 |
-| GENSOL | No | Yes | ₹10.93 | Verified |
+| DIL | Yes | Yes | — | No exact NSE equity token found in instrument master for DIL |
+| NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
+| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-20; got 0 |
+| MORARJEE | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for MORARJEE on 2026-10-20; got 0 |
+| V2RETAIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for V2RETAIL on 2026-10-20; got 0 |
+| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-20; got 0 |
+| GENSOL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for GENSOL on 2026-10-20; got 0 |
 
 ---
 [Verified price audit](PRICE_CHECK.md) · [Latest scanner](SCANNER_SYMBOLS.md) · [Trade history](TRADE_HISTORY.md) · [GitHub Actions](../../actions) · [Graphical dashboard setup](README.md)
