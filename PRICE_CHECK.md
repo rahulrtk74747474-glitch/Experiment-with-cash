@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
 **NSE session:** 2026-10-20  
-**Checked at (IST):** 20 Oct 2026 08:43 PM  
+**Checked at (IST):** 20 Oct 2026 08:53 PM  
 **Status:** error  
 **Verified:** 0/16  
 
@@ -20,7 +20,7 @@ Chartink supplies stock symbols only. Prices below are Angel One daily candle cl
 | GOCOLORS | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for GOCOLORS on 2026-10-20; got 0 |
 | TALBROAUTO | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for TALBROAUTO on 2026-10-20; got 0 |
 | FCONSUMER | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for DIL |
+| DIL | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-20; got 0 |
 | NAGAFERT | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for NAGAFERT |
 | LASA | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-20; got 0 |
 | MORARJEE | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for MORARJEE on 2026-10-20; got 0 |

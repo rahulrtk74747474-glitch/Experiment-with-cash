@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-10-20
-- **Last attempted price check:** 2026-10-20T20:43:02.964448+05:30
+- **Last attempted price check:** 2026-10-20T20:53:05.181497+05:30
 - **Prices independently verified:** 0/16
 - **Prices missing:** 16
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -49,7 +49,7 @@
 | GOCOLORS | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for GOCOLORS on 2026-10-20; got 0 |
 | TALBROAUTO | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for TALBROAUTO on 2026-10-20; got 0 |
 | FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | No exact NSE equity token found in instrument master for DIL |
+| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-20; got 0 |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
 | LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-20; got 0 |
 | MORARJEE | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for MORARJEE on 2026-10-20; got 0 |

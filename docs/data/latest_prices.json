@@ -1,7 +1,7 @@
 {
   "status": "error",
   "session_date": "2026-10-20",
-  "checked_at": "2026-10-20T20:43:02.964448+05:30",
+  "checked_at": "2026-10-20T20:53:05.181497+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
     "total": 16,
@@ -108,7 +108,7 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "No exact NSE equity token found in instrument master for DIL"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-20; got 0"
     },
     {
       "symbol": "NAGAFERT",
