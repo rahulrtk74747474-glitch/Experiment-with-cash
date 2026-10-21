@@ -1,7 +1,7 @@
 {
   "status": "partial",
   "session_date": "2026-10-21",
-  "checked_at": "2026-10-21T21:26:36.314015+05:30",
+  "checked_at": "2026-10-21T21:35:53.392277+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
     "total": 23,
@@ -178,7 +178,7 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-21; got 0"
+      "error": "No exact NSE equity token found in instrument master for LASA"
     },
     {
       "symbol": "MORARJEE",
