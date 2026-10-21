@@ -1,9 +1,9 @@
 {
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "updated_at": "2026-10-20T21:20:43.299660+05:30",
+  "updated_at": "2026-10-21T20:53:51.032127+05:30",
   "last_successful_run": "2026-10-14T02:00:59.959625+05:30",
   "status": "outside_market_window",
-  "message": "Read-only Angel ONE_DAY price check: 0/16 successful for 2026-10-20; paper trades not processed outside 15:45–18:00 IST.",
+  "message": "Read-only Angel ONE_DAY price check: 17/23 successful for 2026-10-21; paper trades not processed outside 15:45–18:00 IST.",
   "sessions": 1,
   "summary": {
     "initial_cash": 100000,

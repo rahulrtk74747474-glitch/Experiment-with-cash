@@ -1,12 +1,12 @@
 {
-  "status": "error",
-  "session_date": "2026-10-20",
-  "checked_at": "2026-10-20T21:20:43.299660+05:30",
+  "status": "partial",
+  "session_date": "2026-10-21",
+  "checked_at": "2026-10-21T20:53:51.032127+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
-    "total": 16,
-    "verified": 0,
-    "missing": 16
+    "total": 23,
+    "verified": 17,
+    "missing": 6
   },
   "note": "Daily close is a bar value, not an executable price at the candle timestamp.",
   "rows": [
@@ -21,74 +21,114 @@
       "error": "No exact NSE equity token found in instrument master for RAJVIR"
     },
     {
-      "symbol": "ROHLTD",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for ROHLTD on 2026-10-20; got 0"
-    },
-    {
-      "symbol": "BLUECHIP",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for BLUECHIP on 2026-10-20; got 0"
-    },
-    {
-      "symbol": "INNOVACAP",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for INNOVACAP on 2026-10-20; got 0"
-    },
-    {
-      "symbol": "CAPLIPOINT",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for CAPLIPOINT on 2026-10-20; got 0"
-    },
-    {
       "symbol": "EXIDEIND",
       "scanner_match": true,
       "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for EXIDEIND on 2026-10-20; got 0"
+      "status": "verified",
+      "daily_close": 358.2,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "GOCOLORS",
       "scanner_match": true,
       "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for GOCOLORS on 2026-10-20; got 0"
+      "status": "verified",
+      "daily_close": 266.9,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "ENTERO",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 1507.0,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "CAPLIPOINT",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 2221.6,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "BLUECHIP",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 1.74,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "STYL",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 307.0,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "GREENPANEL",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 137.43,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "INNOVACAP",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 980.2,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "BANSALWIRE",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 61.15,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "TALBROAUTO",
       "scanner_match": true,
       "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for TALBROAUTO on 2026-10-20; got 0"
+      "status": "verified",
+      "daily_close": 343.95,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "MANINFRA",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 106.75,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "FCONSUMER",
@@ -108,7 +148,17 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-20; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-21; got 0"
+    },
+    {
+      "symbol": "SRGHFL",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 106.0,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "NAGAFERT",
@@ -128,27 +178,47 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-20; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-21; got 0"
     },
     {
       "symbol": "MORARJEE",
       "scanner_match": true,
       "held_position": true,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for MORARJEE on 2026-10-20; got 0"
+      "status": "verified",
+      "daily_close": 5.29,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "INA",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 67.02,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "ALPINETEX",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 38.2,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "V2RETAIL",
       "scanner_match": false,
       "held_position": true,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for V2RETAIL on 2026-10-20; got 0"
+      "status": "verified",
+      "daily_close": 167.64,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "SETUINFRA",
@@ -158,17 +228,17 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-20; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-21; got 0"
     },
     {
       "symbol": "GENSOL",
       "scanner_match": false,
       "held_position": true,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for GENSOL on 2026-10-20; got 0"
+      "status": "verified",
+      "daily_close": 11.3,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-10-21T00:00:00+05:30",
+      "error": null
     }
   ]
 }

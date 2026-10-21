@@ -1,115 +1,171 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-10-20T21:20:43.299660+05:30",
-  "count": 13,
+  "fetched_at": "2026-10-21T20:53:51.032127+05:30",
+  "count": 20,
   "rows": [
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 5.2,
       "change_pct": -0.19,
-      "volume": 22.0
-    },
-    {
-      "symbol": "ROHLTD",
-      "name": "Royal Orchid Hotels Limited",
-      "close": 274.05,
-      "change_pct": -1.31,
-      "volume": 25905.0
-    },
-    {
-      "symbol": "BLUECHIP",
-      "name": "Blue Chip India Limited",
-      "close": 1.77,
-      "change_pct": -1.67,
-      "volume": 7.0
-    },
-    {
-      "symbol": "INNOVACAP",
-      "name": "Innova Captab Ltd",
-      "close": 1001.7,
-      "change_pct": -1.77,
-      "volume": 39267.0
-    },
-    {
-      "symbol": "CAPLIPOINT",
-      "name": "Caplin Point Laboratories Limited",
-      "close": 2258.8,
-      "change_pct": -1.85,
-      "volume": 70397.0
+      "volume": 44.0
     },
     {
       "symbol": "EXIDEIND",
       "name": "Exide Industries Limited",
-      "close": 360.15,
-      "change_pct": -2.91,
-      "volume": 1599353.0
+      "close": 358.2,
+      "change_pct": -0.54,
+      "volume": 1758892.0
     },
     {
       "symbol": "GOCOLORS",
       "name": "Go Fashion (India) Ltd",
-      "close": 265.4,
-      "change_pct": -3.95,
-      "volume": 89177.0
+      "close": 263.4,
+      "change_pct": -0.75,
+      "volume": 102065.0
+    },
+    {
+      "symbol": "ENTERO",
+      "name": "Entero Healthcare Solutions Ltd",
+      "close": 1485.3,
+      "change_pct": -1.24,
+      "volume": 109497.0
+    },
+    {
+      "symbol": "CAPLIPOINT",
+      "name": "Caplin Point Laboratories Limited",
+      "close": 2221.6,
+      "change_pct": -1.65,
+      "volume": 81831.0
+    },
+    {
+      "symbol": "BLUECHIP",
+      "name": "Blue Chip India Limited",
+      "close": 1.74,
+      "change_pct": -1.69,
+      "volume": 110.0
+    },
+    {
+      "symbol": "STYL",
+      "name": "Seshaasai Technologies Ltd",
+      "close": 307.0,
+      "change_pct": -2.06,
+      "volume": 90227.0
+    },
+    {
+      "symbol": "GREENPANEL",
+      "name": "Greenpanel Industries Ltd",
+      "close": 137.43,
+      "change_pct": -2.06,
+      "volume": 261190.0
+    },
+    {
+      "symbol": "INNOVACAP",
+      "name": "Innova Captab Ltd",
+      "close": 980.2,
+      "change_pct": -2.15,
+      "volume": 74208.0
+    },
+    {
+      "symbol": "BANSALWIRE",
+      "name": "Bansal Wire Industries Ltd",
+      "close": 61.15,
+      "change_pct": -2.47,
+      "volume": 3664981.0
     },
     {
       "symbol": "TALBROAUTO",
       "name": "Talbros Automotive Components Limited",
-      "close": 353.1,
-      "change_pct": -4.23,
-      "volume": 138791.0
+      "close": 343.95,
+      "change_pct": -2.59,
+      "volume": 167035.0
+    },
+    {
+      "symbol": "MANINFRA",
+      "name": "Man Infraconstruction Limited",
+      "close": 107.43,
+      "change_pct": -4.04,
+      "volume": 642050.0
     },
     {
       "symbol": "FCONSUMER",
       "name": "Future Consumer Limited",
       "close": 0.22,
       "change_pct": -4.35,
-      "volume": 43919850.0
+      "volume": 45676644.0
     },
     {
       "symbol": "DIL",
       "name": "Debock Industries Ltd",
       "close": 0.65,
       "change_pct": -4.41,
-      "volume": 8547025.0
+      "volume": 8888906.0
+    },
+    {
+      "symbol": "SRGHFL",
+      "name": "SRG Housing Finance Ltd",
+      "close": 105.97,
+      "change_pct": -4.54,
+      "volume": 5968.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.46,
       "change_pct": -4.58,
-      "volume": 453033.0
+      "volume": 906066.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 4.91,
       "change_pct": -4.85,
-      "volume": 37588.0
+      "volume": 75176.0
     },
     {
       "symbol": "MORARJEE",
       "name": "Morarjee Textiles Limited",
-      "close": 5.56,
+      "close": 5.29,
+      "change_pct": -4.86,
+      "volume": 8600.0
+    },
+    {
+      "symbol": "INA",
+      "name": "Insolation Energy Ltd",
+      "close": 67.02,
       "change_pct": -4.96,
-      "volume": 16046.0
+      "volume": 1381386.0
+    },
+    {
+      "symbol": "ALPINETEX",
+      "name": "Alpine Texworld Ltd",
+      "close": 38.07,
+      "change_pct": -5.7,
+      "volume": 110840.0
     }
   ],
   "symbols": [
     "RAJVIR",
-    "ROHLTD",
-    "BLUECHIP",
-    "INNOVACAP",
-    "CAPLIPOINT",
     "EXIDEIND",
     "GOCOLORS",
+    "ENTERO",
+    "CAPLIPOINT",
+    "BLUECHIP",
+    "STYL",
+    "GREENPANEL",
+    "INNOVACAP",
+    "BANSALWIRE",
     "TALBROAUTO",
+    "MANINFRA",
     "FCONSUMER",
     "DIL",
+    "SRGHFL",
     "NAGAFERT",
     "LASA",
-    "MORARJEE"
+    "MORARJEE",
+    "INA",
+    "ALPINETEX"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
   "is_verified_live_scan": true
