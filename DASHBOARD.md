@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-10-21
-- **Last attempted price check:** 2026-10-21T20:53:51.032127+05:30
+- **Last attempted price check:** 2026-10-21T21:07:34.362012+05:30
 - **Prices independently verified:** 17/23
 - **Prices missing:** 6
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -56,7 +56,7 @@
 | DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-21; got 0 |
 | SRGHFL | Yes | No | ₹106.00 | Verified |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
-| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-21; got 0 |
+| LASA | Yes | No | — | No exact NSE equity token found in instrument master for LASA |
 | MORARJEE | Yes | Yes | ₹5.29 | Verified |
 | INA | Yes | No | ₹67.02 | Verified |
 | ALPINETEX | Yes | No | ₹38.20 | Verified |

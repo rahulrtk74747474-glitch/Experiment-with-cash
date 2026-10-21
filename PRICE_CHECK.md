@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
 **NSE session:** 2026-10-21  
-**Checked at (IST):** 21 Oct 2026 08:53 PM  
+**Checked at (IST):** 21 Oct 2026 09:07 PM  
 **Status:** partial  
 **Verified:** 17/23  
 
@@ -27,7 +27,7 @@ Chartink supplies stock symbols only. Prices below are Angel One daily candle cl
 | DIL | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-21; got 0 |
 | SRGHFL | Yes | No | 106.0 | 2026-10-21T00:00:00+05:30 | verified | — |
 | NAGAFERT | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for NAGAFERT |
-| LASA | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-21; got 0 |
+| LASA | Yes | No | — | — | missing | No exact NSE equity token found in instrument master for LASA |
 | MORARJEE | Yes | Yes | 5.29 | 2026-10-21T00:00:00+05:30 | verified | — |
 | INA | Yes | No | 67.02 | 2026-10-21T00:00:00+05:30 | verified | — |
 | ALPINETEX | Yes | No | 38.2 | 2026-10-21T00:00:00+05:30 | verified | — |
