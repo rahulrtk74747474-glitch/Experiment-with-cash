@@ -4,10 +4,10 @@
 
 ## Price-update status
 
-- **Angel One observed NSE session:** 2026-10-21
-- **Last attempted price check:** 2026-10-21T21:35:53.392277+05:30
-- **Prices independently verified:** 17/23
-- **Prices missing:** 6
+- **Angel One observed NSE session:** 2026-10-22
+- **Last attempted price check:** 2026-10-22T21:03:06.751970+05:30
+- **Prices independently verified:** 16/24
+- **Prices missing:** 8
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
 - **Trade-processing status:** outside_market_window
 
@@ -19,12 +19,12 @@
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | DIL | 7692 | ₹0.65 | — | — | — | **Price unavailable — previous quote stale** |
 | FCONSUMER | 22727 | ₹0.22 | — | — | — | **Price unavailable — previous quote stale** |
-| GENSOL | 516 | ₹9.68 | ₹11.30 | 2026-10-21 | ₹835.92 | Verified |
-| MORARJEE | 734 | ₹6.81 | ₹5.29 | 2026-10-21 | ₹-1,115.68 | Verified |
+| GENSOL | 516 | ₹9.68 | ₹11.20 | 2026-10-22 | ₹784.32 | Verified |
+| MORARJEE | 734 | ₹6.81 | ₹5.03 | 2026-10-22 | ₹-1,306.52 | Verified |
 | NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
 | SETUINFRA | 11363 | ₹0.44 | — | — | — | **Price unavailable — previous quote stale** |
-| V2RETAIL | 33 | ₹151.45 | ₹167.64 | 2026-10-21 | ₹534.27 | Verified |
+| V2RETAIL | 33 | ₹151.45 | ₹170.14 | 2026-10-22 | ₹616.77 | Verified |
 
 ## Previous fully processed ledger (historical)
 
@@ -40,29 +40,30 @@
 
 | Symbol | Scanner | Existing holding | Angel close ₹ | Status / reason |
 | --- | :---: | :---: | ---: | --- |
+| ICICIAMC | Yes | No | ₹2,721.20 | Verified |
 | RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
-| EXIDEIND | Yes | No | ₹358.20 | Verified |
-| GOCOLORS | Yes | No | ₹266.90 | Verified |
-| ENTERO | Yes | No | ₹1,507.00 | Verified |
-| CAPLIPOINT | Yes | No | ₹2,221.60 | Verified |
-| BLUECHIP | Yes | No | ₹1.74 | Verified |
-| STYL | Yes | No | ₹307.00 | Verified |
-| GREENPANEL | Yes | No | ₹137.43 | Verified |
-| INNOVACAP | Yes | No | ₹980.20 | Verified |
-| BANSALWIRE | Yes | No | ₹61.15 | Verified |
-| TALBROAUTO | Yes | No | ₹343.95 | Verified |
-| MANINFRA | Yes | No | ₹106.75 | Verified |
-| FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-21; got 0 |
-| SRGHFL | Yes | No | ₹106.00 | Verified |
+| NIFTYMIDSMLHLTH | Yes | No | — | No exact NSE equity token found in instrument master for NIFTYMIDSMLHLTH |
+| WELINV | Yes | No | ₹1,652.00 | Verified |
+| INA | Yes | No | ₹66.75 | Verified |
+| GREENPANEL | Yes | No | ₹135.02 | Verified |
+| BLUECHIP | Yes | No | ₹1.71 | Verified |
+| MANINFRA | Yes | No | ₹105.44 | Verified |
+| CFEL | Yes | No | ₹37.62 | Verified |
+| ALPINETEX | Yes | No | ₹37.50 | Verified |
+| KALYANIFRG | Yes | No | ₹730.00 | Verified |
+| SETUINFRA | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-22; got 0 |
+| MEDANTA | Yes | No | ₹1,198.20 | Verified |
+| SANGHVIMOV | Yes | No | ₹325.40 | Verified |
+| EXIDEIND | Yes | No | ₹343.80 | Verified |
+| SRGHFL | Yes | No | ₹104.00 | Verified |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
-| LASA | Yes | No | — | No exact NSE equity token found in instrument master for LASA |
-| MORARJEE | Yes | Yes | ₹5.29 | Verified |
-| INA | Yes | No | ₹67.02 | Verified |
-| ALPINETEX | Yes | No | ₹38.20 | Verified |
-| V2RETAIL | No | Yes | ₹167.64 | Verified |
-| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-21; got 0 |
-| GENSOL | No | Yes | ₹11.30 | Verified |
+| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-22; got 0 |
+| MORARJEE | Yes | Yes | ₹5.03 | Verified |
+| SPELS | Yes | No | — | No exact NSE equity token found in instrument master for SPELS |
+| V2RETAIL | No | Yes | ₹170.14 | Verified |
+| FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
+| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-22; got 0 |
+| GENSOL | No | Yes | ₹11.20 | Verified |
 
 ---
 [Verified price audit](PRICE_CHECK.md) · [Latest scanner](SCANNER_SYMBOLS.md) · [Trade history](TRADE_HISTORY.md) · [GitHub Actions](../../actions) · [Graphical dashboard setup](README.md)
