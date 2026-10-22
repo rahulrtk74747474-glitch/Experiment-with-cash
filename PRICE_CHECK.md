@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
 **NSE session:** 2026-10-22  
-**Checked at (IST):** 22 Oct 2026 09:03 PM  
+**Checked at (IST):** 22 Oct 2026 09:22 PM  
 **Status:** partial  
 **Verified:** 16/24  
 
@@ -33,5 +33,5 @@ Chartink supplies stock symbols only. Prices below are Angel One daily candle cl
 | SPELS | Yes | No | — | — | missing | No exact NSE equity token found in instrument master for SPELS |
 | V2RETAIL | No | Yes | 170.14 | 2026-10-22T00:00:00+05:30 | verified | — |
 | FCONSUMER | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-22; got 0 |
+| DIL | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for DIL |
 | GENSOL | No | Yes | 11.2 | 2026-10-22T00:00:00+05:30 | verified | — |
