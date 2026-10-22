@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-10-22
-- **Last attempted price check:** 2026-10-22T21:22:45.235624+05:30
+- **Last attempted price check:** 2026-10-22T21:31:37.486096+05:30
 - **Prices independently verified:** 16/24
 - **Prices missing:** 8
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -62,7 +62,7 @@
 | SPELS | Yes | No | — | No exact NSE equity token found in instrument master for SPELS |
 | V2RETAIL | No | Yes | ₹170.14 | Verified |
 | FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | No exact NSE equity token found in instrument master for DIL |
+| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-22; got 0 |
 | GENSOL | No | Yes | ₹11.20 | Verified |
 
 ---
