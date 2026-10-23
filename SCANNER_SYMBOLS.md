@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Trade History](TRADE_HISTORY.md) · [Actions](../../actions)
 
 **Status:** success  
-**Last fetch:** 23 Oct 2026 09:13 PM IST  
+**Last fetch:** 23 Oct 2026 09:32 PM IST  
 **Symbols:** 20  
 **Message:** Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.
 

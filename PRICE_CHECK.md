@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
 **NSE session:** 2026-10-23  
-**Checked at (IST):** 23 Oct 2026 09:13 PM  
+**Checked at (IST):** 23 Oct 2026 09:32 PM  
 **Status:** partial  
 **Verified:** 19/26  
 
@@ -33,7 +33,7 @@ Chartink supplies stock symbols only. Prices below are Angel One daily candle cl
 | WELINV | Yes | No | 1600.0 | 2026-10-23T00:00:00+05:30 | verified | — |
 | V2RETAIL | No | Yes | 162.81 | 2026-10-23T00:00:00+05:30 | verified | — |
 | FCONSUMER | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-23; got 0 |
+| DIL | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for DIL |
 | MORARJEE | No | Yes | 4.78 | 2026-10-23T00:00:00+05:30 | verified | — |
 | GENSOL | No | Yes | 11.39 | 2026-10-23T00:00:00+05:30 | verified | — |
 | NAGAFERT | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for NAGAFERT |
