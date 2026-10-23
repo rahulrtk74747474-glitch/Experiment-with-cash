@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-10-23
-- **Last attempted price check:** 2026-10-23T20:59:09.175888+05:30
+- **Last attempted price check:** 2026-10-23T21:13:58.784637+05:30
 - **Prices independently verified:** 19/26
 - **Prices missing:** 7
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -62,7 +62,7 @@
 | WELINV | Yes | No | ₹1,600.00 | Verified |
 | V2RETAIL | No | Yes | ₹162.81 | Verified |
 | FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | No exact NSE equity token found in instrument master for DIL |
+| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-23; got 0 |
 | MORARJEE | No | Yes | ₹4.78 | Verified |
 | GENSOL | No | Yes | ₹11.39 | Verified |
 | NAGAFERT | No | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
