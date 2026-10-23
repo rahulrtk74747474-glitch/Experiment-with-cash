@@ -2,36 +2,38 @@
 
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
-**NSE session:** 2026-10-22  
-**Checked at (IST):** 22 Oct 2026 09:31 PM  
+**NSE session:** 2026-10-23  
+**Checked at (IST):** 23 Oct 2026 08:51 PM  
 **Status:** partial  
-**Verified:** 16/24  
+**Verified:** 19/26  
 
 Chartink supplies stock symbols only. Prices below are Angel One daily candle closes, not an assumption that an order executed at that exact price.
 
 | Symbol | Scanner? | Held? | Angel daily close ₹ | Candle date/time | Status | Error |
 | --- | :---: | :---: | ---: | --- | --- | --- |
-| ICICIAMC | Yes | No | 2721.2 | 2026-10-22T00:00:00+05:30 | verified | — |
+| SRGHFL | Yes | No | 101.96 | 2026-10-23T00:00:00+05:30 | verified | — |
 | RAJVIR | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for RAJVIR |
+| MEDANTA | Yes | No | 1185.0 | 2026-10-23T00:00:00+05:30 | verified | — |
+| PAR | Yes | No | 104.99 | 2026-10-23T00:00:00+05:30 | verified | — |
 | NIFTYMIDSMLHLTH | Yes | No | — | — | missing | No exact NSE equity token found in instrument master for NIFTYMIDSMLHLTH |
-| WELINV | Yes | No | 1652.0 | 2026-10-22T00:00:00+05:30 | verified | — |
-| INA | Yes | No | 66.75 | 2026-10-22T00:00:00+05:30 | verified | — |
-| GREENPANEL | Yes | No | 135.02 | 2026-10-22T00:00:00+05:30 | verified | — |
-| BLUECHIP | Yes | No | 1.71 | 2026-10-22T00:00:00+05:30 | verified | — |
-| MANINFRA | Yes | No | 105.44 | 2026-10-22T00:00:00+05:30 | verified | — |
-| CFEL | Yes | No | 37.62 | 2026-10-22T00:00:00+05:30 | verified | — |
-| ALPINETEX | Yes | No | 37.5 | 2026-10-22T00:00:00+05:30 | verified | — |
-| KALYANIFRG | Yes | No | 730.0 | 2026-10-22T00:00:00+05:30 | verified | — |
-| SETUINFRA | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-22; got 0 |
-| MEDANTA | Yes | No | 1198.2 | 2026-10-22T00:00:00+05:30 | verified | — |
-| SANGHVIMOV | Yes | No | 325.4 | 2026-10-22T00:00:00+05:30 | verified | — |
-| EXIDEIND | Yes | No | 343.8 | 2026-10-22T00:00:00+05:30 | verified | — |
-| SRGHFL | Yes | No | 104.0 | 2026-10-22T00:00:00+05:30 | verified | — |
-| NAGAFERT | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for NAGAFERT |
-| LASA | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-22; got 0 |
-| MORARJEE | Yes | Yes | 5.03 | 2026-10-22T00:00:00+05:30 | verified | — |
-| SPELS | Yes | No | — | — | missing | No exact NSE equity token found in instrument master for SPELS |
-| V2RETAIL | No | Yes | 170.14 | 2026-10-22T00:00:00+05:30 | verified | — |
+| SANOFICONR | Yes | No | 3209.0 | 2026-10-23T00:00:00+05:30 | verified | — |
+| BLUECHIP | Yes | No | 1.68 | 2026-10-23T00:00:00+05:30 | verified | — |
+| RAMASTEEL | Yes | No | 3.66 | 2026-10-23T00:00:00+05:30 | verified | — |
+| AGSTRA | Yes | No | 1.97 | 2026-10-23T00:00:00+05:30 | verified | — |
+| MBECL | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-10-23; got 0 |
+| ANANTRAJ | Yes | No | 460.4 | 2026-10-23T00:00:00+05:30 | verified | — |
+| SANGHVIMOV | Yes | No | 320.35 | 2026-10-23T00:00:00+05:30 | verified | — |
+| ICICIAMC | Yes | No | 2651.8 | 2026-10-23T00:00:00+05:30 | verified | — |
+| KALYANIFRG | Yes | No | 717.5 | 2026-10-23T00:00:00+05:30 | verified | — |
+| SETUINFRA | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-23; got 0 |
+| MANINFRA | Yes | No | 102.5 | 2026-10-23T00:00:00+05:30 | verified | — |
+| MOSCHIP | Yes | No | 164.75 | 2026-10-23T00:00:00+05:30 | verified | — |
+| HINDCON | Yes | No | 22.95 | 2026-10-23T00:00:00+05:30 | verified | — |
+| MAITHANALL | Yes | No | 798.8 | 2026-10-23T00:00:00+05:30 | verified | — |
+| WELINV | Yes | No | 1600.0 | 2026-10-23T00:00:00+05:30 | verified | — |
+| V2RETAIL | No | Yes | 162.81 | 2026-10-23T00:00:00+05:30 | verified | — |
 | FCONSUMER | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-22; got 0 |
-| GENSOL | No | Yes | 11.2 | 2026-10-22T00:00:00+05:30 | verified | — |
+| DIL | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-23; got 0 |
+| MORARJEE | No | Yes | 4.78 | 2026-10-23T00:00:00+05:30 | verified | — |
+| GENSOL | No | Yes | 11.39 | 2026-10-23T00:00:00+05:30 | verified | — |
+| NAGAFERT | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for NAGAFERT |
