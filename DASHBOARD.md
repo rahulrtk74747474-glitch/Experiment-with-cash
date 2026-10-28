@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-10-28
-- **Last attempted price check:** 2026-10-28T22:39:29.736899+05:30
+- **Last attempted price check:** 2026-10-28T22:53:13.383791+05:30
 - **Prices independently verified:** 17/24
 - **Prices missing:** 7
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -58,7 +58,7 @@
 | DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-28; got 0 |
 | PKTEA | Yes | No | ₹658.60 | Verified |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
-| LASA | Yes | No | — | No exact NSE equity token found in instrument master for LASA |
+| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-28; got 0 |
 | BNAGROCHEM | Yes | No | ₹116.99 | Verified |
 | V2RETAIL | No | Yes | ₹155.44 | Verified |
 | RAJVIR | No | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |

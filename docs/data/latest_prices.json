@@ -1,7 +1,7 @@
 {
   "status": "partial",
   "session_date": "2026-10-28",
-  "checked_at": "2026-10-28T22:39:29.736899+05:30",
+  "checked_at": "2026-10-28T22:53:13.383791+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
     "total": 24,
@@ -198,7 +198,7 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "No exact NSE equity token found in instrument master for LASA"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-28; got 0"
     },
     {
       "symbol": "BNAGROCHEM",
