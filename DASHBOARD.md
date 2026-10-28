@@ -4,9 +4,9 @@
 
 ## Price-update status
 
-- **Angel One observed NSE session:** 2026-10-27
-- **Last attempted price check:** 2026-10-27T22:24:46.514136+05:30
-- **Prices independently verified:** 14/21
+- **Angel One observed NSE session:** 2026-10-28
+- **Last attempted price check:** 2026-10-28T22:14:37.719624+05:30
+- **Prices independently verified:** 17/24
 - **Prices missing:** 7
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
 - **Trade-processing status:** outside_market_window
@@ -19,12 +19,12 @@
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | DIL | 7692 | ₹0.65 | — | — | — | **Price unavailable — previous quote stale** |
 | FCONSUMER | 22727 | ₹0.22 | — | — | — | **Price unavailable — previous quote stale** |
-| GENSOL | 516 | ₹9.68 | ₹10.64 | 2026-10-27 | ₹495.36 | Verified |
-| MORARJEE | 734 | ₹6.81 | ₹4.33 | 2026-10-27 | ₹-1,820.32 | Verified |
+| GENSOL | 516 | ₹9.68 | ₹10.64 | 2026-10-28 | ₹495.36 | Verified |
+| MORARJEE | 734 | ₹6.81 | ₹4.54 | 2026-10-28 | ₹-1,666.18 | Verified |
 | NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
 | SETUINFRA | 11363 | ₹0.44 | — | — | — | **Price unavailable — previous quote stale** |
-| V2RETAIL | 33 | ₹151.45 | ₹157.57 | 2026-10-27 | ₹201.96 | Verified |
+| V2RETAIL | 33 | ₹151.45 | ₹155.44 | 2026-10-28 | ₹131.67 | Verified |
 
 ## Previous fully processed ledger (historical)
 
@@ -40,26 +40,29 @@
 
 | Symbol | Scanner | Existing holding | Angel close ₹ | Status / reason |
 | --- | :---: | :---: | ---: | --- |
-| JSWDULUX | Yes | No | ₹280.40 | Verified |
-| ACSTECH | Yes | No | ₹59.90 | Verified |
-| GREAVESCOT | Yes | No | ₹181.68 | Verified |
-| DECCANCE | Yes | No | ₹480.00 | Verified |
-| FUSION | Yes | No | ₹135.82 | Verified |
-| FLFL | Yes | No | ₹0.74 | Verified |
-| AGSTRA | Yes | No | ₹1.91 | Verified |
-| BLUECHIP | Yes | No | ₹1.62 | Verified |
-| MBECL | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-10-27; got 0 |
-| AEGISVOPAK | Yes | No | ₹235.10 | Verified |
-| SETUINFRA | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-27; got 0 |
+| SHAKTIPUMP | Yes | No | ₹364.45 | Verified |
+| GICHSGFIN | Yes | No | ₹121.95 | Verified |
+| KSB | Yes | No | ₹651.00 | Verified |
+| JSWDULUX | Yes | No | ₹275.90 | Verified |
+| AEGISVOPAK | Yes | No | ₹231.80 | Verified |
+| DECCANCE | Yes | No | ₹473.50 | Verified |
+| AGSTRA | Yes | No | ₹1.88 | Verified |
+| BLUECHIP | Yes | No | ₹1.59 | Verified |
+| DELPHIFX | Yes | No | ₹5.78 | Verified |
+| ABAN | Yes | No | ₹13.94 | Verified |
+| MBECL | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-10-28; got 0 |
+| ACSTECH | Yes | No | ₹58.71 | Verified |
+| FLEXITUFF | Yes | No | ₹2.45 | Verified |
+| SETUINFRA | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-28; got 0 |
 | FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-27; got 0 |
+| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-28; got 0 |
+| PKTEA | Yes | No | ₹658.60 | Verified |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
-| MORARJEE | Yes | Yes | ₹4.33 | Verified |
-| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-27; got 0 |
-| BNAGROCHEM | Yes | No | ₹123.14 | Verified |
-| RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
-| SUYOG | Yes | No | ₹442.70 | Verified |
-| V2RETAIL | No | Yes | ₹157.57 | Verified |
+| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-28; got 0 |
+| BNAGROCHEM | Yes | No | ₹116.99 | Verified |
+| V2RETAIL | No | Yes | ₹155.44 | Verified |
+| RAJVIR | No | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
+| MORARJEE | No | Yes | ₹4.54 | Verified |
 | GENSOL | No | Yes | ₹10.64 | Verified |
 
 ---
