@@ -1,171 +1,139 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-10-28T22:53:13.383791+05:30",
-  "count": 20,
+  "fetched_at": "2026-10-29T22:29:22.910852+05:30",
+  "count": 16,
   "rows": [
-    {
-      "symbol": "SHAKTIPUMP",
-      "name": "Shakti Pumps (india) Limited",
-      "close": 364.45,
-      "change_pct": -0.37,
-      "volume": 359287.0
-    },
-    {
-      "symbol": "GICHSGFIN",
-      "name": "Gic Housing Finance Limited",
-      "close": 121.95,
-      "change_pct": -0.66,
-      "volume": 107040.0
-    },
-    {
-      "symbol": "KSB",
-      "name": "KSB Ltd",
-      "close": 652.15,
-      "change_pct": -1.04,
-      "volume": 70587.0
-    },
     {
       "symbol": "JSWDULUX",
       "name": "JSW Dulux Ltd",
-      "close": 276.5,
-      "change_pct": -1.39,
-      "volume": 1184101.0
-    },
-    {
-      "symbol": "AEGISVOPAK",
-      "name": "Aegis Vopak Terminals Ltd",
-      "close": 231.8,
-      "change_pct": -1.4,
-      "volume": 603872.0
+      "close": 276.2,
+      "change_pct": -0.11,
+      "volume": 1448362.0
     },
     {
       "symbol": "DECCANCE",
       "name": "Deccan Cements Limited",
-      "close": 473.7,
-      "change_pct": -1.44,
-      "volume": 20184.0
-    },
-    {
-      "symbol": "AGSTRA",
-      "name": "AGS Transact Technologies Ltd",
-      "close": 1.88,
-      "change_pct": -1.57,
-      "volume": 79595.0
+      "close": 469.0,
+      "change_pct": -0.99,
+      "volume": 13675.0
     },
     {
       "symbol": "BLUECHIP",
       "name": "Blue Chip India Limited",
-      "close": 1.59,
-      "change_pct": -1.85,
-      "volume": 329.0
+      "close": 1.56,
+      "change_pct": -1.89,
+      "volume": 11724.0
     },
     {
       "symbol": "DELPHIFX",
       "name": "Delphi World Money Ltd",
-      "close": 5.78,
-      "change_pct": -1.87,
-      "volume": 18897.0
+      "close": 5.67,
+      "change_pct": -1.9,
+      "volume": 45655.0
     },
     {
-      "symbol": "ABAN",
-      "name": "Aban Offshore Limited",
-      "close": 13.94,
-      "change_pct": -1.97,
-      "volume": 6989.0
+      "symbol": "VELJAN",
+      "name": "Veljan Denison Ltd",
+      "close": 2091.5,
+      "change_pct": -2.0,
+      "volume": 22.0
     },
     {
       "symbol": "MBECL",
       "name": "Mcnally Bharat Engineering Company Limited",
-      "close": 365.0,
-      "change_pct": -1.99,
-      "volume": 101.0
-    },
-    {
-      "symbol": "ACSTECH",
-      "name": "ACS Technologies Ltd",
-      "close": 58.71,
-      "change_pct": -1.99,
-      "volume": 87595.0
-    },
-    {
-      "symbol": "FLEXITUFF",
-      "name": "Flexituff International Limited",
-      "close": 2.44,
-      "change_pct": -2.01,
-      "volume": 28863.0
+      "close": 357.7,
+      "change_pct": -2.0,
+      "volume": 241.0
     },
     {
       "symbol": "SETUINFRA",
       "name": "Setubandhan Infrastructure Ltd",
-      "close": 0.34,
-      "change_pct": -2.86,
-      "volume": 127840.0
+      "close": 0.33,
+      "change_pct": -2.94,
+      "volume": 667247.0
+    },
+    {
+      "symbol": "ASTEC",
+      "name": "Astec Lifesciences Limited",
+      "close": 581.05,
+      "change_pct": -3.63,
+      "volume": 74478.0
     },
     {
       "symbol": "FCONSUMER",
       "name": "Future Consumer Limited",
       "close": 0.22,
       "change_pct": -4.35,
-      "volume": 54460614.0
+      "volume": 56217408.0
     },
     {
       "symbol": "DIL",
       "name": "Debock Industries Ltd",
       "close": 0.65,
       "change_pct": -4.41,
-      "volume": 10598311.0
+      "volume": 10940192.0
     },
     {
-      "symbol": "PKTEA",
-      "name": "The Peria Karamalai Tea & Produce Company Limited",
-      "close": 660.0,
-      "change_pct": -4.78,
-      "volume": 1043.0
+      "symbol": "GATEWAY",
+      "name": "Gateway Distriparks Ltd",
+      "close": 43.84,
+      "change_pct": -4.65,
+      "volume": 3330707.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.39,
       "change_pct": -4.79,
-      "volume": 425757.0
+      "volume": 567676.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 4.67,
       "change_pct": -4.89,
-      "volume": 126273.0
+      "volume": 168364.0
     },
     {
       "symbol": "BNAGROCHEM",
       "name": "BN Agrochem Ltd",
-      "close": 116.99,
+      "close": 111.15,
       "change_pct": -4.99,
-      "volume": 1440.0
+      "volume": 947.0
+    },
+    {
+      "symbol": "RAJVIR",
+      "name": "Rajvir Industries Limited",
+      "close": 4.94,
+      "change_pct": -5.0,
+      "volume": 912.0
+    },
+    {
+      "symbol": "GRADIENTE",
+      "name": "Gradiente Infotainment Ltd",
+      "close": 1.71,
+      "change_pct": -5.0,
+      "volume": 599438.0
     }
   ],
   "symbols": [
-    "SHAKTIPUMP",
-    "GICHSGFIN",
-    "KSB",
     "JSWDULUX",
-    "AEGISVOPAK",
     "DECCANCE",
-    "AGSTRA",
     "BLUECHIP",
     "DELPHIFX",
-    "ABAN",
+    "VELJAN",
     "MBECL",
-    "ACSTECH",
-    "FLEXITUFF",
     "SETUINFRA",
+    "ASTEC",
     "FCONSUMER",
     "DIL",
-    "PKTEA",
+    "GATEWAY",
     "NAGAFERT",
     "LASA",
-    "BNAGROCHEM"
+    "BNAGROCHEM",
+    "RAJVIR",
+    "GRADIENTE"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
   "is_verified_live_scan": true
