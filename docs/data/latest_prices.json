@@ -1,7 +1,7 @@
 {
   "status": "partial",
   "session_date": "2026-10-30",
-  "checked_at": "2026-10-30T22:30:10.625352+05:30",
+  "checked_at": "2026-10-30T22:40:40.780681+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
     "total": 22,
@@ -158,7 +158,7 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-30; got 0"
+      "error": "No exact NSE equity token found in instrument master for LASA"
     },
     {
       "symbol": "RAJVIR",

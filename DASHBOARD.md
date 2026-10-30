@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-10-30
-- **Last attempted price check:** 2026-10-30T22:30:10.625352+05:30
+- **Last attempted price check:** 2026-10-30T22:40:40.780681+05:30
 - **Prices independently verified:** 15/22
 - **Prices missing:** 7
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -54,7 +54,7 @@
 | FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
 | DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-30; got 0 |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
-| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-30; got 0 |
+| LASA | Yes | No | — | No exact NSE equity token found in instrument master for LASA |
 | RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
 | ASTEC | Yes | No | ₹545.55 | Verified |
 | GENESYS | Yes | No | ₹171.15 | Verified |
