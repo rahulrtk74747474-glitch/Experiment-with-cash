@@ -4,9 +4,9 @@
 
 ## Price-update status
 
-- **Angel One observed NSE session:** 2026-10-29
-- **Last attempted price check:** 2026-10-29T23:02:28.807077+05:30
-- **Prices independently verified:** 12/19
+- **Angel One observed NSE session:** 2026-10-30
+- **Last attempted price check:** 2026-10-30T22:15:10.466553+05:30
+- **Prices independently verified:** 15/22
 - **Prices missing:** 7
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
 - **Trade-processing status:** outside_market_window
@@ -19,12 +19,12 @@
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | DIL | 7692 | ₹0.65 | — | — | — | **Price unavailable — previous quote stale** |
 | FCONSUMER | 22727 | ₹0.22 | — | — | — | **Price unavailable — previous quote stale** |
-| GENSOL | 516 | ₹9.68 | ₹10.24 | 2026-10-29 | ₹288.96 | Verified |
-| MORARJEE | 734 | ₹6.81 | ₹4.31 | 2026-10-29 | ₹-1,835.00 | Verified |
+| GENSOL | 516 | ₹9.68 | ₹9.99 | 2026-10-30 | ₹159.96 | Verified |
+| MORARJEE | 734 | ₹6.81 | ₹4.11 | 2026-10-30 | ₹-1,981.80 | Verified |
 | NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
 | SETUINFRA | 11363 | ₹0.44 | — | — | — | **Price unavailable — previous quote stale** |
-| V2RETAIL | 33 | ₹151.45 | ₹154.71 | 2026-10-29 | ₹107.58 | Verified |
+| V2RETAIL | 33 | ₹151.45 | ₹147.47 | 2026-10-30 | ₹-131.34 | Verified |
 
 ## Previous fully processed ledger (historical)
 
@@ -40,25 +40,28 @@
 
 | Symbol | Scanner | Existing holding | Angel close ₹ | Status / reason |
 | --- | :---: | :---: | ---: | --- |
-| JSWDULUX | Yes | No | ₹276.20 | Verified |
-| DECCANCE | Yes | No | ₹469.00 | Verified |
-| BLUECHIP | Yes | No | ₹1.56 | Verified |
-| DELPHIFX | Yes | No | ₹5.67 | Verified |
-| VELJAN | Yes | No | ₹2,091.50 | Verified |
-| MBECL | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-10-29; got 0 |
-| SETUINFRA | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-29; got 0 |
-| ASTEC | Yes | No | ₹581.05 | Verified |
+| DECCANCE | Yes | No | ₹467.05 | Verified |
+| GRADIENTE | Yes | No | ₹1.76 | Verified |
+| BNAGROCHEM | Yes | No | ₹116.60 | Verified |
+| BLUECHIP | Yes | No | ₹1.53 | Verified |
+| VIVIMEDLAB | Yes | No | ₹5.53 | Verified |
+| VELJAN | Yes | No | ₹2,049.70 | Verified |
+| MBECL | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-10-30; got 0 |
+| GATEWAY | Yes | No | ₹42.87 | Verified |
+| KOTIC | Yes | No | ₹104.98 | Verified |
+| JSWDULUX | Yes | No | ₹264.40 | Verified |
+| DYCL | Yes | No | ₹318.25 | Verified |
 | FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-29; got 0 |
-| GATEWAY | Yes | No | ₹43.84 | Verified |
+| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-10-30; got 0 |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
-| LASA | Yes | No | — | No exact NSE equity token found in instrument master for LASA |
-| BNAGROCHEM | Yes | No | ₹111.15 | Verified |
+| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-10-30; got 0 |
 | RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
-| GRADIENTE | Yes | No | ₹1.71 | Verified |
-| V2RETAIL | No | Yes | ₹154.71 | Verified |
-| MORARJEE | No | Yes | ₹4.31 | Verified |
-| GENSOL | No | Yes | ₹10.24 | Verified |
+| ASTEC | Yes | No | ₹545.55 | Verified |
+| GENESYS | Yes | No | ₹171.15 | Verified |
+| V2RETAIL | No | Yes | ₹147.47 | Verified |
+| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-10-30; got 0 |
+| MORARJEE | No | Yes | ₹4.11 | Verified |
+| GENSOL | No | Yes | ₹9.99 | Verified |
 
 ---
 [Verified price audit](PRICE_CHECK.md) · [Latest scanner](SCANNER_SYMBOLS.md) · [Trade history](TRADE_HISTORY.md) · [GitHub Actions](../../actions) · [Graphical dashboard setup](README.md)

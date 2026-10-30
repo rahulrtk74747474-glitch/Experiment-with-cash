@@ -1,139 +1,155 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-10-29T23:02:28.807077+05:30",
-  "count": 16,
+  "fetched_at": "2026-10-30T22:15:10.466553+05:30",
+  "count": 18,
   "rows": [
-    {
-      "symbol": "JSWDULUX",
-      "name": "JSW Dulux Ltd",
-      "close": 276.2,
-      "change_pct": -0.11,
-      "volume": 1448362.0
-    },
     {
       "symbol": "DECCANCE",
       "name": "Deccan Cements Limited",
-      "close": 469.0,
-      "change_pct": -0.99,
-      "volume": 13675.0
+      "close": 467.05,
+      "change_pct": -0.42,
+      "volume": 3888.0
+    },
+    {
+      "symbol": "GRADIENTE",
+      "name": "Gradiente Infotainment Ltd",
+      "close": 1.7,
+      "change_pct": -0.58,
+      "volume": 345503.0
+    },
+    {
+      "symbol": "BNAGROCHEM",
+      "name": "BN Agrochem Ltd",
+      "close": 110.04,
+      "change_pct": -1.0,
+      "volume": 10025.0
     },
     {
       "symbol": "BLUECHIP",
       "name": "Blue Chip India Limited",
-      "close": 1.56,
-      "change_pct": -1.89,
-      "volume": 11724.0
+      "close": 1.53,
+      "change_pct": -1.92,
+      "volume": 899.0
     },
     {
-      "symbol": "DELPHIFX",
-      "name": "Delphi World Money Ltd",
-      "close": 5.67,
-      "change_pct": -1.9,
-      "volume": 45655.0
+      "symbol": "VIVIMEDLAB",
+      "name": "Vivimed Labs Limited",
+      "close": 5.53,
+      "change_pct": -1.95,
+      "volume": 3267.0
     },
     {
       "symbol": "VELJAN",
       "name": "Veljan Denison Ltd",
-      "close": 2091.5,
+      "close": 2049.7,
       "change_pct": -2.0,
-      "volume": 22.0
+      "volume": 14.0
     },
     {
       "symbol": "MBECL",
       "name": "Mcnally Bharat Engineering Company Limited",
-      "close": 357.7,
+      "close": 350.55,
       "change_pct": -2.0,
-      "volume": 241.0
+      "volume": 108.0
     },
     {
-      "symbol": "SETUINFRA",
-      "name": "Setubandhan Infrastructure Ltd",
-      "close": 0.33,
-      "change_pct": -2.94,
-      "volume": 667247.0
+      "symbol": "GATEWAY",
+      "name": "Gateway Distriparks Ltd",
+      "close": 42.87,
+      "change_pct": -2.21,
+      "volume": 2741260.0
     },
     {
-      "symbol": "ASTEC",
-      "name": "Astec Lifesciences Limited",
-      "close": 581.05,
-      "change_pct": -3.63,
-      "volume": 74478.0
+      "symbol": "KOTIC",
+      "name": "Kothari Industrial Corporation Ltd",
+      "close": 104.98,
+      "change_pct": -3.85,
+      "volume": 19107.0
+    },
+    {
+      "symbol": "JSWDULUX",
+      "name": "JSW Dulux Ltd",
+      "close": 264.4,
+      "change_pct": -4.27,
+      "volume": 624217.0
+    },
+    {
+      "symbol": "DYCL",
+      "name": "Dynamic Cables Ltd",
+      "close": 318.25,
+      "change_pct": -4.34,
+      "volume": 312421.0
     },
     {
       "symbol": "FCONSUMER",
       "name": "Future Consumer Limited",
       "close": 0.22,
       "change_pct": -4.35,
-      "volume": 56217408.0
+      "volume": 57974202.0
     },
     {
       "symbol": "DIL",
       "name": "Debock Industries Ltd",
       "close": 0.65,
       "change_pct": -4.41,
-      "volume": 10940192.0
-    },
-    {
-      "symbol": "GATEWAY",
-      "name": "Gateway Distriparks Ltd",
-      "close": 43.84,
-      "change_pct": -4.65,
-      "volume": 3330707.0
+      "volume": 11282073.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.39,
       "change_pct": -4.79,
-      "volume": 567676.0
+      "volume": 709595.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 4.67,
       "change_pct": -4.89,
-      "volume": 168364.0
-    },
-    {
-      "symbol": "BNAGROCHEM",
-      "name": "BN Agrochem Ltd",
-      "close": 111.15,
-      "change_pct": -4.99,
-      "volume": 947.0
+      "volume": 210455.0
     },
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 912.0
+      "volume": 1140.0
     },
     {
-      "symbol": "GRADIENTE",
-      "name": "Gradiente Infotainment Ltd",
-      "close": 1.71,
-      "change_pct": -5.0,
-      "volume": 599438.0
+      "symbol": "ASTEC",
+      "name": "Astec Lifesciences Limited",
+      "close": 545.55,
+      "change_pct": -6.11,
+      "volume": 75779.0
+    },
+    {
+      "symbol": "GENESYS",
+      "name": "Genesys International Corporation Limited",
+      "close": 171.15,
+      "change_pct": -9.4,
+      "volume": 1243094.0
     }
   ],
   "symbols": [
-    "JSWDULUX",
     "DECCANCE",
+    "GRADIENTE",
+    "BNAGROCHEM",
     "BLUECHIP",
-    "DELPHIFX",
+    "VIVIMEDLAB",
     "VELJAN",
     "MBECL",
-    "SETUINFRA",
-    "ASTEC",
+    "GATEWAY",
+    "KOTIC",
+    "JSWDULUX",
+    "DYCL",
     "FCONSUMER",
     "DIL",
-    "GATEWAY",
     "NAGAFERT",
     "LASA",
-    "BNAGROCHEM",
     "RAJVIR",
-    "GRADIENTE"
+    "ASTEC",
+    "GENESYS"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
   "is_verified_live_scan": true
