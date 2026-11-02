@@ -1,8 +1,8 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-03T01:56:06.772759+05:30",
-  "count": 13,
+  "fetched_at": "2026-11-03T02:00:53.200210+05:30",
+  "count": 12,
   "rows": [
     {
       "symbol": "ANSALAPI",
@@ -61,20 +61,6 @@
       "volume": 286345.0
     },
     {
-      "symbol": "FCONSUMER",
-      "name": "Future Consumer Limited",
-      "close": 0.22,
-      "change_pct": -4.35,
-      "volume": 59730996.0
-    },
-    {
-      "symbol": "DIL",
-      "name": "Debock Industries Ltd",
-      "close": 0.65,
-      "change_pct": -4.41,
-      "volume": 11623954.0
-    },
-    {
       "symbol": "KOTIC",
       "name": "Kothari Industrial Corporation Ltd",
       "close": 100.03,
@@ -89,11 +75,18 @@
       "volume": 53166.0
     },
     {
+      "symbol": "SPELS",
+      "name": "Spel Semiconductor Ltd",
+      "close": 96.66,
+      "change_pct": -4.99,
+      "volume": 25800.0
+    },
+    {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 1368.0
+      "volume": 456.0
     }
   ],
   "symbols": [
@@ -105,10 +98,9 @@
     "MBECL",
     "MODISONLTD",
     "NAGAFERT",
-    "FCONSUMER",
-    "DIL",
     "KOTIC",
     "LASA",
+    "SPELS",
     "RAJVIR"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
