@@ -5,8 +5,8 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-11-03
-- **Last attempted price check:** 2026-11-03T23:32:54.819663+05:30
-- **Prices independently verified:** 20/27
+- **Last attempted price check:** 2026-11-03T23:54:16.617807+05:30
+- **Prices independently verified:** 19/26
 - **Prices missing:** 7
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
 - **Trade-processing status:** outside_market_window
@@ -23,7 +23,7 @@
 | MORARJEE | 734 | ₹6.81 | ₹4.13 | 2026-11-03 | ₹-1,967.12 | Verified |
 | NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
-| SETUINFRA | 11363 | ₹0.44 | ₹0.36 | 2026-11-03 | ₹-909.04 | Verified |
+| SETUINFRA | 11363 | ₹0.44 | — | — | — | **Price unavailable — previous quote stale** |
 | V2RETAIL | 33 | ₹151.45 | ₹164.62 | 2026-11-03 | ₹434.61 | Verified |
 
 ## Previous fully processed ledger (historical)
@@ -59,12 +59,11 @@
 | SILVERAG | Yes | No | ₹170.18 | Verified |
 | SILVERBETA | Yes | No | ₹168.31 | Verified |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
-| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-03; got 0 |
+| FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
 | V2RETAIL | No | Yes | ₹164.62 | Verified |
 | RAJVIR | No | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
-| SETUINFRA | No | Yes | ₹0.36 | Verified |
-| FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | No exact NSE equity token found in instrument master for DIL |
+| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-03; got 0 |
+| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-03; got 0 |
 | MORARJEE | No | Yes | ₹4.13 | Verified |
 | GENSOL | No | Yes | ₹9.66 | Verified |
 

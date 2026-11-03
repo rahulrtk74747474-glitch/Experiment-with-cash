@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Trade History](TRADE_HISTORY.md) · [Actions](../../actions)
 
 **Status:** success  
-**Last fetch:** 03 Nov 2026 11:32 PM IST  
+**Last fetch:** 03 Nov 2026 11:54 PM IST  
 **Symbols:** 20  
 **Message:** Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.
 
@@ -28,4 +28,4 @@
 | 17 | SILVERAG | Mirae Asset Silver ETF Exclude ETFs | 170.18 | -2.69 | 333147.0 |
 | 18 | SILVERBETA | UTI Silver ETF Exclude ETFs | 168.31 | -2.8 | 1358835.0 |
 | 19 | NAGAFERT | Nagarjuna Fertilizers And Chemicals Limited | 1.33 | -4.32 | 572690.0 |
-| 20 | LASA | Lasa Supergenerics Ltd | 4.44 | -4.93 | 106332.0 |
+| 20 | FCONSUMER | Future Consumer Limited | 0.22 | -4.35 | 61487790.0 |

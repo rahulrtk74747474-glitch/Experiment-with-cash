@@ -1,7 +1,7 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-03T23:32:54.819663+05:30",
+  "fetched_at": "2026-11-03T23:54:16.617807+05:30",
   "count": 20,
   "rows": [
     {
@@ -138,11 +138,11 @@
       "volume": 572690.0
     },
     {
-      "symbol": "LASA",
-      "name": "Lasa Supergenerics Ltd",
-      "close": 4.44,
-      "change_pct": -4.93,
-      "volume": 106332.0
+      "symbol": "FCONSUMER",
+      "name": "Future Consumer Limited",
+      "close": 0.22,
+      "change_pct": -4.35,
+      "volume": 61487790.0
     }
   ],
   "symbols": [
@@ -165,7 +165,7 @@
     "SILVERAG",
     "SILVERBETA",
     "NAGAFERT",
-    "LASA"
+    "FCONSUMER"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
   "is_verified_live_scan": true
