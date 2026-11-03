@@ -4,10 +4,10 @@
 
 ## Price-update status
 
-- **Angel One observed NSE session:** 2026-11-02
-- **Last attempted price check:** 2026-11-03T02:22:44.768457+05:30
-- **Prices independently verified:** 11/17
-- **Prices missing:** 6
+- **Angel One observed NSE session:** 2026-11-03
+- **Last attempted price check:** 2026-11-03T23:26:04.087777+05:30
+- **Prices independently verified:** 19/27
+- **Prices missing:** 8
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
 - **Trade-processing status:** outside_market_window
 
@@ -19,12 +19,12 @@
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | DIL | 7692 | ₹0.65 | — | — | — | **Price unavailable — previous quote stale** |
 | FCONSUMER | 22727 | ₹0.22 | — | — | — | **Price unavailable — previous quote stale** |
-| GENSOL | 516 | ₹9.68 | ₹9.88 | 2026-11-02 | ₹103.20 | Verified |
-| MORARJEE | 734 | ₹6.81 | ₹3.94 | 2026-11-02 | ₹-2,106.58 | Verified |
-| NAGAFERT | 3267 | ₹1.53 | ₹1.33 | 2026-11-02 | ₹-653.40 | Verified |
+| GENSOL | 516 | ₹9.68 | ₹9.66 | 2026-11-03 | ₹-10.32 | Verified |
+| MORARJEE | 734 | ₹6.81 | ₹4.13 | 2026-11-03 | ₹-1,967.12 | Verified |
+| NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
 | SETUINFRA | 11363 | ₹0.44 | — | — | — | **Price unavailable — previous quote stale** |
-| V2RETAIL | 33 | ₹151.45 | ₹161.26 | 2026-11-02 | ₹323.73 | Verified |
+| V2RETAIL | 33 | ₹151.45 | ₹164.62 | 2026-11-03 | ₹434.61 | Verified |
 
 ## Previous fully processed ledger (historical)
 
@@ -40,23 +40,33 @@
 
 | Symbol | Scanner | Existing holding | Angel close ₹ | Status / reason |
 | --- | :---: | :---: | ---: | --- |
-| ANSALAPI | Yes | No | ₹3.19 | Verified |
-| JSWDULUX | Yes | No | ₹261.25 | Verified |
-| BLUECHIP | Yes | No | ₹1.50 | Verified |
-| VIVIMEDLAB | Yes | No | ₹5.42 | Verified |
-| VELJAN | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for VELJAN on 2026-11-02; got 0 |
-| MBECL | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-11-02; got 0 |
-| MODISONLTD | Yes | No | ₹331.75 | Verified |
-| NAGAFERT | Yes | Yes | ₹1.33 | Verified |
-| FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-02; got 0 |
-| KOTIC | Yes | No | ₹100.03 | Verified |
-| LASA | Yes | No | ₹4.44 | Verified |
-| RAJVIR | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for RAJVIR on 2026-11-02; got 0 |
-| V2RETAIL | No | Yes | ₹161.26 | Verified |
-| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-02; got 0 |
-| MORARJEE | No | Yes | ₹3.94 | Verified |
-| GENSOL | No | Yes | ₹9.88 | Verified |
+| JSWDULUX | Yes | No | ₹260.70 | Verified |
+| ANSALAPI | Yes | No | ₹3.14 | Verified |
+| VIVIMEDLAB | Yes | No | ₹5.32 | Verified |
+| MBECL | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-11-03; got 0 |
+| VELJAN | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for VELJAN on 2026-11-03; got 0 |
+| BLUECHIP | Yes | No | ₹1.47 | Verified |
+| SILVERCASE | Yes | No | ₹17.71 | Verified |
+| SILVER1 | Yes | No | ₹16.92 | Verified |
+| SBISILVER | Yes | No | ₹171.35 | Verified |
+| SILVERAXIS | Yes | No | ₹173.81 | Verified |
+| SILVERADD | Yes | No | ₹16.80 | Verified |
+| SILVER | Yes | No | ₹174.26 | Verified |
+| SILVERIETF | Yes | No | ₹174.00 | Verified |
+| ESILVER | Yes | No | ₹175.55 | Verified |
+| SILVERBEES | Yes | No | ₹166.81 | Verified |
+| GROWWSLVR | Yes | No | ₹17.19 | Verified |
+| SILVERAG | Yes | No | ₹170.18 | Verified |
+| SILVERBETA | Yes | No | ₹168.31 | Verified |
+| NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
+| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-03; got 0 |
+| V2RETAIL | No | Yes | ₹164.62 | Verified |
+| RAJVIR | No | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
+| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-03; got 0 |
+| FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
+| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-03; got 0 |
+| MORARJEE | No | Yes | ₹4.13 | Verified |
+| GENSOL | No | Yes | ₹9.66 | Verified |
 
 ---
 [Verified price audit](PRICE_CHECK.md) · [Latest scanner](SCANNER_SYMBOLS.md) · [Trade history](TRADE_HISTORY.md) · [GitHub Actions](../../actions) · [Graphical dashboard setup](README.md)
