@@ -1,171 +1,83 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-04T00:09:36.968788+05:30",
-  "count": 20,
+  "fetched_at": "2026-11-04T23:36:05.059685+05:30",
+  "count": 9,
   "rows": [
     {
       "symbol": "JSWDULUX",
       "name": "JSW Dulux Ltd",
-      "close": 260.25,
-      "change_pct": -0.38,
-      "volume": 424230.0
-    },
-    {
-      "symbol": "ANSALAPI",
-      "name": "Ansal Properties & Infrastructure Limited",
-      "close": 3.14,
-      "change_pct": -1.57,
-      "volume": 9660.0
-    },
-    {
-      "symbol": "VIVIMEDLAB",
-      "name": "Vivimed Labs Limited",
-      "close": 5.32,
-      "change_pct": -1.85,
-      "volume": 6410.0
-    },
-    {
-      "symbol": "MBECL",
-      "name": "Mcnally Bharat Engineering Company Limited",
-      "close": 336.7,
-      "change_pct": -1.99,
-      "volume": 11302.0
+      "close": 263.7,
+      "change_pct": 1.33,
+      "volume": 351175.0
     },
     {
       "symbol": "VELJAN",
       "name": "Veljan Denison Ltd",
-      "close": 2008.8,
-      "change_pct": -2.0,
-      "volume": 1.0
+      "close": 2008.7,
+      "change_pct": -0.01,
+      "volume": 476.0
     },
     {
       "symbol": "BLUECHIP",
       "name": "Blue Chip India Limited",
-      "close": 1.47,
-      "change_pct": -2.0,
-      "volume": 60731.0
+      "close": 1.45,
+      "change_pct": -1.36,
+      "volume": 130627.0
     },
     {
-      "symbol": "SILVERCASE",
-      "name": "Zerodha Silver ETF\nExclude ETFs",
-      "close": 17.66,
-      "change_pct": -2.43,
-      "volume": 10659642.0
-    },
-    {
-      "symbol": "SILVER1",
-      "name": "Kotak Silver ETF\nExclude ETFs",
-      "close": 16.92,
-      "change_pct": -2.53,
-      "volume": 8371870.0
-    },
-    {
-      "symbol": "SBISILVER",
-      "name": "SBI Silver ETF\nExclude ETFs",
-      "close": 171.35,
-      "change_pct": -2.54,
-      "volume": 1265972.0
-    },
-    {
-      "symbol": "SILVERAXIS",
-      "name": "Axis Silver ETF\nExclude ETFs",
-      "close": 173.81,
-      "change_pct": -2.62,
-      "volume": 1970644.0
-    },
-    {
-      "symbol": "SILVERADD",
-      "name": "DSP Silver ETF\nExclude ETFs",
-      "close": 16.75,
-      "change_pct": -2.62,
-      "volume": 7650113.0
-    },
-    {
-      "symbol": "SILVER",
-      "name": "Aditya Birla Sun Life Silver ETF\nExclude ETFs",
-      "close": 174.26,
-      "change_pct": -2.64,
-      "volume": 1503586.0
-    },
-    {
-      "symbol": "SILVERIETF",
-      "name": "ICICI Prudential Silver ETF\nExclude ETFs",
-      "close": 174.0,
-      "change_pct": -2.66,
-      "volume": 4534067.0
-    },
-    {
-      "symbol": "ESILVER",
-      "name": "Edelweiss Silver ETF\nExclude ETFs",
-      "close": 174.68,
-      "change_pct": -2.67,
-      "volume": 64001.0
-    },
-    {
-      "symbol": "SILVERBEES",
-      "name": "Nippon India Silver ETF\nExclude ETFs",
-      "close": 166.81,
-      "change_pct": -2.67,
-      "volume": 31810028.0
-    },
-    {
-      "symbol": "GROWWSLVR",
-      "name": "GROWWSLVR",
-      "close": 17.11,
-      "change_pct": -2.67,
-      "volume": 2920116.0
-    },
-    {
-      "symbol": "SILVERAG",
-      "name": "Mirae Asset Silver ETF\nExclude ETFs",
-      "close": 170.18,
-      "change_pct": -2.69,
-      "volume": 333147.0
-    },
-    {
-      "symbol": "SILVERBETA",
-      "name": "UTI Silver ETF\nExclude ETFs",
-      "close": 168.31,
-      "change_pct": -2.8,
-      "volume": 1358835.0
+      "symbol": "MBECL",
+      "name": "Mcnally Bharat Engineering Company Limited",
+      "close": 330.0,
+      "change_pct": -1.99,
+      "volume": 714.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.33,
       "change_pct": -4.32,
-      "volume": 572690.0
+      "volume": 859035.0
+    },
+    {
+      "symbol": "FCONSUMER",
+      "name": "Future Consumer Limited",
+      "close": 0.22,
+      "change_pct": -4.35,
+      "volume": 63244584.0
+    },
+    {
+      "symbol": "DIL",
+      "name": "Debock Industries Ltd",
+      "close": 0.65,
+      "change_pct": -4.41,
+      "volume": 12307716.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 4.44,
       "change_pct": -4.93,
-      "volume": 106332.0
+      "volume": 159498.0
+    },
+    {
+      "symbol": "RAJVIR",
+      "name": "Rajvir Industries Limited",
+      "close": 4.94,
+      "change_pct": -5.0,
+      "volume": 1824.0
     }
   ],
   "symbols": [
     "JSWDULUX",
-    "ANSALAPI",
-    "VIVIMEDLAB",
-    "MBECL",
     "VELJAN",
     "BLUECHIP",
-    "SILVERCASE",
-    "SILVER1",
-    "SBISILVER",
-    "SILVERAXIS",
-    "SILVERADD",
-    "SILVER",
-    "SILVERIETF",
-    "ESILVER",
-    "SILVERBEES",
-    "GROWWSLVR",
-    "SILVERAG",
-    "SILVERBETA",
+    "MBECL",
     "NAGAFERT",
-    "LASA"
+    "FCONSUMER",
+    "DIL",
+    "LASA",
+    "RAJVIR"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
   "is_verified_live_scan": true
