@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-11-04
-- **Last attempted price check:** 2026-11-04T23:44:40.811243+05:30
+- **Last attempted price check:** 2026-11-05T00:06:41.780678+05:30
 - **Prices independently verified:** 6/13
 - **Prices missing:** 7
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -19,7 +19,7 @@
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | DIL | 7692 | ₹0.65 | — | — | — | **Price unavailable — previous quote stale** |
 | FCONSUMER | 22727 | ₹0.22 | — | — | — | **Price unavailable — previous quote stale** |
-| GENSOL | 516 | ₹9.68 | ₹9.49 | 2026-11-04 | ₹-98.04 | Verified |
+| GENSOL | 516 | ₹9.68 | ₹9.27 | 2026-11-04 | ₹-211.56 | Verified |
 | MORARJEE | 734 | ₹6.81 | ₹3.95 | 2026-11-04 | ₹-2,099.24 | Verified |
 | NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
@@ -46,13 +46,13 @@
 | MBECL | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-11-04; got 0 |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
 | FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-04; got 0 |
+| DIL | Yes | Yes | — | No exact NSE equity token found in instrument master for DIL |
 | LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-04; got 0 |
 | RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
 | V2RETAIL | No | Yes | ₹149.13 | Verified |
 | SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-04; got 0 |
 | MORARJEE | No | Yes | ₹3.95 | Verified |
-| GENSOL | No | Yes | ₹9.49 | Verified |
+| GENSOL | No | Yes | ₹9.27 | Verified |
 
 ---
 [Verified price audit](PRICE_CHECK.md) · [Latest scanner](SCANNER_SYMBOLS.md) · [Trade history](TRADE_HISTORY.md) · [GitHub Actions](../../actions) · [Graphical dashboard setup](README.md)
