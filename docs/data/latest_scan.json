@@ -1,8 +1,8 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-05T23:47:22.477085+05:30",
-  "count": 8,
+  "fetched_at": "2026-11-06T00:11:48.347115+05:30",
+  "count": 7,
   "rows": [
     {
       "symbol": "BLUECHIP",
@@ -30,35 +30,28 @@
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.33,
       "change_pct": -4.32,
-      "volume": 1145380.0
-    },
-    {
-      "symbol": "FCONSUMER",
-      "name": "Future Consumer Limited",
-      "close": 0.22,
-      "change_pct": -4.35,
-      "volume": 65001378.0
-    },
-    {
-      "symbol": "DIL",
-      "name": "Debock Industries Ltd",
-      "close": 0.65,
-      "change_pct": -4.41,
-      "volume": 12649597.0
+      "volume": 572690.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 4.44,
       "change_pct": -4.93,
-      "volume": 212664.0
+      "volume": 106332.0
+    },
+    {
+      "symbol": "SPELS",
+      "name": "Spel Semiconductor Ltd",
+      "close": 96.66,
+      "change_pct": -4.99,
+      "volume": 51600.0
     },
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 2052.0
+      "volume": 456.0
     }
   ],
   "symbols": [
@@ -66,9 +59,8 @@
     "ANKITMETAL",
     "MBECL",
     "NAGAFERT",
-    "FCONSUMER",
-    "DIL",
     "LASA",
+    "SPELS",
     "RAJVIR"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
