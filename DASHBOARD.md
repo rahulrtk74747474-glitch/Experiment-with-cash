@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-11-05
-- **Last attempted price check:** 2026-11-05T23:38:21.325269+05:30
+- **Last attempted price check:** 2026-11-05T23:47:22.477085+05:30
 - **Prices independently verified:** 5/12
 - **Prices missing:** 7
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -45,7 +45,7 @@
 | MBECL | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-11-05; got 0 |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
 | FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | No exact NSE equity token found in instrument master for DIL |
+| DIL | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-05; got 0 |
 | LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-05; got 0 |
 | RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
 | V2RETAIL | No | Yes | ₹161.34 | Verified |
