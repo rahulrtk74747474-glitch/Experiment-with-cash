@@ -1,70 +1,70 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-06T00:37:39.575023+05:30",
+  "fetched_at": "2026-11-06T23:05:04.480871+05:30",
   "count": 8,
   "rows": [
     {
-      "symbol": "BLUECHIP",
-      "name": "Blue Chip India Limited",
-      "close": 1.45,
-      "change_pct": 0.0,
-      "volume": 113902.0
-    },
-    {
-      "symbol": "ANKITMETAL",
-      "name": "Ankit Metal & Power Limited",
-      "close": 2.01,
-      "change_pct": -1.95,
-      "volume": 1870.0
+      "symbol": "GKSL",
+      "name": "Gujarat Kidney & Super Speciality Ltd",
+      "close": 155.92,
+      "change_pct": -1.45,
+      "volume": 237987.0
     },
     {
       "symbol": "MBECL",
       "name": "Mcnally Bharat Engineering Company Limited",
-      "close": 323.4,
-      "change_pct": -2.0,
-      "volume": 2114.0
+      "close": 316.95,
+      "change_pct": -1.99,
+      "volume": 603.0
+    },
+    {
+      "symbol": "ANKITMETAL",
+      "name": "Ankit Metal & Power Limited",
+      "close": 1.97,
+      "change_pct": -1.99,
+      "volume": 751.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.33,
       "change_pct": -4.32,
-      "volume": 1145380.0
+      "volume": 1431725.0
     },
     {
       "symbol": "FCONSUMER",
       "name": "Future Consumer Limited",
       "close": 0.22,
       "change_pct": -4.35,
-      "volume": 65001378.0
+      "volume": 66758172.0
     },
     {
       "symbol": "DIL",
       "name": "Debock Industries Ltd",
       "close": 0.65,
       "change_pct": -4.41,
-      "volume": 12649597.0
+      "volume": 12991478.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 4.44,
       "change_pct": -4.93,
-      "volume": 212664.0
+      "volume": 265830.0
     },
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 2052.0
+      "volume": 2280.0
     }
   ],
   "symbols": [
-    "BLUECHIP",
-    "ANKITMETAL",
+    "GKSL",
     "MBECL",
+    "ANKITMETAL",
     "NAGAFERT",
     "FCONSUMER",
     "DIL",
