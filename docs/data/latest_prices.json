@@ -1,7 +1,7 @@
 {
   "status": "partial",
   "session_date": "2026-11-06",
-  "checked_at": "2026-11-06T23:25:51.109763+05:30",
+  "checked_at": "2026-11-07T00:07:23.851650+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
     "total": 12,
@@ -15,7 +15,7 @@
       "scanner_match": true,
       "held_position": false,
       "status": "verified",
-      "daily_close": 157.79,
+      "daily_close": 155.92,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
       "candle_timestamp": "2026-11-06T00:00:00+05:30",
       "error": null
@@ -125,7 +125,7 @@
       "scanner_match": false,
       "held_position": true,
       "status": "verified",
-      "daily_close": 9.76,
+      "daily_close": 9.65,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
       "candle_timestamp": "2026-11-06T00:00:00+05:30",
       "error": null
