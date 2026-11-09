@@ -5,9 +5,9 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-11-09
-- **Last attempted price check:** 2026-11-10T02:22:40.304156+05:30
-- **Prices independently verified:** 8/12
-- **Prices missing:** 4
+- **Last attempted price check:** 2026-11-10T02:36:09.341613+05:30
+- **Prices independently verified:** 9/12
+- **Prices missing:** 3
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
 - **Trade-processing status:** outside_market_window
 
@@ -23,7 +23,7 @@
 | MORARJEE | 734 | ₹6.81 | ₹4.30 | 2026-11-09 | ₹-1,842.34 | Verified |
 | NAGAFERT | 3267 | ₹1.53 | ₹1.27 | 2026-11-09 | ₹-849.42 | Verified |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
-| SETUINFRA | 11363 | ₹0.44 | — | — | — | **Price unavailable — previous quote stale** |
+| SETUINFRA | 11363 | ₹0.44 | ₹0.42 | 2026-11-09 | ₹-227.26 | Verified |
 | V2RETAIL | 33 | ₹151.45 | ₹168.89 | 2026-11-09 | ₹575.52 | Verified |
 
 ## Previous fully processed ledger (historical)
@@ -47,9 +47,9 @@
 | SPELS | Yes | No | ₹91.83 | Verified |
 | RAJVIR | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for RAJVIR on 2026-11-09; got 0 |
 | V2RETAIL | No | Yes | ₹168.89 | Verified |
-| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-09; got 0 |
+| SETUINFRA | No | Yes | ₹0.42 | Verified |
 | FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-09; got 0 |
+| DIL | No | Yes | — | No exact NSE equity token found in instrument master for DIL |
 | MORARJEE | No | Yes | ₹4.30 | Verified |
 | GENSOL | No | Yes | ₹9.96 | Verified |
 

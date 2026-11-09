@@ -3,9 +3,9 @@
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
 **NSE session:** 2026-11-09  
-**Checked at (IST):** 10 Nov 2026 02:22 AM  
+**Checked at (IST):** 10 Nov 2026 02:36 AM  
 **Status:** partial  
-**Verified:** 8/12  
+**Verified:** 9/12  
 
 Chartink supplies stock symbols only. Prices below are Angel One daily candle closes, not an assumption that an order executed at that exact price.
 
@@ -18,8 +18,8 @@ Chartink supplies stock symbols only. Prices below are Angel One daily candle cl
 | SPELS | Yes | No | 91.83 | 2026-11-09T00:00:00+05:30 | verified | — |
 | RAJVIR | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for RAJVIR on 2026-11-09; got 0 |
 | V2RETAIL | No | Yes | 168.89 | 2026-11-09T00:00:00+05:30 | verified | — |
-| SETUINFRA | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-09; got 0 |
+| SETUINFRA | No | Yes | 0.42 | 2026-11-09T00:00:00+05:30 | verified | — |
 | FCONSUMER | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-09; got 0 |
+| DIL | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for DIL |
 | MORARJEE | No | Yes | 4.3 | 2026-11-09T00:00:00+05:30 | verified | — |
 | GENSOL | No | Yes | 9.96 | 2026-11-09T00:00:00+05:30 | verified | — |
