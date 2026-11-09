@@ -3,17 +3,15 @@
 [Active Trades](ACTIVE_TRADES.md) · [Trade History](TRADE_HISTORY.md) · [Actions](../../actions)
 
 **Status:** success  
-**Last fetch:** 07 Nov 2026 12:07 AM IST  
-**Symbols:** 8  
+**Last fetch:** 10 Nov 2026 02:22 AM IST  
+**Symbols:** 6  
 **Message:** Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.
 
 | # | Symbol | Stock | Scanner close ₹ | % Change | Volume |
 | ---: | --- | --- | ---: | ---: | ---: |
-| 1 | GKSL | Gujarat Kidney & Super Speciality Ltd | 155.92 | -1.45 | 237987.0 |
-| 2 | MBECL | Mcnally Bharat Engineering Company Limited | 316.95 | -1.99 | 603.0 |
-| 3 | ANKITMETAL | Ankit Metal & Power Limited | 1.97 | -1.99 | 751.0 |
-| 4 | NAGAFERT | Nagarjuna Fertilizers And Chemicals Limited | 1.33 | -4.32 | 1431725.0 |
-| 5 | FCONSUMER | Future Consumer Limited | 0.22 | -4.35 | 66758172.0 |
-| 6 | DIL | Debock Industries Ltd | 0.65 | -4.41 | 12991478.0 |
-| 7 | LASA | Lasa Supergenerics Ltd | 4.44 | -4.93 | 265830.0 |
-| 8 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 2280.0 |
+| 1 | ANKITMETAL | Ankit Metal & Power Limited | 1.91 | -1.55 | 423.0 |
+| 2 | VIJIFIN | Viji Finance Limited | 13.05 | -1.88 | 412113.0 |
+| 3 | NAGAFERT | Nagarjuna Fertilizers And Chemicals Limited | 1.27 | -4.51 | 370569.0 |
+| 4 | LASA | Lasa Supergenerics Ltd | 4.22 | -4.96 | 71016.0 |
+| 5 | SPELS | Spel Semiconductor Ltd | 91.83 | -5.0 | 4891.0 |
+| 6 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 456.0 |

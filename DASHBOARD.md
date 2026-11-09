@@ -4,10 +4,10 @@
 
 ## Price-update status
 
-- **Angel One observed NSE session:** 2026-11-06
-- **Last attempted price check:** 2026-11-07T00:07:23.851650+05:30
-- **Prices independently verified:** 5/12
-- **Prices missing:** 7
+- **Angel One observed NSE session:** 2026-11-09
+- **Last attempted price check:** 2026-11-10T02:22:40.304156+05:30
+- **Prices independently verified:** 8/12
+- **Prices missing:** 4
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
 - **Trade-processing status:** outside_market_window
 
@@ -19,12 +19,12 @@
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | DIL | 7692 | ₹0.65 | — | — | — | **Price unavailable — previous quote stale** |
 | FCONSUMER | 22727 | ₹0.22 | — | — | — | **Price unavailable — previous quote stale** |
-| GENSOL | 516 | ₹9.68 | ₹9.65 | 2026-11-06 | ₹-15.48 | Verified |
-| MORARJEE | 734 | ₹6.81 | ₹3.91 | 2026-11-06 | ₹-2,128.60 | Verified |
-| NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
+| GENSOL | 516 | ₹9.68 | ₹9.96 | 2026-11-09 | ₹144.48 | Verified |
+| MORARJEE | 734 | ₹6.81 | ₹4.30 | 2026-11-09 | ₹-1,842.34 | Verified |
+| NAGAFERT | 3267 | ₹1.53 | ₹1.27 | 2026-11-09 | ₹-849.42 | Verified |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
 | SETUINFRA | 11363 | ₹0.44 | — | — | — | **Price unavailable — previous quote stale** |
-| V2RETAIL | 33 | ₹151.45 | ₹173.50 | 2026-11-06 | ₹727.65 | Verified |
+| V2RETAIL | 33 | ₹151.45 | ₹168.89 | 2026-11-09 | ₹575.52 | Verified |
 
 ## Previous fully processed ledger (historical)
 
@@ -40,18 +40,18 @@
 
 | Symbol | Scanner | Existing holding | Angel close ₹ | Status / reason |
 | --- | :---: | :---: | ---: | --- |
-| GKSL | Yes | No | ₹155.92 | Verified |
-| MBECL | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for MBECL on 2026-11-06; got 0 |
-| ANKITMETAL | Yes | No | ₹1.97 | Verified |
-| NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
-| FCONSUMER | Yes | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | Yes | Yes | — | No exact NSE equity token found in instrument master for DIL |
-| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-06; got 0 |
-| RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
-| V2RETAIL | No | Yes | ₹173.50 | Verified |
-| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-06; got 0 |
-| MORARJEE | No | Yes | ₹3.91 | Verified |
-| GENSOL | No | Yes | ₹9.65 | Verified |
+| ANKITMETAL | Yes | No | ₹1.91 | Verified |
+| VIJIFIN | Yes | No | ₹13.05 | Verified |
+| NAGAFERT | Yes | Yes | ₹1.27 | Verified |
+| LASA | Yes | No | ₹4.22 | Verified |
+| SPELS | Yes | No | ₹91.83 | Verified |
+| RAJVIR | Yes | Yes | — | Expected exactly one valid NSE ONE_DAY bar for RAJVIR on 2026-11-09; got 0 |
+| V2RETAIL | No | Yes | ₹168.89 | Verified |
+| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-09; got 0 |
+| FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
+| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-09; got 0 |
+| MORARJEE | No | Yes | ₹4.30 | Verified |
+| GENSOL | No | Yes | ₹9.96 | Verified |
 
 ---
 [Verified price audit](PRICE_CHECK.md) · [Latest scanner](SCANNER_SYMBOLS.md) · [Trade history](TRADE_HISTORY.md) · [GitHub Actions](../../actions) · [Graphical dashboard setup](README.md)
