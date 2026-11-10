@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Trade History](TRADE_HISTORY.md) · [Actions](../../actions)
 
 **Status:** success  
-**Last fetch:** 10 Nov 2026 03:08 AM IST  
+**Last fetch:** 10 Nov 2026 11:28 PM IST  
 **Symbols:** 6  
 **Message:** Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.
 
@@ -14,4 +14,4 @@
 | 3 | NAGAFERT | Nagarjuna Fertilizers And Chemicals Limited | 1.27 | -4.51 | 370569.0 |
 | 4 | LASA | Lasa Supergenerics Ltd | 4.22 | -4.96 | 71016.0 |
 | 5 | SPELS | Spel Semiconductor Ltd | 91.83 | -5.0 | 4891.0 |
-| 6 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 456.0 |
+| 6 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 228.0 |

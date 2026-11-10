@@ -1,7 +1,7 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-10T03:08:32.770722+05:30",
+  "fetched_at": "2026-11-10T23:28:57.375599+05:30",
   "count": 6,
   "rows": [
     {
@@ -44,7 +44,7 @@
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 456.0
+      "volume": 228.0
     }
   ],
   "symbols": [
