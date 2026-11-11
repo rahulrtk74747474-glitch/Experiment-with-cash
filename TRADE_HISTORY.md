@@ -5,7 +5,7 @@
 > **PAPER TRADES ONLY — NOT LIVE ORDERS**
 
 **System status:** outside_market_window  
-**Last attempt (IST):** 11 Nov 2026 11:33 PM  
+**Last attempt (IST):** 12 Nov 2026 12:08 AM  
 **Last successful run (IST):** 14 Oct 2026 02:00 AM  
 **Note:** Read-only Angel ONE_DAY price check: 6/12 successful for 2026-11-11; paper trades not processed outside 15:45–18:00 IST.
 
