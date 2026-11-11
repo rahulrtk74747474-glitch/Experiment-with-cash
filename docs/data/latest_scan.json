@@ -1,55 +1,55 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-11T00:19:13.171255+05:30",
+  "fetched_at": "2026-11-11T23:27:00.927510+05:30",
   "count": 6,
   "rows": [
     {
-      "symbol": "ANKITMETAL",
-      "name": "Ankit Metal & Power Limited",
-      "close": 1.91,
-      "change_pct": -1.55,
-      "volume": 423.0
-    },
-    {
       "symbol": "VIJIFIN",
       "name": "Viji Finance Limited",
-      "close": 13.05,
-      "change_pct": -1.88,
-      "volume": 412113.0
+      "close": 13.0,
+      "change_pct": -0.38,
+      "volume": 323444.0
+    },
+    {
+      "symbol": "ANKITMETAL",
+      "name": "Ankit Metal & Power Limited",
+      "close": 1.88,
+      "change_pct": -1.57,
+      "volume": 1000.0
     },
     {
       "symbol": "NAGAFERT",
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.27,
       "change_pct": -4.51,
-      "volume": 370569.0
+      "volume": 741138.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 4.22,
       "change_pct": -4.96,
-      "volume": 71016.0
+      "volume": 142032.0
     },
     {
       "symbol": "SPELS",
       "name": "Spel Semiconductor Ltd",
-      "close": 91.83,
+      "close": 87.24,
       "change_pct": -5.0,
-      "volume": 4891.0
+      "volume": 15531.0
     },
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 228.0
+      "volume": 456.0
     }
   ],
   "symbols": [
-    "ANKITMETAL",
     "VIJIFIN",
+    "ANKITMETAL",
     "NAGAFERT",
     "LASA",
     "SPELS",
