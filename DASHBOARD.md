@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-11-12
-- **Last attempted price check:** 2026-11-13T00:06:26.195797+05:30
+- **Last attempted price check:** 2026-11-13T00:22:23.330226+05:30
 - **Prices independently verified:** 6/12
 - **Prices missing:** 6
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -49,7 +49,7 @@
 | V2RETAIL | No | Yes | ₹186.11 | Verified |
 | SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-12; got 0 |
 | FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | No exact NSE equity token found in instrument master for DIL |
+| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-12; got 0 |
 | MORARJEE | No | Yes | ₹4.73 | Verified |
 | GENSOL | No | Yes | ₹9.97 | Verified |
 
