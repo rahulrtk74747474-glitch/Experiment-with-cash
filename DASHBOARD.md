@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-11-12
-- **Last attempted price check:** 2026-11-12T23:56:36.645522+05:30
+- **Last attempted price check:** 2026-11-13T00:06:26.195797+05:30
 - **Prices independently verified:** 6/12
 - **Prices missing:** 6
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -19,7 +19,7 @@
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | DIL | 7692 | ₹0.65 | — | — | — | **Price unavailable — previous quote stale** |
 | FCONSUMER | 22727 | ₹0.22 | — | — | — | **Price unavailable — previous quote stale** |
-| GENSOL | 516 | ₹9.68 | ₹10.20 | 2026-11-12 | ₹268.32 | Verified |
+| GENSOL | 516 | ₹9.68 | ₹9.97 | 2026-11-12 | ₹149.64 | Verified |
 | MORARJEE | 734 | ₹6.81 | ₹4.73 | 2026-11-12 | ₹-1,526.72 | Verified |
 | NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
@@ -42,16 +42,16 @@
 | --- | :---: | :---: | ---: | --- |
 | ANKITMETAL | Yes | No | ₹1.85 | Verified |
 | NAGAFERT | Yes | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
-| ORTEL | Yes | No | ₹1.50 | Verified |
+| ORTEL | Yes | No | ₹1.36 | Verified |
 | LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-12; got 0 |
 | SPELS | Yes | No | ₹82.88 | Verified |
 | RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
 | V2RETAIL | No | Yes | ₹186.11 | Verified |
 | SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-12; got 0 |
 | FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-12; got 0 |
+| DIL | No | Yes | — | No exact NSE equity token found in instrument master for DIL |
 | MORARJEE | No | Yes | ₹4.73 | Verified |
-| GENSOL | No | Yes | ₹10.20 | Verified |
+| GENSOL | No | Yes | ₹9.97 | Verified |
 
 ---
 [Verified price audit](PRICE_CHECK.md) · [Latest scanner](SCANNER_SYMBOLS.md) · [Trade history](TRADE_HISTORY.md) · [GitHub Actions](../../actions) · [Graphical dashboard setup](README.md)
