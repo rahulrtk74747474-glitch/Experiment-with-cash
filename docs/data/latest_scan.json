@@ -1,7 +1,7 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-13T23:34:01.042495+05:30",
+  "fetched_at": "2026-11-13T23:59:50.030499+05:30",
   "count": 6,
   "rows": [
     {
@@ -23,14 +23,14 @@
       "name": "Nagarjuna Fertilizers And Chemicals Limited",
       "close": 1.27,
       "change_pct": -4.51,
-      "volume": 1482276.0
+      "volume": 741138.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 4.22,
       "change_pct": -4.96,
-      "volume": 284064.0
+      "volume": 142032.0
     },
     {
       "symbol": "SPELS",
@@ -44,7 +44,7 @@
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 912.0
+      "volume": 456.0
     }
   ],
   "symbols": [

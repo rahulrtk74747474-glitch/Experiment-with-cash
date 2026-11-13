@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Trade History](TRADE_HISTORY.md) · [Actions](../../actions)
 
 **Status:** success  
-**Last fetch:** 13 Nov 2026 11:34 PM IST  
+**Last fetch:** 13 Nov 2026 11:59 PM IST  
 **Symbols:** 6  
 **Message:** Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.
 
@@ -11,7 +11,7 @@
 | ---: | --- | --- | ---: | ---: | ---: |
 | 1 | ANKITMETAL | Ankit Metal & Power Limited | 1.82 | -1.62 | 3701.0 |
 | 2 | ORTEL | Ortel Communications Limited | 1.31 | -3.68 | 10953.0 |
-| 3 | NAGAFERT | Nagarjuna Fertilizers And Chemicals Limited | 1.27 | -4.51 | 1482276.0 |
-| 4 | LASA | Lasa Supergenerics Ltd | 4.22 | -4.96 | 284064.0 |
+| 3 | NAGAFERT | Nagarjuna Fertilizers And Chemicals Limited | 1.27 | -4.51 | 741138.0 |
+| 4 | LASA | Lasa Supergenerics Ltd | 4.22 | -4.96 | 142032.0 |
 | 5 | SPELS | Spel Semiconductor Ltd | 78.74 | -5.0 | 14841.0 |
-| 6 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 912.0 |
+| 6 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 456.0 |
