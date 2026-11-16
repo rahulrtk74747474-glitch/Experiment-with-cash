@@ -1,43 +1,43 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-14T00:15:12.900658+05:30",
+  "fetched_at": "2026-11-17T02:04:41.783596+05:30",
   "count": 6,
   "rows": [
     {
+      "symbol": "ABMINTLLTD",
+      "name": "A B M International Ltd",
+      "close": 40.51,
+      "change_pct": -0.15,
+      "volume": 172.0
+    },
+    {
       "symbol": "ANKITMETAL",
       "name": "Ankit Metal & Power Limited",
-      "close": 1.82,
-      "change_pct": -1.62,
-      "volume": 3701.0
+      "close": 1.79,
+      "change_pct": -1.65,
+      "volume": 207302.0
     },
     {
-      "symbol": "ORTEL",
-      "name": "Ortel Communications Limited",
-      "close": 1.31,
-      "change_pct": -3.68,
-      "volume": 10953.0
-    },
-    {
-      "symbol": "NAGAFERT",
-      "name": "Nagarjuna Fertilizers And Chemicals Limited",
-      "close": 1.27,
-      "change_pct": -4.51,
-      "volume": 741138.0
+      "symbol": "VALIANTLAB",
+      "name": "Valiant Laboratories Ltd",
+      "close": 102.87,
+      "change_pct": -1.99,
+      "volume": 5561.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
-      "close": 4.22,
-      "change_pct": -4.96,
-      "volume": 142032.0
+      "close": 4.01,
+      "change_pct": -4.98,
+      "volume": 49949.0
     },
     {
       "symbol": "SPELS",
       "name": "Spel Semiconductor Ltd",
-      "close": 78.74,
-      "change_pct": -5.0,
-      "volume": 14841.0
+      "close": 74.81,
+      "change_pct": -4.99,
+      "volume": 7522.0
     },
     {
       "symbol": "RAJVIR",
@@ -48,9 +48,9 @@
     }
   ],
   "symbols": [
+    "ABMINTLLTD",
     "ANKITMETAL",
-    "ORTEL",
-    "NAGAFERT",
+    "VALIANTLAB",
     "LASA",
     "SPELS",
     "RAJVIR"
