@@ -2,25 +2,26 @@
 
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
-**NSE session:** 2026-11-16  
-**Checked at (IST):** 17 Nov 2026 02:45 AM  
+**NSE session:** 2026-11-17  
+**Checked at (IST):** 18 Nov 2026 12:44 AM  
 **Status:** partial  
-**Verified:** 10/13  
+**Verified:** 8/14  
 
 Chartink supplies stock symbols only. Prices below are Angel One daily candle closes, not an assumption that an order executed at that exact price.
 
 | Symbol | Scanner? | Held? | Angel daily close ₹ | Candle date/time | Status | Error |
 | --- | :---: | :---: | ---: | --- | --- | --- |
-| ABMINTLLTD | Yes | No | 40.51 | 2026-11-16T00:00:00+05:30 | verified | — |
-| ANKITMETAL | Yes | No | 1.79 | 2026-11-16T00:00:00+05:30 | verified | — |
-| VALIANTLAB | Yes | No | 102.87 | 2026-11-16T00:00:00+05:30 | verified | — |
-| LASA | Yes | No | 4.01 | 2026-11-16T00:00:00+05:30 | verified | — |
-| SPELS | Yes | No | 74.81 | 2026-11-16T00:00:00+05:30 | verified | — |
-| RAJVIR | Yes | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for RAJVIR on 2026-11-16; got 0 |
-| V2RETAIL | No | Yes | 139.64 | 2026-11-16T00:00:00+05:30 | verified | — |
-| SETUINFRA | No | Yes | 0.44 | 2026-11-16T00:00:00+05:30 | verified | — |
+| ANKITMETAL | Yes | No | 1.76 | 2026-11-17T00:00:00+05:30 | verified | — |
+| VALIANTLAB | Yes | No | 100.82 | 2026-11-17T00:00:00+05:30 | verified | — |
+| ELITECON | Yes | No | 4.75 | 2026-11-17T00:00:00+05:30 | verified | — |
+| PASHUPATI | Yes | No | 31.69 | 2026-11-17T00:00:00+05:30 | verified | — |
+| LASA | Yes | No | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-17; got 0 |
+| SPELS | Yes | No | 71.07 | 2026-11-17T00:00:00+05:30 | verified | — |
+| RAJVIR | Yes | Yes | — | — | missing | No exact NSE equity token found in instrument master for RAJVIR |
+| V2RETAIL | No | Yes | 145.14 | 2026-11-17T00:00:00+05:30 | verified | — |
+| SETUINFRA | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-17; got 0 |
 | FCONSUMER | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for DIL |
-| MORARJEE | No | Yes | 5.2 | 2026-11-16T00:00:00+05:30 | verified | — |
-| GENSOL | No | Yes | 9.98 | 2026-11-16T00:00:00+05:30 | verified | — |
-| NAGAFERT | No | Yes | 1.33 | 2026-11-16T00:00:00+05:30 | verified | — |
+| DIL | No | Yes | — | — | missing | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-17; got 0 |
+| MORARJEE | No | Yes | 5.45 | 2026-11-17T00:00:00+05:30 | verified | — |
+| GENSOL | No | Yes | 9.8 | 2026-11-17T00:00:00+05:30 | verified | — |
+| NAGAFERT | No | Yes | — | — | missing | No exact NSE equity token found in instrument master for NAGAFERT |
