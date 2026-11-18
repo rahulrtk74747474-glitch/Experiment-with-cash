@@ -4,8 +4,8 @@
 
 ## Price-update status
 
-- **Angel One observed NSE session:** 2026-11-17
-- **Last attempted price check:** 2026-11-18T01:30:47.006569+05:30
+- **Angel One observed NSE session:** 2026-11-18
+- **Last attempted price check:** 2026-11-19T00:24:47.137191+05:30
 - **Prices independently verified:** 8/14
 - **Prices missing:** 6
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -19,12 +19,12 @@
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | DIL | 7692 | ₹0.65 | — | — | — | **Price unavailable — previous quote stale** |
 | FCONSUMER | 22727 | ₹0.22 | — | — | — | **Price unavailable — previous quote stale** |
-| GENSOL | 516 | ₹9.68 | ₹9.80 | 2026-11-17 | ₹61.92 | Verified |
-| MORARJEE | 734 | ₹6.81 | ₹5.45 | 2026-11-17 | ₹-998.24 | Verified |
+| GENSOL | 516 | ₹9.68 | ₹9.70 | 2026-11-18 | ₹10.32 | Verified |
+| MORARJEE | 734 | ₹6.81 | ₹5.72 | 2026-11-18 | ₹-800.06 | Verified |
 | NAGAFERT | 3267 | ₹1.53 | — | — | — | **Price unavailable — previous quote stale** |
 | RAJVIR | 959 | ₹5.21 | — | — | — | **Price unavailable — previous quote stale** |
 | SETUINFRA | 11363 | ₹0.44 | — | — | — | **Price unavailable — previous quote stale** |
-| V2RETAIL | 33 | ₹151.45 | ₹145.14 | 2026-11-17 | ₹-208.23 | Verified |
+| V2RETAIL | 33 | ₹151.45 | ₹141.61 | 2026-11-18 | ₹-324.72 | Verified |
 
 ## Previous fully processed ledger (historical)
 
@@ -40,19 +40,19 @@
 
 | Symbol | Scanner | Existing holding | Angel close ₹ | Status / reason |
 | --- | :---: | :---: | ---: | --- |
-| ANKITMETAL | Yes | No | ₹1.76 | Verified |
-| VALIANTLAB | Yes | No | ₹100.82 | Verified |
-| ELITECON | Yes | No | ₹4.75 | Verified |
-| PASHUPATI | Yes | No | ₹31.69 | Verified |
-| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-17; got 0 |
-| SPELS | Yes | No | ₹71.07 | Verified |
+| SPELS | Yes | No | ₹70.35 | Verified |
+| ANKITMETAL | Yes | No | ₹1.73 | Verified |
+| VALIANTLAB | Yes | No | ₹98.81 | Verified |
+| ELITECON | Yes | No | ₹4.52 | Verified |
+| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-18; got 0 |
+| PASHUPATI | Yes | No | ₹30.11 | Verified |
 | RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
-| V2RETAIL | No | Yes | ₹145.14 | Verified |
-| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-17; got 0 |
+| V2RETAIL | No | Yes | ₹141.61 | Verified |
+| SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-18; got 0 |
 | FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | No exact NSE equity token found in instrument master for DIL |
-| MORARJEE | No | Yes | ₹5.45 | Verified |
-| GENSOL | No | Yes | ₹9.80 | Verified |
+| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-18; got 0 |
+| MORARJEE | No | Yes | ₹5.72 | Verified |
+| GENSOL | No | Yes | ₹9.70 | Verified |
 | NAGAFERT | No | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
 
 ---

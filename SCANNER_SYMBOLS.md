@@ -3,16 +3,16 @@
 [Active Trades](ACTIVE_TRADES.md) · [Trade History](TRADE_HISTORY.md) · [Actions](../../actions)
 
 **Status:** success  
-**Last fetch:** 18 Nov 2026 01:30 AM IST  
+**Last fetch:** 19 Nov 2026 12:24 AM IST  
 **Symbols:** 7  
 **Message:** Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.
 
 | # | Symbol | Stock | Scanner close ₹ | % Change | Volume |
 | ---: | --- | --- | ---: | ---: | ---: |
-| 1 | ANKITMETAL | Ankit Metal & Power Limited | 1.76 | -1.68 | 106.0 |
-| 2 | VALIANTLAB | Valiant Laboratories Ltd | 100.82 | -1.99 | 2203.0 |
-| 3 | ELITECON | Elitecon International Ltd | 4.75 | -4.81 | 7701559.0 |
-| 4 | PASHUPATI | Pashupati Cotspin Ltd | 31.69 | -4.98 | 177011.0 |
-| 5 | LASA | Lasa Supergenerics Ltd | 4.01 | -4.98 | 99898.0 |
-| 6 | SPELS | Spel Semiconductor Ltd | 71.07 | -5.0 | 8116.0 |
-| 7 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 1368.0 |
+| 1 | SPELS | Spel Semiconductor Ltd | 70.35 | -1.01 | 294030.0 |
+| 2 | ANKITMETAL | Ankit Metal & Power Limited | 1.73 | -1.7 | 27981.0 |
+| 3 | VALIANTLAB | Valiant Laboratories Ltd | 98.81 | -1.99 | 4150.0 |
+| 4 | ELITECON | Elitecon International Ltd | 4.52 | -4.84 | 3362217.0 |
+| 5 | LASA | Lasa Supergenerics Ltd | 4.01 | -4.98 | 149847.0 |
+| 6 | PASHUPATI | Pashupati Cotspin Ltd | 30.11 | -4.99 | 155028.0 |
+| 7 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 1596.0 |
