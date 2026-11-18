@@ -1,7 +1,7 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-19T00:59:54.294120+05:30",
+  "fetched_at": "2026-11-19T01:04:51.906346+05:30",
   "count": 7,
   "rows": [
     {
@@ -37,7 +37,7 @@
       "name": "Lasa Supergenerics Ltd",
       "close": 4.01,
       "change_pct": -4.98,
-      "volume": 99898.0
+      "volume": 149847.0
     },
     {
       "symbol": "PASHUPATI",
@@ -51,7 +51,7 @@
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 456.0
+      "volume": 1596.0
     }
   ],
   "symbols": [
