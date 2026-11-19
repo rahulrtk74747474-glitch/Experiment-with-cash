@@ -1,36 +1,57 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-19T01:04:51.906346+05:30",
-  "count": 7,
+  "fetched_at": "2026-11-20T00:34:02.725220+05:30",
+  "count": 9,
   "rows": [
     {
-      "symbol": "SPELS",
-      "name": "Spel Semiconductor Ltd",
-      "close": 70.35,
-      "change_pct": -1.01,
-      "volume": 294030.0
+      "symbol": "OAL",
+      "name": "Oriental Aromatics Ltd",
+      "close": 430.6,
+      "change_pct": -0.71,
+      "volume": 23637.0
+    },
+    {
+      "symbol": "ICDSLTD",
+      "name": "ICDS Ltd",
+      "close": 44.0,
+      "change_pct": -1.12,
+      "volume": 402.0
     },
     {
       "symbol": "ANKITMETAL",
       "name": "Ankit Metal & Power Limited",
-      "close": 1.73,
-      "change_pct": -1.7,
-      "volume": 27981.0
+      "close": 1.7,
+      "change_pct": -1.73,
+      "volume": 24008.0
     },
     {
       "symbol": "VALIANTLAB",
       "name": "Valiant Laboratories Ltd",
-      "close": 98.81,
+      "close": 96.84,
       "change_pct": -1.99,
-      "volume": 4150.0
+      "volume": 3348.0
+    },
+    {
+      "symbol": "GANGAFORGE",
+      "name": "Ganga Forging Ltd",
+      "close": 1.06,
+      "change_pct": -4.5,
+      "volume": 2058676.0
     },
     {
       "symbol": "ELITECON",
       "name": "Elitecon International Ltd",
-      "close": 4.52,
-      "change_pct": -4.84,
-      "volume": 3362217.0
+      "close": 4.3,
+      "change_pct": -4.87,
+      "volume": 17182167.0
+    },
+    {
+      "symbol": "PASHUPATI",
+      "name": "Pashupati Cotspin Ltd",
+      "close": 28.61,
+      "change_pct": -4.98,
+      "volume": 163822.0
     },
     {
       "symbol": "LASA",
@@ -40,27 +61,22 @@
       "volume": 149847.0
     },
     {
-      "symbol": "PASHUPATI",
-      "name": "Pashupati Cotspin Ltd",
-      "close": 30.11,
-      "change_pct": -4.99,
-      "volume": 155028.0
-    },
-    {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 1596.0
+      "volume": 684.0
     }
   ],
   "symbols": [
-    "SPELS",
+    "OAL",
+    "ICDSLTD",
     "ANKITMETAL",
     "VALIANTLAB",
+    "GANGAFORGE",
     "ELITECON",
-    "LASA",
     "PASHUPATI",
+    "LASA",
     "RAJVIR"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",
