@@ -1,57 +1,43 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-20T01:07:19.934560+05:30",
-  "count": 9,
+  "fetched_at": "2026-11-21T00:10:30.273478+05:30",
+  "count": 8,
   "rows": [
-    {
-      "symbol": "OAL",
-      "name": "Oriental Aromatics Ltd",
-      "close": 430.6,
-      "change_pct": -0.71,
-      "volume": 23637.0
-    },
     {
       "symbol": "ICDSLTD",
       "name": "ICDS Ltd",
-      "close": 44.0,
-      "change_pct": -1.12,
-      "volume": 402.0
+      "close": 43.34,
+      "change_pct": -1.5,
+      "volume": 363.0
+    },
+    {
+      "symbol": "PARSVNATH",
+      "name": "Parsvnath Developers Limited",
+      "close": 2.43,
+      "change_pct": -1.62,
+      "volume": 62519.0
     },
     {
       "symbol": "ANKITMETAL",
       "name": "Ankit Metal & Power Limited",
-      "close": 1.7,
-      "change_pct": -1.73,
-      "volume": 24008.0
-    },
-    {
-      "symbol": "VALIANTLAB",
-      "name": "Valiant Laboratories Ltd",
-      "close": 96.84,
-      "change_pct": -1.99,
-      "volume": 3348.0
+      "close": 1.67,
+      "change_pct": -1.76,
+      "volume": 33525.0
     },
     {
       "symbol": "GANGAFORGE",
       "name": "Ganga Forging Ltd",
-      "close": 1.06,
-      "change_pct": -4.5,
-      "volume": 2058676.0
+      "close": 1.04,
+      "change_pct": -1.89,
+      "volume": 2297538.0
     },
     {
-      "symbol": "ELITECON",
-      "name": "Elitecon International Ltd",
-      "close": 4.3,
-      "change_pct": -4.87,
-      "volume": 17182167.0
-    },
-    {
-      "symbol": "PASHUPATI",
-      "name": "Pashupati Cotspin Ltd",
-      "close": 28.61,
-      "change_pct": -4.98,
-      "volume": 163822.0
+      "symbol": "VALIANTLAB",
+      "name": "Valiant Laboratories Ltd",
+      "close": 94.91,
+      "change_pct": -1.99,
+      "volume": 18314.0
     },
     {
       "symbol": "LASA",
@@ -61,22 +47,28 @@
       "volume": 199796.0
     },
     {
+      "symbol": "PASHUPATI",
+      "name": "Pashupati Cotspin Ltd",
+      "close": 27.18,
+      "change_pct": -5.0,
+      "volume": 5747997.0
+    },
+    {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 1824.0
+      "volume": 912.0
     }
   ],
   "symbols": [
-    "OAL",
     "ICDSLTD",
+    "PARSVNATH",
     "ANKITMETAL",
-    "VALIANTLAB",
     "GANGAFORGE",
-    "ELITECON",
-    "PASHUPATI",
+    "VALIANTLAB",
     "LASA",
+    "PASHUPATI",
     "RAJVIR"
   ],
   "message": "Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.",

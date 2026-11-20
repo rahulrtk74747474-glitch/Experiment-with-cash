@@ -1,33 +1,33 @@
 {
   "status": "partial",
-  "session_date": "2026-11-19",
-  "checked_at": "2026-11-20T01:07:19.934560+05:30",
+  "session_date": "2026-11-20",
+  "checked_at": "2026-11-21T00:10:30.273478+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
-    "total": 16,
-    "verified": 10,
+    "total": 15,
+    "verified": 9,
     "missing": 6
   },
   "note": "Daily close is a bar value, not an executable price at the candle timestamp.",
   "rows": [
     {
-      "symbol": "OAL",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "verified",
-      "daily_close": 430.6,
-      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
-      "error": null
-    },
-    {
       "symbol": "ICDSLTD",
       "scanner_match": true,
       "held_position": false,
       "status": "verified",
-      "daily_close": 44.0,
+      "daily_close": 43.34,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
+      "candle_timestamp": "2026-11-20T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "PARSVNATH",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 2.43,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-20T00:00:00+05:30",
       "error": null
     },
     {
@@ -35,19 +35,9 @@
       "scanner_match": true,
       "held_position": false,
       "status": "verified",
-      "daily_close": 1.7,
+      "daily_close": 1.67,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
-      "error": null
-    },
-    {
-      "symbol": "VALIANTLAB",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "verified",
-      "daily_close": 96.84,
-      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
+      "candle_timestamp": "2026-11-20T00:00:00+05:30",
       "error": null
     },
     {
@@ -55,29 +45,19 @@
       "scanner_match": true,
       "held_position": false,
       "status": "verified",
-      "daily_close": 1.06,
+      "daily_close": 1.04,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
+      "candle_timestamp": "2026-11-20T00:00:00+05:30",
       "error": null
     },
     {
-      "symbol": "ELITECON",
+      "symbol": "VALIANTLAB",
       "scanner_match": true,
       "held_position": false,
       "status": "verified",
-      "daily_close": 4.3,
+      "daily_close": 94.91,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
-      "error": null
-    },
-    {
-      "symbol": "PASHUPATI",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "verified",
-      "daily_close": 28.61,
-      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
+      "candle_timestamp": "2026-11-20T00:00:00+05:30",
       "error": null
     },
     {
@@ -88,7 +68,17 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-19; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-20; got 0"
+    },
+    {
+      "symbol": "PASHUPATI",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 27.18,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-20T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "RAJVIR",
@@ -105,9 +95,9 @@
       "scanner_match": false,
       "held_position": true,
       "status": "verified",
-      "daily_close": 157.36,
+      "daily_close": 162.06,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
+      "candle_timestamp": "2026-11-20T00:00:00+05:30",
       "error": null
     },
     {
@@ -118,7 +108,7 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-19; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-20; got 0"
     },
     {
       "symbol": "FCONSUMER",
@@ -138,16 +128,16 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-19; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-20; got 0"
     },
     {
       "symbol": "MORARJEE",
       "scanner_match": false,
       "held_position": true,
       "status": "verified",
-      "daily_close": 6.0,
+      "daily_close": 6.12,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
+      "candle_timestamp": "2026-11-20T00:00:00+05:30",
       "error": null
     },
     {
@@ -155,9 +145,9 @@
       "scanner_match": false,
       "held_position": true,
       "status": "verified",
-      "daily_close": 9.74,
+      "daily_close": 9.53,
       "source": "Angel One SmartAPI NSE ONE_DAY daily close",
-      "candle_timestamp": "2026-11-19T00:00:00+05:30",
+      "candle_timestamp": "2026-11-20T00:00:00+05:30",
       "error": null
     },
     {
