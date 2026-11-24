@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-11-24
-- **Last attempted price check:** 2026-11-25T02:22:56.776463+05:30
+- **Last attempted price check:** 2026-11-25T02:37:56.636546+05:30
 - **Prices independently verified:** 0/14
 - **Prices missing:** 14
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
@@ -45,12 +45,12 @@
 | PARSVNATH | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for PARSVNATH on 2026-11-24; got 0 |
 | ICDSLTD | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for ICDSLTD on 2026-11-24; got 0 |
 | VALIANTLAB | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for VALIANTLAB on 2026-11-24; got 0 |
-| LASA | Yes | No | — | Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-24; got 0 |
+| LASA | Yes | No | — | No exact NSE equity token found in instrument master for LASA |
 | RAJVIR | Yes | Yes | — | No exact NSE equity token found in instrument master for RAJVIR |
 | V2RETAIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for V2RETAIL on 2026-11-24; got 0 |
 | SETUINFRA | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-24; got 0 |
 | FCONSUMER | No | Yes | — | No exact NSE equity token found in instrument master for FCONSUMER |
-| DIL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-24; got 0 |
+| DIL | No | Yes | — | No exact NSE equity token found in instrument master for DIL |
 | MORARJEE | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for MORARJEE on 2026-11-24; got 0 |
 | GENSOL | No | Yes | — | Expected exactly one valid NSE ONE_DAY bar for GENSOL on 2026-11-24; got 0 |
 | NAGAFERT | No | Yes | — | No exact NSE equity token found in instrument master for NAGAFERT |
