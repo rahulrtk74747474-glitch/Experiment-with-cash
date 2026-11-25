@@ -5,7 +5,7 @@
 ## Price-update status
 
 - **Angel One observed NSE session:** 2026-11-25
-- **Last attempted price check:** 2026-11-26T01:29:24.724753+05:30
+- **Last attempted price check:** 2026-11-26T01:41:49.387955+05:30
 - **Prices independently verified:** 9/15
 - **Prices missing:** 6
 - **Last successfully processed trade session:** 2026-10-14T02:00:59.959625+05:30
