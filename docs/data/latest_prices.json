@@ -1,64 +1,74 @@
 {
-  "status": "error",
-  "session_date": "2026-11-24",
-  "checked_at": "2026-11-25T03:00:41.162285+05:30",
+  "status": "partial",
+  "session_date": "2026-11-25",
+  "checked_at": "2026-11-26T01:29:24.724753+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
-    "total": 14,
-    "verified": 0,
-    "missing": 14
+    "total": 15,
+    "verified": 9,
+    "missing": 6
   },
   "note": "Daily close is a bar value, not an executable price at the candle timestamp.",
   "rows": [
     {
-      "symbol": "SILVER001",
-      "scanner_match": true,
-      "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for SILVER001 on 2026-11-24; got 0"
-    },
-    {
       "symbol": "CRISIL",
       "scanner_match": true,
       "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for CRISIL on 2026-11-24; got 0"
+      "status": "verified",
+      "daily_close": 3992.8,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-25T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "PARSVNATH",
       "scanner_match": true,
       "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for PARSVNATH on 2026-11-24; got 0"
+      "status": "verified",
+      "daily_close": 2.35,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-25T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "ICDSLTD",
       "scanner_match": true,
       "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for ICDSLTD on 2026-11-24; got 0"
+      "status": "verified",
+      "daily_close": 41.7,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-25T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "VALIANTLAB",
       "scanner_match": true,
       "held_position": false,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for VALIANTLAB on 2026-11-24; got 0"
+      "status": "verified",
+      "daily_close": 91.16,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-25T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "CCAVENUE",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 108.81,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-25T00:00:00+05:30",
+      "error": null
+    },
+    {
+      "symbol": "OMNI",
+      "scanner_match": true,
+      "held_position": false,
+      "status": "verified",
+      "daily_close": 494.65,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-25T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "LASA",
@@ -68,7 +78,7 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "No exact NSE equity token found in instrument master for LASA"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for LASA on 2026-11-25; got 0"
     },
     {
       "symbol": "RAJVIR",
@@ -84,11 +94,11 @@
       "symbol": "V2RETAIL",
       "scanner_match": false,
       "held_position": true,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for V2RETAIL on 2026-11-24; got 0"
+      "status": "verified",
+      "daily_close": 150.12,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-25T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "SETUINFRA",
@@ -98,7 +108,7 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-24; got 0"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for SETUINFRA on 2026-11-25; got 0"
     },
     {
       "symbol": "FCONSUMER",
@@ -118,27 +128,27 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "No exact NSE equity token found in instrument master for DIL"
+      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-25; got 0"
     },
     {
       "symbol": "MORARJEE",
       "scanner_match": false,
       "held_position": true,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for MORARJEE on 2026-11-24; got 0"
+      "status": "verified",
+      "daily_close": 6.1,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-25T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "GENSOL",
       "scanner_match": false,
       "held_position": true,
-      "status": "missing",
-      "daily_close": null,
-      "source": null,
-      "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for GENSOL on 2026-11-24; got 0"
+      "status": "verified",
+      "daily_close": 8.85,
+      "source": "Angel One SmartAPI NSE ONE_DAY daily close",
+      "candle_timestamp": "2026-11-25T00:00:00+05:30",
+      "error": null
     },
     {
       "symbol": "NAGAFERT",

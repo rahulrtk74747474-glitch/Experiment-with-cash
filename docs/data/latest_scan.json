@@ -1,65 +1,73 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-25T03:00:41.162285+05:30",
-  "count": 7,
+  "fetched_at": "2026-11-26T01:29:24.724753+05:30",
+  "count": 8,
   "rows": [
-    {
-      "symbol": "SILVER001",
-      "name": "SILVER001",
-      "close": 15.55,
-      "change_pct": -0.06,
-      "volume": 72217.0
-    },
     {
       "symbol": "CRISIL",
       "name": "Crisil Limited",
-      "close": 4034.8,
-      "change_pct": -1.16,
-      "volume": 32599.0
+      "close": 3992.8,
+      "change_pct": -1.04,
+      "volume": 44531.0
     },
     {
       "symbol": "PARSVNATH",
       "name": "Parsvnath Developers Limited",
-      "close": 2.39,
-      "change_pct": -1.65,
-      "volume": 18142.0
+      "close": 2.35,
+      "change_pct": -1.67,
+      "volume": 23094.0
     },
     {
       "symbol": "ICDSLTD",
       "name": "ICDS Ltd",
-      "close": 42.48,
-      "change_pct": -1.98,
-      "volume": 354.0
+      "close": 41.7,
+      "change_pct": -1.84,
+      "volume": 1670.0
     },
     {
       "symbol": "VALIANTLAB",
       "name": "Valiant Laboratories Ltd",
-      "close": 93.02,
-      "change_pct": -1.99,
-      "volume": 5525.0
+      "close": 91.16,
+      "change_pct": -2.0,
+      "volume": 14184.0
+    },
+    {
+      "symbol": "CCAVENUE",
+      "name": "AvenuesAI Ltd",
+      "close": 108.81,
+      "change_pct": -2.35,
+      "volume": 1120758.0
+    },
+    {
+      "symbol": "OMNI",
+      "name": "OMNI",
+      "close": 494.65,
+      "change_pct": -4.12,
+      "volume": 175407.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 3.81,
       "change_pct": -4.99,
-      "volume": 68122.0
+      "volume": 136244.0
     },
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 456.0
+      "volume": 684.0
     }
   ],
   "symbols": [
-    "SILVER001",
     "CRISIL",
     "PARSVNATH",
     "ICDSLTD",
     "VALIANTLAB",
+    "CCAVENUE",
+    "OMNI",
     "LASA",
     "RAJVIR"
   ],
