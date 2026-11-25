@@ -1,7 +1,7 @@
 {
   "status": "partial",
   "session_date": "2026-11-25",
-  "checked_at": "2026-11-26T01:57:20.662260+05:30",
+  "checked_at": "2026-11-26T02:08:20.743983+05:30",
   "source": "Angel One SmartAPI NSE ONE_DAY only",
   "counts": {
     "total": 15,
@@ -128,7 +128,7 @@
       "daily_close": null,
       "source": null,
       "candle_timestamp": null,
-      "error": "Expected exactly one valid NSE ONE_DAY bar for DIL on 2026-11-25; got 0"
+      "error": "No exact NSE equity token found in instrument master for DIL"
     },
     {
       "symbol": "MORARJEE",
