@@ -3,17 +3,19 @@
 [Active Trades](ACTIVE_TRADES.md) · [Trade History](TRADE_HISTORY.md) · [Actions](../../actions)
 
 **Status:** success  
-**Last fetch:** 26 Nov 2026 02:08 AM IST  
-**Symbols:** 8  
+**Last fetch:** 27 Nov 2026 01:13 AM IST  
+**Symbols:** 10  
 **Message:** Chartink scan verified; paper entry/exit prices from Angel One NSE ONE_DAY only.
 
 | # | Symbol | Stock | Scanner close ₹ | % Change | Volume |
 | ---: | --- | --- | ---: | ---: | ---: |
-| 1 | CRISIL | Crisil Limited | 3992.8 | -1.04 | 44531.0 |
-| 2 | PARSVNATH | Parsvnath Developers Limited | 2.35 | -1.67 | 23094.0 |
-| 3 | ICDSLTD | ICDS Ltd | 41.7 | -1.84 | 1670.0 |
-| 4 | VALIANTLAB | Valiant Laboratories Ltd | 91.16 | -2.0 | 14184.0 |
-| 5 | CCAVENUE | AvenuesAI Ltd | 108.81 | -2.35 | 1120758.0 |
-| 6 | OMNI | OMNI | 494.65 | -4.12 | 175407.0 |
-| 7 | LASA | Lasa Supergenerics Ltd | 3.81 | -4.99 | 136244.0 |
-| 8 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 684.0 |
+| 1 | SHANKESH | SHANKESH | 73.1 | -0.27 | 1291417.0 |
+| 2 | CRISIL | Crisil Limited | 3977.2 | -0.39 | 99388.0 |
+| 3 | ARROWGREEN | Arrow Greentech Limited | 625.95 | -0.52 | 13058.0 |
+| 4 | BLEL | Behari Lal Engineering Ltd | 371.4 | -1.11 | 286011.0 |
+| 5 | UTLSOLAR | Fujiyama Power Systems Ltd | 272.4 | -1.43 | 973331.0 |
+| 6 | ICDSLTD | ICDS Ltd | 41.0 | -1.68 | 301.0 |
+| 7 | PARSVNATH | Parsvnath Developers Limited | 2.31 | -1.7 | 34335.0 |
+| 8 | VALIANTLAB | Valiant Laboratories Ltd | 89.34 | -2.0 | 9877.0 |
+| 9 | LASA | Lasa Supergenerics Ltd | 3.81 | -4.99 | 136244.0 |
+| 10 | RAJVIR | Rajvir Industries Limited | 4.94 | -5.0 | 456.0 |

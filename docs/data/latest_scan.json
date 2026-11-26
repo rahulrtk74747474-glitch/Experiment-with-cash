@@ -1,50 +1,64 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-26T02:08:20.743983+05:30",
-  "count": 8,
+  "fetched_at": "2026-11-27T01:13:15.144628+05:30",
+  "count": 10,
   "rows": [
+    {
+      "symbol": "SHANKESH",
+      "name": "SHANKESH",
+      "close": 73.1,
+      "change_pct": -0.27,
+      "volume": 1291417.0
+    },
     {
       "symbol": "CRISIL",
       "name": "Crisil Limited",
-      "close": 3992.8,
-      "change_pct": -1.04,
-      "volume": 44531.0
+      "close": 3977.2,
+      "change_pct": -0.39,
+      "volume": 99388.0
     },
     {
-      "symbol": "PARSVNATH",
-      "name": "Parsvnath Developers Limited",
-      "close": 2.35,
-      "change_pct": -1.67,
-      "volume": 23094.0
+      "symbol": "ARROWGREEN",
+      "name": "Arrow Greentech Limited",
+      "close": 625.95,
+      "change_pct": -0.52,
+      "volume": 13058.0
+    },
+    {
+      "symbol": "BLEL",
+      "name": "Behari Lal Engineering Ltd",
+      "close": 371.4,
+      "change_pct": -1.11,
+      "volume": 286011.0
+    },
+    {
+      "symbol": "UTLSOLAR",
+      "name": "Fujiyama Power Systems Ltd",
+      "close": 272.4,
+      "change_pct": -1.43,
+      "volume": 973331.0
     },
     {
       "symbol": "ICDSLTD",
       "name": "ICDS Ltd",
-      "close": 41.7,
-      "change_pct": -1.84,
-      "volume": 1670.0
+      "close": 41.0,
+      "change_pct": -1.68,
+      "volume": 301.0
+    },
+    {
+      "symbol": "PARSVNATH",
+      "name": "Parsvnath Developers Limited",
+      "close": 2.31,
+      "change_pct": -1.7,
+      "volume": 34335.0
     },
     {
       "symbol": "VALIANTLAB",
       "name": "Valiant Laboratories Ltd",
-      "close": 91.16,
+      "close": 89.34,
       "change_pct": -2.0,
-      "volume": 14184.0
-    },
-    {
-      "symbol": "CCAVENUE",
-      "name": "AvenuesAI Ltd",
-      "close": 108.81,
-      "change_pct": -2.35,
-      "volume": 1120758.0
-    },
-    {
-      "symbol": "OMNI",
-      "name": "OMNI",
-      "close": 494.65,
-      "change_pct": -4.12,
-      "volume": 175407.0
+      "volume": 9877.0
     },
     {
       "symbol": "LASA",
@@ -58,16 +72,18 @@
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 684.0
+      "volume": 456.0
     }
   ],
   "symbols": [
+    "SHANKESH",
     "CRISIL",
-    "PARSVNATH",
+    "ARROWGREEN",
+    "BLEL",
+    "UTLSOLAR",
     "ICDSLTD",
+    "PARSVNATH",
     "VALIANTLAB",
-    "CCAVENUE",
-    "OMNI",
     "LASA",
     "RAJVIR"
   ],
