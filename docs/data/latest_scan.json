@@ -1,89 +1,89 @@
 {
   "status": "success",
   "source": "https://chartink.com/screener/vertex-signal-lue-line",
-  "fetched_at": "2026-11-27T02:02:09.467198+05:30",
+  "fetched_at": "2026-11-28T01:02:07.571834+05:30",
   "count": 10,
   "rows": [
-    {
-      "symbol": "SHANKESH",
-      "name": "SHANKESH",
-      "close": 73.1,
-      "change_pct": -0.27,
-      "volume": 1291417.0
-    },
-    {
-      "symbol": "CRISIL",
-      "name": "Crisil Limited",
-      "close": 3977.2,
-      "change_pct": -0.39,
-      "volume": 99388.0
-    },
-    {
-      "symbol": "ARROWGREEN",
-      "name": "Arrow Greentech Limited",
-      "close": 625.95,
-      "change_pct": -0.52,
-      "volume": 13058.0
-    },
-    {
-      "symbol": "BLEL",
-      "name": "Behari Lal Engineering Ltd",
-      "close": 371.4,
-      "change_pct": -1.11,
-      "volume": 286011.0
-    },
-    {
-      "symbol": "UTLSOLAR",
-      "name": "Fujiyama Power Systems Ltd",
-      "close": 272.4,
-      "change_pct": -1.43,
-      "volume": 973331.0
-    },
-    {
-      "symbol": "ICDSLTD",
-      "name": "ICDS Ltd",
-      "close": 41.0,
-      "change_pct": -1.68,
-      "volume": 301.0
-    },
     {
       "symbol": "PARSVNATH",
       "name": "Parsvnath Developers Limited",
       "close": 2.31,
-      "change_pct": -1.7,
-      "volume": 34335.0
+      "change_pct": 0.0,
+      "volume": 1512956.0
+    },
+    {
+      "symbol": "SHREYANIND",
+      "name": "Shreyans Industries Limited",
+      "close": 110.54,
+      "change_pct": -0.52,
+      "volume": 3289.0
+    },
+    {
+      "symbol": "SHANKESH",
+      "name": "SHANKESH",
+      "close": 72.72,
+      "change_pct": -0.52,
+      "volume": 1008497.0
+    },
+    {
+      "symbol": "BLEL",
+      "name": "Behari Lal Engineering Ltd",
+      "close": 367.9,
+      "change_pct": -0.94,
+      "volume": 176593.0
+    },
+    {
+      "symbol": "CRISIL",
+      "name": "Crisil Limited",
+      "close": 3925.8,
+      "change_pct": -1.29,
+      "volume": 73478.0
+    },
+    {
+      "symbol": "OSIAHYPER",
+      "name": "Osia Hyper Retail Ltd",
+      "close": 1.63,
+      "change_pct": -1.81,
+      "volume": 20166.0
     },
     {
       "symbol": "VALIANTLAB",
       "name": "Valiant Laboratories Ltd",
-      "close": 89.34,
+      "close": 87.56,
+      "change_pct": -1.99,
+      "volume": 7058.0
+    },
+    {
+      "symbol": "ICDSLTD",
+      "name": "ICDS Ltd",
+      "close": 40.18,
       "change_pct": -2.0,
-      "volume": 9877.0
+      "volume": 254.0
     },
     {
       "symbol": "LASA",
       "name": "Lasa Supergenerics Ltd",
       "close": 3.81,
       "change_pct": -4.99,
-      "volume": 204366.0
+      "volume": 272488.0
     },
     {
       "symbol": "RAJVIR",
       "name": "Rajvir Industries Limited",
       "close": 4.94,
       "change_pct": -5.0,
-      "volume": 912.0
+      "volume": 1140.0
     }
   ],
   "symbols": [
-    "SHANKESH",
-    "CRISIL",
-    "ARROWGREEN",
-    "BLEL",
-    "UTLSOLAR",
-    "ICDSLTD",
     "PARSVNATH",
+    "SHREYANIND",
+    "SHANKESH",
+    "BLEL",
+    "CRISIL",
+    "OSIAHYPER",
     "VALIANTLAB",
+    "ICDSLTD",
     "LASA",
     "RAJVIR"
   ],
