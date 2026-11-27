@@ -3,7 +3,7 @@
 [Active Trades](ACTIVE_TRADES.md) · [Chartink Scanner](SCANNER_SYMBOLS.md) · [Workflow](.github/workflows/vertex-paper-trading.yml)
 
 **NSE session:** 2026-11-27  
-**Checked at (IST):** 28 Nov 2026 01:02 AM  
+**Checked at (IST):** 28 Nov 2026 01:09 AM  
 **Status:** partial  
 **Verified:** 12/17  
 
